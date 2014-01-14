@@ -1,0 +1,10 @@
+{
+  "name": "apidoc-example",
+  "version": "0.3.0",
+  "description": "apidoc example project",
+  "apidoc": "<h1 id=\"example-text-from-api-md\">Example text from API.md</h1>\n<h2 id=\"general\">General</h2>\n<p>This Text is optionally and not needed to create the documentation.</p>\n<h2 id=\"howto-include\">HowTo include</h2>\n<p>This text is from file &quot;API.md&quot;.</p>\n<p>In your projects &quot;package.json&quot; you can set &quot;apidoc&quot; with a description text or &quot;apidocFilename&quot; with the filename to include into your documentation.</p>\n<p>This example attempts to integrate &quot;API.md&quot;. If not available, then the &quot;apidoc&quot; string is used.</p>\n<pre><code>{\n  &quot;name&quot;: &quot;example&quot;,\n  &quot;version&quot;: &quot;0.3.0&quot;,\n  &quot;description&quot;: &quot;apidoc example project.&quot;,\n  &quot;apidoc&quot;: &quot;This is a description, it will be ignored if parameter apidocFilename exist.&quot;,\n  &quot;apidocFilename&quot;: &quot;API.md&quot;\n}</code></pre>\n",
+  "generator": {
+    "version": "0.3.0",
+    "time": "2014-01-14T15:09:45.694Z"
+  }
+}

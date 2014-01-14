@@ -1,0 +1,31 @@
+{
+  "name": "apidoc-markdown",
+  "version": "0.1.0",
+  "description": "Generate API documentation in markdown format from apidoc data.",
+  "main": "index.js",
+  "directories": {
+    "example": "examples"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": "bin/apidoc-markdown",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/martinj/node-apidoc-markdown"
+  },
+  "keywords": [
+    "apidoc",
+    "markdown"
+  ],
+  "author": "Martin Jonsson <martin.jonsson@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/martinj/node-apidoc-markdown/issues"
+  },
+  "dependencies": {
+    "optimist": "~0.6.0",
+    "underscore": "~1.5.2",
+    "ejs": "~0.8.5"
+  }
+}
