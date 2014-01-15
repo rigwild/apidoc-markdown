@@ -26,7 +26,7 @@ ejs.filters.undef = function (obj) {
 };
 
 ejs.filters.mlink = function (obj) {
-	return (obj || '').toLowerCase().replace(/\s/g, '');
+	return (obj || '').toLowerCase().replace(/\s/g, '-');
 };
 
 var tmplFile = argv.template ? argv.template : __dirname + '/templates/default.md',
@@ -56,3 +56,4 @@ var data = {
 
 data.prepend = argv.prepend ? fs.readFileSync(argv.prepend).toString() : null;
 fs.writeFileSync(argv.output, template(data));
+console.log('Wrote apidoc-markdown template output to: ' + argv.output);
