@@ -23,7 +23,7 @@
 
 	<%-: data[group][sub][0].type | upcase %> <%= data[group][sub][0].url %>
 
-<% if (data[group][sub][0].parameter.fields.Parameter.length) { -%>
+<% if (data[group][sub][0].parameter && data[group][sub][0].parameter.fields.Parameter.length) { -%>
 ### Parameters
 
 | Name    | Type      | Description                          |

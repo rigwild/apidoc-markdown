@@ -3,9 +3,9 @@
 apidoc example project
 
 - [User](#user)
-	- [Read data of a User](#readdataofauser)
-	- [Create a new User](#createanewuser)
-	- [Change a new User](#changeanewuser)
+	- [Read data of a User](#read-data-of-a-user)
+	- [Create a new User](#create-a-new-user)
+	- [Change a new User](#change-a-new-user)
 	
 
 
