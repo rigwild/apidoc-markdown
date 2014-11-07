@@ -3,13 +3,20 @@
   "version": "0.1.3",
   "description": "Generate API documentation in markdown format from apidoc data.",
   "main": "index.js",
+  "scripts": {
+    "release": "npm test && release-it -n -i patch",
+    "release:minor": "npm test && release-it -n -i minor",
+    "release:major": "npm test && release-it -n -i major"
+  }
   "directories": {
     "example": "examples"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "bin": { "apidoc-markdown" : "./index.js" },
+  "bin": {
+    "apidoc-markdown": "./index.js"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/martinj/node-apidoc-markdown"
@@ -27,5 +34,8 @@
     "optimist": "~0.6.0",
     "underscore": "~1.5.2",
     "ejs": "~0.8.5"
+  },
+  "devDependencies": {
+    "release-it": "0.0.12"
   }
 }
