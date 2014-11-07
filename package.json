@@ -1,6 +1,6 @@
 {
   "name": "apidoc-markdown",
-  "version": "0.1.3",
+  "version": "0.2.0",
   "description": "Generate API documentation in markdown format from apidoc data.",
   "main": "index.js",
   "scripts": {
@@ -10,9 +10,6 @@
   },
   "directories": {
     "example": "examples"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bin": {
     "apidoc-markdown": "./index.js"
