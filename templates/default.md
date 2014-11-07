@@ -23,7 +23,17 @@
 
 	<%-: data[group][sub][0].type | upcase %> <%= data[group][sub][0].url %>
 
+<% if (data[group][sub][0].header && data[group][sub][0].header.fields.Header.length) { -%>
+### Headers
+
+| Name    | Type      | Description                          |
+|---------|-----------|--------------------------------------|
+<% data[group][sub][0].header.fields.Header.forEach(function (header) { -%>
+| <%- header.field %>			| <%- header.type %>			| <%- header.optional ? '**optional**' : '' %> <%- header.description %>							|
+<% }); //forech parameter -%>
+<% } //if parameters -%>
 <% if (data[group][sub][0].parameter && data[group][sub][0].parameter.fields.Parameter.length) { -%>
+
 ### Parameters
 
 | Name    | Type      | Description                          |
