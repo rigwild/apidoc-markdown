@@ -7,7 +7,7 @@
     "release": "npm test && release-it -n -i patch",
     "release:minor": "npm test && release-it -n -i minor",
     "release:major": "npm test && release-it -n -i major"
-  }
+  },
   "directories": {
     "example": "examples"
   },
