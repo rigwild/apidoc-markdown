@@ -4,9 +4,9 @@
   "description": "Generate API documentation in markdown format from apidoc data.",
   "main": "index.js",
   "scripts": {
-    "release": "npm test && release-it -n -i patch",
-    "release:minor": "npm test && release-it -n -i minor",
-    "release:major": "npm test && release-it -n -i major"
+    "release": "release-it -n -i patch",
+    "release:minor": "release-it -n -i minor",
+    "release:major": "release-it -n -i major"
   },
   "directories": {
     "example": "examples"
