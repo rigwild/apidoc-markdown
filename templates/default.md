@@ -32,7 +32,7 @@
 | <%- header.field %>			| <%- header.type %>			| <%- header.optional ? '**optional**' : '' %> <%- header.description %>							|
 <% }); //forech parameter -%>
 <% } //if parameters -%>
-<% if (data[group][sub][0].parameter && data[group][sub][0].parameter.fields.Parameter.length) { -%>
+<% if (data[group][sub][0].parameter && data[group][sub][0].parameter.fields && data[group][sub][0].parameter.fields.Parameter.length) { -%>
 
 ### Parameters
 
