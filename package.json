@@ -1,33 +1,32 @@
 {
   "name": "@rigwild/apidoc-markdown",
   "version": "0.3.1",
-  "description": "Generate API documentation in markdown format from apidoc data.",
+  "description": "Generate API documentation in Markdown format from apiDoc data.",
   "main": "index.js",
-  "scripts": {
-    "start": "node index.js"
-  },
-  "directories": {
-    "example": "examples"
-  },
   "bin": {
     "apidoc-markdown": "./index.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/rigwild/node-apidoc-markdown"
+  "directories": {
+    "example": "examples"
   },
   "keywords": [
     "apidoc",
     "markdown"
   ],
-  "author": "Martin Jonsson <martin.jonsson@gmail.com>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/rigwild/node-apidoc-markdown/issues"
+  "scripts": {
+    "example": "node index.js -p examples -o examples/example.md"
   },
   "dependencies": {
-    "optimist": "~0.6.1",
-    "underscore": "~1.9.1",
-    "ejs": "~2.6.1"
-  }
+    "ejs": "^2.6.1",
+    "yargs": "^13.2.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rigwild/apidoc-markdown"
+  },
+  "bugs": {
+    "url": "https://github.com/rigwild/apidoc-markdown/issues"
+  },
+  "author": "rigwild <contact@asauvage.fr> (https://github.com/rigwild)",
+  "license": "MIT"
 }

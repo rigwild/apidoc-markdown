@@ -1,27 +1,45 @@
 # @rigwild/apidoc-markdown
 Generate API documentation in markdown from [apiDoc](https://github.com/apidoc/apidoc) data.
 
+This is an up to date and maintained fork of [@martinj/node-apidoc-markdown](https://github.com/martinj/node-apidoc-markdown) (which is not maintained).
+
 ## Installation
-```console
-yarn add @rigwild/apidoc-markdown
+```sh
+yarn global add @rigwild/apidoc-markdown
+# or
+npm i -g @rigwild/apidoc-markdown
 ```
 
 ## Usage
 ```console
+Generate Markdown documentation from apiDoc data.
 Usage: apidoc-markdown -p [path] -o [output file]
 
 Options:
-	--path, -p      Path to generated apidoc output. Where api_data.json & api_project.json resides.  [required]
-	--output, -o    Output file to write.                                                             [required]
-	--template, -t  Path to EJS template file, if not specified default template will be used.
-	--prepend       Prepend file after TOC.
+  --version       Show version number                                  [boolean]
+  --path, -p      Path to generated apiDoc output directory. Where
+                  `api_data.json` and `api_project.json` resides.
+                                                             [string] [required]
+  --output, -o    Output file to write.                      [string] [required]
+  --template, -t  Path to EJS template file, if not specified default template
+                  will be used.                                         [string]
+  --prepend       Path to file content to add before route groups documentation.
+  -h, --help      Show help                                            [boolean]
+
+Examples:
+  apidoc-markdown -p doc/ -o doc.md  Generate from `doc/` apiDoc output to `./doc.md`
+
+@rigwild/apidoc-markdown - https://github.com/rigwild/apidoc-markdown
 ```
 
 ## Example
 Generate from included example data
-```console
+```sh
 apidoc-markdown -p examples -o examples/example.md
 ```
 
 
 [View generated example](https://github.com/martinj/node-apidoc-markdown/blob/master/examples/example.md)
+
+## License
+[The MIT license](./LICENSE)
