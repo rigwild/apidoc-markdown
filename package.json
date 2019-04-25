@@ -28,11 +28,11 @@
     "url": "https://github.com/martinj/node-apidoc-markdown/issues"
   },
   "dependencies": {
-    "optimist": "~0.6.0",
-    "underscore": "~1.5.2",
-    "ejs": "~0.8.5"
+    "optimist": "~0.6.1",
+    "underscore": "~1.9.1",
+    "ejs": "~2.6.1"
   },
   "devDependencies": {
-    "release-it": "^2.8.5"
+    "release-it": "^10.4.4"
   }
 }
