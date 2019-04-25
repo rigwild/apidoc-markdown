@@ -1,5 +1,5 @@
 # @rigwild/apidoc-markdown
-![https://img.shields.io/npm/v/@rigwild/apidoc-markdown.svg?logo=npm](https://img.shields.io/npm/v/@rigwild/apidoc-markdown.svg?logo=npm)
+[![npm badge](https://img.shields.io/npm/v/@rigwild/apidoc-markdown.svg?logo=npm)](https://www.npmjs.com/package/@rigwild/apidoc-markdown)
 
 Generate API documentation in markdown from [apiDoc](https://github.com/apidoc/apidoc) data.
 
