@@ -1,4 +1,6 @@
 # @rigwild/apidoc-markdown
+![https://img.shields.io/npm/v/@rigwild/apidoc-markdown.svg?logo=npm](https://img.shields.io/npm/v/@rigwild/apidoc-markdown.svg?logo=npm)
+
 Generate API documentation in markdown from [apiDoc](https://github.com/apidoc/apidoc) data.
 
 This is an up to date and maintained fork of [@martinj/node-apidoc-markdown](https://github.com/martinj/node-apidoc-markdown) (which is not maintained).
@@ -38,8 +40,15 @@ Generate from included example data
 apidoc-markdown -p examples -o examples/example.md
 ```
 
+[View generated example](./examples/example.md)
 
-[View generated example](https://github.com/martinj/node-apidoc-markdown/blob/master/examples/example.md)
+## Todo
+ - [x] Refactor project code
+ - [x] Update and clean dependencies
+ - [x] Refactor command-line tool
+ - [x] Update Markdown default template to working EJS (Update breaking changes)
+ - [ ] Update apiDoc example to newer version
+ - [ ] Update default template for new apiDoc features
 
 ## License
 [The MIT license](./LICENSE)
