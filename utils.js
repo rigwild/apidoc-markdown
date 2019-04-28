@@ -4,4 +4,6 @@
 const groupBy = (data, comparator) =>
   data.reduce((r, v, i, a, k = comparator(v)) => ((r[k] || (r[k] = [])).push(v), r), {})
 
-module.exports = { groupBy }
+const toLink = str => str.replace(/\s+/g, '-')
+
+module.exports = { groupBy, toLink }

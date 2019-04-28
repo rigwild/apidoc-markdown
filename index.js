@@ -22,7 +22,8 @@ const apiByGroupAndName = Object.keys(apiByGroup).reduce((acc, x) => {
 const data = {
   project: projData,
   data: apiByGroupAndName,
-  prepend: argv.prepend ? fs.readFileSync(argv.prepend).toString() : null
+  prepend: argv.prepend ? fs.readFileSync(argv.prepend).toString() : null,
+  toLink: utils.toLink
 }
 
 fs.writeFileSync(argv.output, template(data))

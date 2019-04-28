@@ -1,6 +1,7 @@
 'use strict'
 
 const path = require('path')
+
 /**
  * @typedef {Object} CliObject
  * @property {string} path Path to generated apiDoc output directory. Where `api_data.json` and `api_project.json` resides
@@ -14,8 +15,8 @@ const path = require('path')
  */
 const cli = require('yargs')
   .usage('Generate Markdown documentation from apiDoc data.')
-  .usage('Usage: $0 -p [path] -o [output file]')
-  .example('$0 -p doc/ -o doc.md', 'Generate from `doc/` apiDoc output to `./doc.md`')
+  .usage('Usage: apidoc-markdown -p [path] -o [output file]')
+  .example('apidoc-markdown -p doc/ -o doc.md', 'Generate from `doc/` apiDoc output to `./doc.md`')
   .option('path', {
     alias: 'p',
     demandOption: true,

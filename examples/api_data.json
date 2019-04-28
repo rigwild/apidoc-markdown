@@ -23,7 +23,14 @@
             "description": "The Users-ID."
           }
         ]
-      }
+      },
+      "examples": [
+        {
+          "title": "Param example:",
+          "content": "{\n  \"group\": \"Parameter\",\n  \"type\": \"String\",\n  \"filed\": \"id\",\n  \"optional\": false,\n  \"description\": \"The Users-ID.\"\n}",
+          "type": "json"
+        }
+      ]
     },
     "examples": [
       {

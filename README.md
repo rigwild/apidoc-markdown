@@ -3,7 +3,7 @@
 
 Generate API documentation in markdown from [apiDoc](https://github.com/apidoc/apidoc) data.
 
-This is an up to date and maintained fork of [@martinj/node-apidoc-markdown](https://github.com/martinj/node-apidoc-markdown) (which is not maintained).
+This is an up to date and maintained fork of [@martinj/node-apidoc-markdown](https://github.com/martinj/node-apidoc-markdown) (which is not maintained). The template was updated with recent apiDoc features thanks to [this fork](https://github.com/softdevstory/node-apidoc-markdown).
 
 ## Installation
 ```sh
@@ -11,6 +11,7 @@ yarn global add @rigwild/apidoc-markdown
 # or
 npm i -g @rigwild/apidoc-markdown
 ```
+Then, generate your documentation using your newly added command *`apidoc-markdown`*.
 
 ## Usage
 ```console
@@ -35,7 +36,7 @@ Examples:
 ```
 
 ## Example
-Generate from included example data
+Generate documentation from the included example data
 ```sh
 apidoc-markdown -p examples -o examples/example.md
 ```
@@ -47,8 +48,8 @@ apidoc-markdown -p examples -o examples/example.md
  - [x] Update and clean dependencies
  - [x] Refactor command-line tool
  - [x] Update Markdown default template to working EJS (Update breaking changes)
- - [ ] Update apiDoc example to newer version
- - [ ] Update default template for new apiDoc features
+ - [x] Update default template for new apiDoc features. 
+ - [ ] CLI option : Export documentation to 1 file per group
 
 ## License
 [The MIT license](./LICENSE)
