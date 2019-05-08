@@ -14,7 +14,9 @@
     "markdown"
   ],
   "scripts": {
-    "example": "node index.js -p examples -o examples/example.md"
+    "help": "node index.js -h",
+    "example": "node index.js -p examples -o examples/example.md",
+    "example-multi": "node index.js -p examples -o examples/multi-arg --multi --createPath"
   },
   "dependencies": {
     "ejs": "^2.6.1",

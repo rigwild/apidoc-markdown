@@ -6,7 +6,7 @@ Generate API documentation in markdown from [apiDoc](https://github.com/apidoc/a
 This is an up to date and maintained fork of [@martinj/node-apidoc-markdown](https://github.com/martinj/node-apidoc-markdown) (which is not maintained). The template was updated with recent apiDoc features thanks to [this fork](https://github.com/softdevstory/node-apidoc-markdown).
 
 ## Installation
-```sh
+```bash
 yarn global add @rigwild/apidoc-markdown
 # or
 npm i -g @rigwild/apidoc-markdown
@@ -14,34 +14,61 @@ npm i -g @rigwild/apidoc-markdown
 Then, generate your documentation using your newly added command *`apidoc-markdown`*.
 
 ## Usage
-```console
+### Help message
+```bash
 Generate Markdown documentation from apiDoc data.
-Usage: apidoc-markdown -p [path] -o [output file]
+Usage: apidoc-markdown -p <path> -o <output_file> [-t <template_path>] [--multi]
+[--createPath] [--prepend <file_path>]
 
 Options:
   --version       Show version number                                  [boolean]
   --path, -p      Path to generated apiDoc output directory. Where
                   `api_data.json` and `api_project.json` resides.
                                                              [string] [required]
-  --output, -o    Output file to write.                      [string] [required]
+  --output, -o    Output file or directory to write output to.
+                                                             [string] [required]
   --template, -t  Path to EJS template file, if not specified default template
-                  will be used.                                         [string]
+                  will be used.                               [string] [default:
+                "templates/default.md"]
   --prepend       Path to file content to add before route groups documentation.
+                                                                        [string]
+  --multi         Output one file per group to the `output` directory.
+                                                      [boolean] [default: false]
+  --createPath    Recursively create directory arborescence to the `output`
+                  directory.                          [boolean] [default: false]
   -h, --help      Show help                                            [boolean]
 
 Examples:
-  apidoc-markdown -p doc/ -o doc.md  Generate from `doc/` apiDoc output to `./doc.md`
+  apidoc-markdown -p doc/ -o doc.md         Generate from `doc/` apiDoc output
+                                            to `./doc.md`
+  apidoc-markdown -p doc -o multi-arg       Generate from `doc/` apiDoc output
+  --multi --createPath                      to `./multi-arg/<group>.md`
 
 @rigwild/apidoc-markdown - https://github.com/rigwild/apidoc-markdown
 ```
 
+### Command-line arguments
+| Option      | Alias         | Description |
+| ----------- | ------------- | ----------- |
+| `--path <apiDoc_path>` | `-p` | Path to generated apiDoc output directory. Where `api_data.json` and `api_project.json` resides. |
+| `--output <output_path>` | `-o` | Output file or directory to write output to |
+| `--template <template_path>` | `-t` | Path to EJS template file, if not specified default template will be used. |
+| `--prepend <file_path>` |  | Path to file content to add before route groups documentation |
+| `--multi` |  | Output one file per group to the `output` directory |
+| `--createPath` |  | Recursively create directory arborescence to the `output` directory |
+| `--help` | `-h` | Show help message |
+
+
 ## Example
-Generate documentation from the included example data
-```sh
+Generate documentation from the included example data. [View generated example](./examples/example.md)
+```bash
 apidoc-markdown -p examples -o examples/example.md
 ```
 
-[View generated example](./examples/example.md)
+Generate documentation from the included example data, one file per group. [View generated example](./examples/multi-arg/)
+```bash
+apidoc-markdown -p examples -o examples/multi-arg --multi --createPath
+```
 
 ## Todo
  - [x] Refactor project code
@@ -49,7 +76,10 @@ apidoc-markdown -p examples -o examples/example.md
  - [x] Refactor command-line tool
  - [x] Update Markdown default template to working EJS (Update breaking changes)
  - [x] Update default template for new apiDoc features. 
- - [ ] CLI option : Export documentation to 1 file per group
+ - [x] CLI option : Export documentation to 1 file per group
+ - [ ] Automated tests
+
+ Don't hesitate to suggest any feature you would like by creating an [issue](https://github.com/rigwild/apidoc-markdown/issues) or a [pull request](https://github.com/rigwild/apidoc-markdown/pulls).
 
 ## License
 [The MIT license](./LICENSE)
