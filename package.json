@@ -1,6 +1,6 @@
 {
   "name": "@rigwild/apidoc-markdown",
-  "version": "1.2.0",
+  "version": "2.0.0",
   "description": "Generate API documentation in Markdown format from apiDoc data.",
   "main": "lib/index.js",
   "bin": {
@@ -20,10 +20,8 @@
     "help": "node bin/index.js -h",
     "example": "node bin/index.js -p examples -o examples/example.md",
     "example-multi": "node bin/index.js -p examples -o examples/multi-arg --multi --createPath",
-
     "prog:example": "node examples/generateSingle.js -p examples -o examples/example.md",
     "prog:example-multi": "node examples/generateMulti.js -p examples -o examples/multi-arg --multi --createPath",
-
     "test": "mocha"
   },
   "dependencies": {
