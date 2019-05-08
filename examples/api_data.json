@@ -431,5 +431,65 @@
     "type": "",
     "url": "",
     "filename": "example/example.js"
+  },
+  {
+    "type": "get",
+    "url": "/post/:id",
+    "title": "Read a post",
+    "version": "0.2.0",
+    "name": "GetPost",
+    "group": "Post",
+    "permission": {
+      "name": "admin",
+      "title": "This title is visible in version 0.1.0 and 0.2.0",
+      "description": ""
+    },
+    "description": "Here you can describe the function.\nMultilines are possible.",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "field": "id",
+            "optional": false,
+            "description": "The post ID."
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "field": "id",
+            "optional": false,
+            "description": "The post ID."
+          },
+          {
+            "group": "Success 200",
+            "type": "Date",
+            "field": "name",
+            "optional": false,
+            "description": "Creation date of the post."
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "field": "UserNotFound",
+            "optional": false,
+            "description": "The <code>id</code> of the User was not found."
+          }
+        ]
+      }
+    },
+    "filename": "example/example.js"
   }
 ]

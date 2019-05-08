@@ -8,6 +8,9 @@ apidoc example project
 	- [Create a new User](#Create-a-new-User)
 	- [Change a new User](#Change-a-new-User)
 	
+- [Post](#Post)
+	- [Read a post](#Read-a-post)
+	
 
 # <a name='User'></a> User
 
@@ -125,3 +128,25 @@ PUT /user/:id
    }
 
 ```
+# <a name='Post'></a> Post
+
+## <a name='Read-a-post'></a> Read a post
+[Back to top](#top)
+
+Here you can describe the function.
+Multilines are possible.
+```
+GET /post/:id
+```
+
+### Parameter Parameters
+| Name     | Type       | Description                           |
+|:---------|:-----------|:--------------------------------------|
+| id | `String` | The post ID. |
+
+
+### Success 200
+| Name     | Type       | Description                           |
+|:---------|:-----------|:--------------------------------------|
+| id | `String` | The post ID. |
+| name | `Date` | Creation date of the post. |
