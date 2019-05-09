@@ -22,6 +22,7 @@
 [Back to top](#top)
 
 <%- data[group][sub][0].description %>
+
 ```
 <%- data[group][sub][0].type.toUpperCase() %> <%= data[group][sub][0].url %>
 ```
@@ -39,6 +40,7 @@
 ### Header Examples
 <% data[group][sub][0].header.examples.forEach(example => { -%>
 <%= example.title %>
+
 ```
 <%- example.content %>
 ```
@@ -65,6 +67,7 @@ _Allowed values: <%- param.allowedValues %>_<% } -%> |
 ### Examples
 <% data[group][sub][0].examples.forEach(example => { -%>
 <%= example.title %>
+
 ```
 <%- example.content %>
 ```
@@ -75,6 +78,7 @@ _Allowed values: <%- param.allowedValues %>_<% } -%> |
 ### Param Examples
 <% data[group][sub][0].parameter.examples.forEach(exampleParam => { -%>
 `<%= exampleParam.type %>` - <%= exampleParam.title %>
+
 ```<%= exampleParam.type %>
 <%- exampleParam.content %>
 ```
@@ -84,6 +88,7 @@ _Allowed values: <%- param.allowedValues %>_<% } -%> |
 ### Success Response
 <% data[group][sub][0].success.examples.forEach(example => { -%>
 <%= example.title %>
+
 ```
 <%- example.content %>
 ```
@@ -111,6 +116,7 @@ _Allowed values: <%- param.allowedValues %>_<% } -%> |
 ### Error Response
 <% data[group][sub][0].error.examples.forEach(example => { -%>
 <%= example.title %>
+
 ```
 <%- example.content %>
 ```
