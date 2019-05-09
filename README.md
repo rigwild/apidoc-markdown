@@ -51,7 +51,7 @@ Examples:
 
 
 ## Programmatic use
-This project has been fully refactored to support programmatic use. Every functions is available in the *[./lib](./lib)* directory and exported.
+This project has been fully refactored to support programmatic use. Every functions are available in the *[./lib](./lib)* directory and exported.
 
 The following [script](./examples/generateSingle.js) will generate the *[example.md](./examples/example.md)* file. 
 ```js
@@ -89,8 +89,9 @@ apidoc-markdown -p examples -o examples/multi-arg --multi --createPath
  - [x] Update Markdown default template to working EJS (Update breaking changes)
  - [x] Update default template for new apiDoc features. 
  - [x] CLI option : Export documentation to 1 file per group
- - [x] Automated tests
  - [x] Programmatic use
+ - [ ] Automated tests
+ - [ ] Asynchronous code
 
  Don't hesitate to suggest any feature you would like by creating an [issue](https://github.com/rigwild/apidoc-markdown/issues) or a [pull request](https://github.com/rigwild/apidoc-markdown/pulls).
 
