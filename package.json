@@ -26,6 +26,7 @@
   },
   "dependencies": {
     "ejs": "^2.6.1",
+    "semver": "^6.1.1",
     "yargs": "^13.2.2"
   },
   "repository": {
@@ -36,5 +37,8 @@
     "url": "https://github.com/rigwild/apidoc-markdown/issues"
   },
   "author": "rigwild <contact@asauvage.fr> (https://github.com/rigwild)",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^5.16.0"
+  }
 }

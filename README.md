@@ -8,9 +8,15 @@ This is an up to date and maintained fork of [@martinj/node-apidoc-markdown](htt
 
 ## Installation
 ```bash
+# Command line utility
 yarn global add @rigwild/apidoc-markdown
 # or
 npm i -g @rigwild/apidoc-markdown
+
+# Programmatic usage
+yarn add @rigwild/apidoc-markdown
+# or
+npm i @rigwild/apidoc-markdown
 ```
 Then, generate your documentation using your newly added command *`apidoc-markdown`*.
 
