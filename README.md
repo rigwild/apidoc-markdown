@@ -92,6 +92,7 @@ apidoc-markdown -p examples -o examples/multi-arg --multi --createPath
  - [x] Programmatic use
  - [ ] Automated tests
  - [ ] Asynchronous code
+ - [ ] One file per route feature
 
  Don't hesitate to suggest any feature you would like by creating an [issue](https://github.com/rigwild/apidoc-markdown/issues) or a [pull request](https://github.com/rigwild/apidoc-markdown/pulls).
 
