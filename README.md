@@ -59,7 +59,7 @@ Examples:
 ## Programmatic use
 This project has been fully refactored to support programmatic use. Every functions are available in the *[./lib](./lib)* directory and exported.
 
-The following [script](./examples/generateSingle.js) will generate the *[example.md](./examples/example.md)* file. 
+The following [script](./examples/generateSingle.js) will generate the *[example.md](./examples/example.md)* file.
 ```js
 const apidocMarkdown = require('@rigwild/apidoc-markdown')
 const r = require('path').resolve
@@ -78,14 +78,19 @@ apidocMarkdown.setup(config)
 
 
 ## Example
-Generate documentation from the included example data. [View generated example](./examples/example.md)
+Generate documentation from the included example data. [View generated example](./examples/basic/example.md)
 ```bash
-apidoc-markdown -p examples -o examples/example.md
+apidoc-markdown -p examples -o examples/basic/example.md
 ```
 
-Generate documentation from the included example data, one file per group. [View generated example](./examples/multi-arg/)
+Generate documentation from the included example data with order settings. [View generated example](./examples/ordered/example.md)
 ```bash
-apidoc-markdown -p examples -o examples/multi-arg --multi --createPath
+apidoc-markdown -p examples -o examples/ordered/example.md
+```
+
+Generate documentation from the included example data, one file per group. [View generated example](./examples/multi/output)
+```bash
+apidoc-markdown -p examples -o examples/multi/output --multi --createPath
 ```
 
 ## Todo
@@ -93,7 +98,7 @@ apidoc-markdown -p examples -o examples/multi-arg --multi --createPath
  - [x] Update and clean dependencies
  - [x] Refactor command-line tool
  - [x] Update Markdown default template to working EJS (Update breaking changes)
- - [x] Update default template for new apiDoc features. 
+ - [x] Update default template for new apiDoc features.
  - [x] CLI option : Export documentation to 1 file per group
  - [x] Programmatic use
  - [ ] Automated tests
