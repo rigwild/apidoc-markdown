@@ -14,18 +14,25 @@
   "keywords": [
     "apidoc",
     "markdown",
-    "programmatic"
+    "api-documentation",
+    "generator",
+    "programmatic",
+    "command-line"
   ],
   "scripts": {
     "help": "node bin/index.js -h",
-    "example": "node bin/index.js -p examples -o examples/example.md",
-    "example-multi": "node bin/index.js -p examples -o examples/multi-arg --multi --createPath",
-    "prog:example": "node examples/generateSingle.js -p examples -o examples/example.md",
-    "prog:example-multi": "node examples/generateMulti.js -p examples -o examples/multi-arg --multi --createPath",
-    "test": "mocha"
+    "example:basic": "node bin/index.js -p examples/basic -o examples/basic/example.md",
+    "example:basic:prog": "node examples/basic/generate.js -p examples/basic -o examples/basic/example.md",
+    "example:ordered": "node bin/index.js -p examples/ordered -o examples/ordered/example.md",
+    "example:ordered:prog": "node examples/ordered/generate.js -p examples/ordered -o examples/ordered/example.md",
+    "example:multi": "node bin/index.js -p examples/multi -o examples/multi/output/ --multi --createPath",
+    "example:multi:prog": "node examples/multi/generate.js -p examples/multi -o examples/multi/output/",
+    "example:all": "npm run example:basic && npm run example:ordered && npm run example:multi",
+    "example:clean": "rm -rf examples/basic/example.md examples/multi/output/ examples/ordered/example.md"
   },
   "dependencies": {
     "ejs": "^2.6.1",
+    "semver": "^6.1.1",
     "yargs": "^13.2.2"
   },
   "repository": {
@@ -36,5 +43,13 @@
     "url": "https://github.com/rigwild/apidoc-markdown/issues"
   },
   "author": "rigwild <contact@asauvage.fr> (https://github.com/rigwild)",
-  "license": "MIT"
+  "contributors": [
+    "martinj (https://github.com/martinj)",
+    "softdevstory (https://github.com/softdevstory)",
+    "vanekj (https://github.com/vanekj)"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^5.16.0"
+  }
 }

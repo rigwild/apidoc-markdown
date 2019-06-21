@@ -3,10 +3,10 @@
 
 <%= project.description %>
 
-<% Object.keys(data).forEach(group => { -%>
-- [<%= group %>](#<%= toLink(group) %>)
-	<% Object.keys(data[group]).forEach(sub => { -%>
-- [<%= data[group][sub][0].title %>](#<%= toLink(data[group][sub][0].title) %>)
+<% data.forEach(group => { -%>
+- [<%= group.name %>](#<%= toLink(group.name) %>)
+	<% group.subs.forEach(sub => { -%>
+- [<%= sub.title %>](#<%= toLink(sub.title) %>)
 	<% }) -%>
 
 <% }) -%>
@@ -14,31 +14,31 @@
 <% if (prepend) { -%>
 <%- prepend %>
 <% } -%>
-<% Object.keys(data).forEach(group => { -%>
-# <a name='<%= toLink(group) %>'></a> <%= group %>
+<% data.forEach(group => { -%>
+# <a name='<%= toLink(group.name) %>'></a> <%= group.name %>
 
-<% Object.keys(data[group]).forEach(sub => { -%>
-## <a name='<%= toLink(data[group][sub][0].title) %>'></a> <%= data[group][sub][0].title %>
+<% group.subs.forEach(sub => { -%>
+## <a name='<%= toLink(sub.title) %>'></a> <%= sub.title %>
 [Back to top](#top)
 
-<%- data[group][sub][0].description %>
+<%- sub.description %>
 
 ```
-<%- data[group][sub][0].type.toUpperCase() %> <%= data[group][sub][0].url %>
+<%- sub.type.toUpperCase() %> <%= sub.url %>
 ```
-<% if (data[group][sub][0].header && data[group][sub][0].header.fields.Header.length) { -%>
+<% if (sub.header && sub.header.fields.Header.length) { -%>
 ### Headers
 | Name    | Type      | Description                          |
 |---------|-----------|--------------------------------------|
-<% data[group][sub][0].header.fields.Header.forEach(header => { -%>
+<% sub.header.fields.Header.forEach(header => { -%>
 | <%- header.field %> | <%- header.type %> | <%- header.optional ? '**optional**' : '' %><%- header.description %>|
 <% }) // foreach parameter -%>
 <% } // if parameters -%>
 
-<% if (data[group][sub][0].header && data[group][sub][0].header.examples && data[group][sub][0].header.examples.length) { -%>
+<% if (sub.header && sub.header.examples && sub.header.examples.length) { -%>
 
 ### Header Examples
-<% data[group][sub][0].header.examples.forEach(example => { -%>
+<% sub.header.examples.forEach(example => { -%>
 <%= example.title %>
 
 ```
@@ -46,12 +46,12 @@
 ```
 <% }) // foreach example -%>
 <% } // if example -%>
-<% if (data[group][sub][0].parameter && data[group][sub][0].parameter.fields) { -%>
-<% Object.keys(data[group][sub][0].parameter.fields).forEach(g => { -%>
+<% if (sub.parameter && sub.parameter.fields) { -%>
+<% Object.keys(sub.parameter.fields).forEach(g => { -%>
 ### <%= g -%> Parameters
 | Name     | Type       | Description                           |
 |:---------|:-----------|:--------------------------------------|
-<% data[group][sub][0].parameter.fields[g].forEach(param => { -%>
+<% sub.parameter.fields[g].forEach(param => { -%>
 | <%- param.field -%> | `<%- param.type -%>` | <%- param.optional ? '**optional**' : '' -%><%- param.description -%>
 <% if (param.defaultValue) { -%>
 _Default value: <%= param.defaultValue %>_<br><% } -%>
@@ -62,10 +62,10 @@ _Allowed values: <%- param.allowedValues %>_<% } -%> |
 <% }) // foreach (group) parameter -%>
 <% }) // foreach param parameter -%>
 <% } // if parameters -%>
-<% if (data[group][sub][0].examples && data[group][sub][0].examples.length) { -%>
+<% if (sub.examples && sub.examples.length) { -%>
 
 ### Examples
-<% data[group][sub][0].examples.forEach(example => { -%>
+<% sub.examples.forEach(example => { -%>
 <%= example.title %>
 
 ```
@@ -74,9 +74,9 @@ _Allowed values: <%- param.allowedValues %>_<% } -%> |
 <% }) // foreach example -%>
 <% } // if example -%>
 
-<% if (data[group][sub][0].parameter && data[group][sub][0].parameter.examples && data[group][sub][0].parameter.examples.length) { -%>
+<% if (sub.parameter && sub.parameter.examples && sub.parameter.examples.length) { -%>
 ### Param Examples
-<% data[group][sub][0].parameter.examples.forEach(exampleParam => { -%>
+<% sub.parameter.examples.forEach(exampleParam => { -%>
 `<%= exampleParam.type %>` - <%= exampleParam.title %>
 
 ```<%= exampleParam.type %>
@@ -84,9 +84,9 @@ _Allowed values: <%- param.allowedValues %>_<% } -%> |
 ```
 <% }) // foreach exampleParam -%>
 <% } // if exampleParam -%>
-<% if (data[group][sub][0].success && data[group][sub][0].success.examples && data[group][sub][0].success.examples.length) { -%>
+<% if (sub.success && sub.success.examples && sub.success.examples.length) { -%>
 ### Success Response
-<% data[group][sub][0].success.examples.forEach(example => { -%>
+<% sub.success.examples.forEach(example => { -%>
 <%= example.title %>
 
 ```
@@ -95,12 +95,12 @@ _Allowed values: <%- param.allowedValues %>_<% } -%> |
 <% }) // foreach success example -%>
 <% } // if examples -%>
 
-<% if (data[group][sub][0].success && data[group][sub][0].success.fields) { -%>
-<% Object.keys(data[group][sub][0].success.fields).forEach(g => { -%>
+<% if (sub.success && sub.success.fields) { -%>
+<% Object.keys(sub.success.fields).forEach(g => { -%>
 ### <%= g %>
 | Name     | Type       | Description                           |
 |:---------|:-----------|:--------------------------------------|
-<% data[group][sub][0].success.fields[g].forEach(param => { -%>
+<% sub.success.fields[g].forEach(param => { -%>
 | <%- param.field %> | `<%- param.type %>` | <%- param.optional ? '**optional**' : '' %><%- param.description -%>
 <% if (param.defaultValue) { -%>
 _Default value: <%- param.defaultValue %>_<br><% } -%>
@@ -111,10 +111,10 @@ _Allowed values: <%- param.allowedValues %>_<% } -%> |
 <% }) // foreach (group) parameter -%>
 <% }) // foreach field -%>
 <% } // if success.fields -%>
-<% if (data[group][sub][0].error && data[group][sub][0].error.examples && data[group][sub][0].error.examples.length) { -%>
+<% if (sub.error && sub.error.examples && sub.error.examples.length) { -%>
 
 ### Error Response
-<% data[group][sub][0].error.examples.forEach(example => { -%>
+<% sub.error.examples.forEach(example => { -%>
 <%= example.title %>
 
 ```
