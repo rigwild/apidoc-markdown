@@ -4,8 +4,8 @@
 apidoc example project
 
 - [User](#User)
-	- [Read data of a User](#Read-data-of-a-User)
 	- [Create a new User](#Create-a-new-User)
+	- [Read data of a User](#Read-data-of-a-User)
 	- [Change a new User](#Change-a-new-User)
 	
 - [Post](#Post)
@@ -14,10 +14,42 @@ apidoc example project
 
 # <a name='User'></a> User
 
+## <a name='Create-a-new-User'></a> Create a new User
+[Back to top](#top)
+
+In this case "apiErrorStructure" is defined and used.
+Define blocks with params that will be used in several functions, so you dont have to rewrite them.
+
+```
+POST /user
+```
+
+### Parameter Parameters
+| Name     | Type       | Description                           |
+|:---------|:-----------|:--------------------------------------|
+| name | `String` | Name of the User. |
+
+
+### Success 200
+| Name     | Type       | Description                           |
+|:---------|:-----------|:--------------------------------------|
+| id | `String` | The new Users-ID. |
+
+### Error Response
+ Response (example):
+
+```
+   HTTP/1.1 400 Bad Request
+   {
+     "error": "UserNameTooShort"
+   }
+
+```
 ## <a name='Read-data-of-a-User'></a> Read data of a User
 [Back to top](#top)
 
 Compare Verison 0.3.0 with 0.2.0 and you will see the green markers with new items in version 0.3.0 and red markers with removed items since 0.2.0.
+
 ```
 GET /user/:id
 ```
@@ -29,6 +61,7 @@ GET /user/:id
 
 ### Examples
 CURL example:
+
 ```
    curl -i -X POST http://localhost:3001/example
         -H 'Content-Type: application/json' \
@@ -38,6 +71,7 @@ CURL example:
 
 ### Param Examples
 `json` - Param example:
+
 ```json
 {
   "group": "Parameter",
@@ -49,6 +83,7 @@ CURL example:
 ```
 ### Success Response
 Success-Response (example):
+
 ```
    HTTP/1.1 200 OK
    {
@@ -68,6 +103,7 @@ Success-Response (example):
 
 ### Error Response
 Error-Response (example):
+
 ```
    HTTP/1.1 401 Not Authenticated
    {
@@ -75,39 +111,11 @@ Error-Response (example):
    }
 
 ```
-## <a name='Create-a-new-User'></a> Create a new User
-[Back to top](#top)
-
-In this case "apiErrorStructure" is defined and used.
-Define blocks with params that will be used in several functions, so you dont have to rewrite them.
-```
-POST /user
-```
-
-### Parameter Parameters
-| Name     | Type       | Description                           |
-|:---------|:-----------|:--------------------------------------|
-| name | `String` | Name of the User. |
-
-
-### Success 200
-| Name     | Type       | Description                           |
-|:---------|:-----------|:--------------------------------------|
-| id | `String` | The new Users-ID. |
-
-### Error Response
- Response (example):
-```
-   HTTP/1.1 400 Bad Request
-   {
-     "error": "UserNameTooShort"
-   }
-
-```
 ## <a name='Change-a-new-User'></a> Change a new User
 [Back to top](#top)
 
 This function has same errors like POST /user, but errors not defined again, they were included with "apiErrorStructure"
+
 ```
 PUT /user/:id
 ```
@@ -121,6 +129,7 @@ PUT /user/:id
 
 ### Error Response
  Response (example):
+
 ```
    HTTP/1.1 400 Bad Request
    {
@@ -135,6 +144,7 @@ PUT /user/:id
 
 Here you can describe the function.
 Multilines are possible.
+
 ```
 GET /post/:id
 ```
