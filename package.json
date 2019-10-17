@@ -1,6 +1,6 @@
 {
   "name": "@rigwild/apidoc-markdown",
-  "version": "2.1.0",
+  "version": "3.0.0",
   "description": "Generate API documentation in Markdown format from apiDoc data",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

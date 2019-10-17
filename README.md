@@ -53,8 +53,8 @@ Examples:
 | `--createPath` |  | Recursively create directory arborescence to the `output` directory |
 | `--help` | `-h` | Show help message |
 
-## Programmatic use
-This project has been fully refactored to support programmatic use. Every functions are available in the *[./lib](./lib)* directory and are exported.
+## Programmatic usage
+This project has been fully refactored to support programmatic use. Every functions are available in the *[./src/generator.ts](./generator.ts)* directory and are exported.
 
 | Example | Description |
 | ------- | ----------- |
