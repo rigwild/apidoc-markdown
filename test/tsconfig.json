@@ -1,0 +1,14 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "declaration": false,
+    "declarationMap": false,
+    "sourceMap": false,
+    "outDir": ".",
+    "strict": true,
+    "alwaysStrict": true,
+    "esModuleInterop": true
+  },
+  "include": ["example.ts", "template.ts", "programmatic.ts"],
+  "exclude": [""]
+}
