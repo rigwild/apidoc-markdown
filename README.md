@@ -90,8 +90,9 @@ apidoc-markdown -p examples/multi -o examples/multi/output --multi --createPath
  - [x] Update default template for new apiDoc features.
  - [x] CLI option : Export documentation to 1 file per group
  - [x] Programmatic use
- - [ ] Automated tests
- - [ ] Asynchronous code
+ - [x] Automated tests
+ - [x] Asynchronous code
+ - [x] TypeScript rewrite
  - [ ] One file per route feature
 
  Don't hesitate to suggest any feature you would like by creating an [issue](https://github.com/rigwild/apidoc-markdown/issues) or a [pull request](https://github.com/rigwild/apidoc-markdown/pulls).

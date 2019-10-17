@@ -3,7 +3,7 @@
 'use strict'
 
 // Collect yargs CLI options
-const argv = require('../lib/cli')
+const argv = require('../dist/cli').default
 
 // Start the binary
-require('../lib').setup(argv)
+require('../dist').generateMarkdownFile(argv)

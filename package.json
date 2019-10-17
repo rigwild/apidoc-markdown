@@ -1,14 +1,15 @@
 {
   "name": "@rigwild/apidoc-markdown",
   "version": "2.1.0",
-  "description": "Generate API documentation in Markdown format from apiDoc data.",
-  "main": "lib/index.js",
+  "description": "Generate API documentation in Markdown format from apiDoc data",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "bin": {
     "apidoc-markdown": "./bin/index.js"
   },
   "directories": {
     "example": "examples",
-    "lib": "lib",
+    "lib": "src",
     "test": "test"
   },
   "keywords": [
@@ -20,20 +21,33 @@
     "command-line"
   ],
   "scripts": {
+    "build": "tsc",
     "help": "node bin/index.js -h",
-    "example:basic": "node bin/index.js -p examples/basic -o examples/basic/example.md",
-    "example:basic:prog": "node examples/basic/generate.js -p examples/basic -o examples/basic/example.md",
-    "example:ordered": "node bin/index.js -p examples/ordered -o examples/ordered/example.md",
-    "example:ordered:prog": "node examples/ordered/generate.js -p examples/ordered -o examples/ordered/example.md",
-    "example:multi": "node bin/index.js -p examples/multi -o examples/multi/output/ --multi --createPath",
-    "example:multi:prog": "node examples/multi/generate.js -p examples/multi -o examples/multi/output/",
-    "example:all": "npm run example:basic && npm run example:ordered && npm run example:multi",
-    "example:clean": "rm -rf examples/basic/example.md examples/multi/output/ examples/ordered/example.md"
+    "example:clean": "rm -rf examples/basic/example.md examples/multi/output/ examples/ordered/example.md",
+    "test": "ava --verbose"
   },
   "dependencies": {
-    "ejs": "^2.6.1",
-    "semver": "^6.1.1",
-    "yargs": "^13.2.2"
+    "ejs": "^2.7.1",
+    "semver": "^6.3.0",
+    "yargs": "^14.2.0"
+  },
+  "devDependencies": {
+    "@types/ejs": "^2.6.3",
+    "@types/node": "^12.11.1",
+    "@types/semver": "^6.0.2",
+    "@types/yargs": "^13.0.3",
+    "ava": "^2.4.0",
+    "ts-node": "^8.4.1",
+    "typescript": "^3.6.4"
+  },
+  "ava": {
+    "compileEnhancements": false,
+    "extensions": [
+      "ts"
+    ],
+    "require": [
+      "ts-node/register"
+    ]
   },
   "repository": {
     "type": "git",
@@ -48,8 +62,5 @@
     "softdevstory (https://github.com/softdevstory)",
     "vanekj (https://github.com/vanekj)"
   ],
-  "license": "MIT",
-  "devDependencies": {
-    "eslint": "^5.16.0"
-  }
+  "license": "MIT"
 }
