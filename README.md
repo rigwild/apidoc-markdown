@@ -45,7 +45,7 @@ Examples:
 ### Command-line arguments
 | Option      | Alias         | Description |
 | ----------- | ------------- | ----------- |
-| `--path <apiDoc_path>` | `-p` | Path to generated apiDoc output directory. Where `api_data.json` and `api_project.json` resides. |
+| `--apiDocPath <apiDoc_path>` | `-p` | Path to generated apiDoc output directory. Where `api_data.json` and `api_project.json` resides. |
 | `--output <output_path>` | `-o` | Output file or directory to write output to |
 | `--template <template_path>` | `-t` | Path to EJS template file, if not specified default template will be used. |
 | `--prepend <file_path>` |  | Path to file content to add before route groups documentation |
