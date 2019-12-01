@@ -27,18 +27,18 @@
     "test": "ava --verbose"
   },
   "dependencies": {
-    "ejs": "^2.7.1",
+    "ejs": "^3.0.1",
     "semver": "^6.3.0",
-    "yargs": "^14.2.0"
+    "yargs": "^15.0.2"
   },
   "devDependencies": {
-    "@types/ejs": "^2.6.3",
-    "@types/node": "^12.11.1",
-    "@types/semver": "^6.0.2",
+    "@types/ejs": "^2.7.0",
+    "@types/node": "^12.12.14",
+    "@types/semver": "^6.2.0",
     "@types/yargs": "^13.0.3",
     "ava": "^2.4.0",
-    "ts-node": "^8.4.1",
-    "typescript": "^3.6.4"
+    "ts-node": "^8.5.4",
+    "typescript": "^3.7.2"
   },
   "ava": {
     "compileEnhancements": false,
