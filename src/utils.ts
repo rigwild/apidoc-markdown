@@ -29,7 +29,13 @@ export const pathExists = (p: string) => fs.access(p).then(() => true).catch(err
  * @throws Path does not exist
  * @throws Not a JSON-valid file
  */
-export const importApiDocData = async (apiDocPath: string): Promise<ApiDocData> => ({
-  projectData: await import(path.resolve(apiDocPath, 'api_project.json')),
-  apiData: Object.values<any>((await import(path.resolve(apiDocPath, 'api_data.json')))).filter((x: any) => x.type)
-})
+export const importApiDocData = async (apiDocPath: string): Promise<ApiDocData> => {
+  // Be backward-compatible with legacy `api_project.json`
+  const projectData = await import(path.resolve(apiDocPath, 'apidoc.json'))
+    .catch(() => import(path.resolve(apiDocPath, 'api_project.json')))
+
+  return ({
+    projectData,
+    apiData: Object.values<any>((await import(path.resolve(apiDocPath, 'api_data.json')))).filter((x: any) => x.type)
+  })
+}
