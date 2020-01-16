@@ -1,0 +1,21 @@
+{
+  "name": "AcmeCorp Api documentation",
+  "version": "0.3.0",
+  "description": "Documentation for the REST api access provided at AcmeCorp",
+  "title": "Custom apiDoc browser title",
+  "url": "https://api.example.com",
+  "sampleUrl": "https://apidoc.free.beeceptor.com",
+  "template": {
+    "withCompare": true,
+    "withGenerator": true,
+    "aloneDisplay": false
+  },
+  "defaultVersion": "0.0.0",
+  "apidoc": "0.3.0",
+  "generator": {
+    "name": "apidoc",
+    "time": "2020-01-16T20:53:10.215Z",
+    "url": "http://apidocjs.com",
+    "version": "0.19.1"
+  }
+}

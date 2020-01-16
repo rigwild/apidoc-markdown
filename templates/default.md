@@ -31,7 +31,7 @@
 | Name    | Type      | Description                          |
 |---------|-----------|--------------------------------------|
 <% sub.header.fields.Header.forEach(header => { -%>
-| <%- header.field %> | <%- header.type %> | <%- header.optional ? '**optional**' : '' %><%- header.description %>|
+| <%- header.field %> | <%- header.type ? `\`${header.type}\`` : '' %> | <%- header.optional ? '**optional**' : '' %><%- header.description %>|
 <% }) // foreach parameter -%>
 <% } // if parameters -%>
 
@@ -52,7 +52,7 @@
 | Name     | Type       | Description                           |
 |:---------|:-----------|:--------------------------------------|
 <% sub.parameter.fields[g].forEach(param => { -%>
-| <%- param.field -%> | `<%- param.type -%>` | <%- param.optional ? '**optional**' : '' -%><%- param.description -%>
+| <%- param.field -%> | <%- param.type ? `\`${param.type}\`` : '' %> | <%- param.optional ? '**optional**' : '' -%><%- param.description -%>
 <% if (param.defaultValue) { -%>
 _Default value: <%= param.defaultValue %>_<br><% } -%>
 <% if (param.size) { -%>
@@ -92,7 +92,7 @@ _Allowed values: <%- param.allowedValues %>_<% } -%> |
 | Name     | Type       | Description                           |
 |:---------|:-----------|:--------------------------------------|
 <% sub.success.fields[g].forEach(param => { -%>
-| <%- param.field %> | <%- param.type ? `param.type` : ''  %> | <%- param.optional ? '**optional**' : '' %><%- param.description -%>
+| <%- param.field %> | <%- param.type ? `\`${param.type}\`` : '' %> | <%- param.optional ? '**optional**' : '' %><%- param.description -%>
 <% if (param.defaultValue) { -%>
 _Default value: <%- param.defaultValue %>_<br><% } -%>
 <% if (param.size) { -%>
@@ -121,7 +121,7 @@ _Allowed values: <%- param.allowedValues %>_<% } -%> |
 | Name     | Type       | Description                           |
 |:---------|:-----------|:--------------------------------------|
 <% sub.error.fields[g].forEach(param => { -%>
-| <%- param.field %> | <%- param.type ? `param.type` : ''  %> | <%- param.optional ? '**optional**' : '' %><%- param.description -%>
+| <%- param.field %> | <%- param.type ? `\`${param.type}\`` : '' %> | <%- param.optional ? '**optional**' : '' %><%- param.description -%>
 <% if (param.defaultValue) { -%>
 _Default value: <%- param.defaultValue %>_<br><% } -%>
 <% if (param.size) { -%>

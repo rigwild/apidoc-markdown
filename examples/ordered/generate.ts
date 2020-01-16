@@ -1,12 +1,11 @@
-'use strict'
+import { resolve as r } from 'path'
+import { generateMarkdownFile } from '../../src'
 
 // The following script will generate the `./example.md` file
 
-const r = require('path').resolve
-
-require('../../dist').generateMarkdownFile({
+export default () => generateMarkdownFile({
   // Path to apiDoc data directory
-  apiDocPath: r(__dirname),
+  apiDocPath: r(__dirname, '..', '_apiDocData'),
   // Output path
   output: r(__dirname, 'example.md'),
   // Template path

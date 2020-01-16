@@ -60,9 +60,9 @@ This project has been fully refactored to support programmatic use. Every functi
 
 | Example | Description |
 | ------- | ----------- |
-| [Basic generation](./examples/basic/generate.js) | Generate documentation from the included example data |
-| [Basic generation with ordering](./examples/ordered/generate.js) | Generate documentation from the included example data with order settings |
-| [One file per group generation](./examples/multi/generate.js) | Generate documentation from the included example data, one file per group |
+| [Basic generation](./examples/basic/generate.ts) | Generate documentation from the included example data |
+| [Basic generation with ordering](./examples/ordered/generate.ts) | Generate documentation from the included example data with order settings |
+| [One file per group generation](./examples/multi/generate.ts) | Generate documentation from the included example data, one file per group |
 
 ## Configuration
 ### Endpoints order
