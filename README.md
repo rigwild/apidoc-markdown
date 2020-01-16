@@ -5,6 +5,8 @@ Generate API documentation in markdown from [apiDoc](https://github.com/apidoc/a
 
 This is an up to date and maintained fork of [@martinj/node-apidoc-markdown](https://github.com/martinj/node-apidoc-markdown) (which is not maintained). The template was updated with recent apiDoc features thanks to [this fork](https://github.com/softdevstory/node-apidoc-markdown).
 
+The documentation template has been updated. The project was fully rewrote to TypeScript and programmatic usage. Tests were added.
+
 ## Installation
 ```bash
 # Command line utility
@@ -82,20 +84,8 @@ Generate documentation from the included example data, one file per group. [View
 apidoc-markdown -p examples/multi -o examples/multi/output --multi --createPath
 ```
 
-## Todo
- - [x] Refactor project code
- - [x] Update and clean dependencies
- - [x] Refactor command-line tool
- - [x] Update Markdown default template to working EJS (Update breaking changes)
- - [x] Update default template for new apiDoc features.
- - [x] CLI option : Export documentation to 1 file per group
- - [x] Programmatic use
- - [x] Automated tests
- - [x] Asynchronous code
- - [x] TypeScript rewrite
- - [ ] One file per route feature
-
- Don't hesitate to suggest any feature you would like by creating an [issue](https://github.com/rigwild/apidoc-markdown/issues) or a [pull request](https://github.com/rigwild/apidoc-markdown/pulls).
+## Contribute
+Don't hesitate to suggest any feature you would like by creating an [issue](https://github.com/rigwild/apidoc-markdown/issues) or a [pull request](https://github.com/rigwild/apidoc-markdown/pulls).
 
 ## License
 [The MIT license](./LICENSE)
