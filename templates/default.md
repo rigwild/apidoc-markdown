@@ -37,7 +37,7 @@
 
 <% if (sub.header && sub.header.examples && sub.header.examples.length) { -%>
 
-### Header Examples
+### Header examples
 <% sub.header.examples.forEach(example => { -%>
 <%= example.title %>
 
@@ -48,7 +48,7 @@
 <% } // if example -%>
 <% if (sub.parameter && sub.parameter.fields) { -%>
 <% Object.keys(sub.parameter.fields).forEach(g => { -%>
-### <%= g -%> Parameters
+### Parameters - `<%= g -%>`
 | Name     | Type       | Description                           |
 |:---------|:-----------|:--------------------------------------|
 <% sub.parameter.fields[g].forEach(param => { -%>
@@ -75,7 +75,7 @@ _Allowed values: <%- param.allowedValues %>_<% } -%> |
 <% } // if example -%>
 
 <% if (sub.parameter && sub.parameter.examples && sub.parameter.examples.length) { -%>
-### Param Examples
+### Parameters examples
 <% sub.parameter.examples.forEach(exampleParam => { -%>
 `<%= exampleParam.type %>` - <%= exampleParam.title %>
 
@@ -84,24 +84,15 @@ _Allowed values: <%- param.allowedValues %>_<% } -%> |
 ```
 <% }) // foreach exampleParam -%>
 <% } // if exampleParam -%>
-<% if (sub.success && sub.success.examples && sub.success.examples.length) { -%>
-### Success Response
-<% sub.success.examples.forEach(example => { -%>
-<%= example.title %>
-
-```
-<%- example.content %>
-```
-<% }) // foreach success example -%>
-<% } // if examples -%>
 
 <% if (sub.success && sub.success.fields) { -%>
+### Success response
 <% Object.keys(sub.success.fields).forEach(g => { -%>
-### <%= g %>
+#### Success response - `<%= g %>`
 | Name     | Type       | Description                           |
 |:---------|:-----------|:--------------------------------------|
 <% sub.success.fields[g].forEach(param => { -%>
-| <%- param.field %> | `<%- param.type %>` | <%- param.optional ? '**optional**' : '' %><%- param.description -%>
+| <%- param.field %> | <%- param.type ? `param.type` : ''  %> | <%- param.optional ? '**optional**' : '' %><%- param.description -%>
 <% if (param.defaultValue) { -%>
 _Default value: <%- param.defaultValue %>_<br><% } -%>
 <% if (param.size) { -%>
@@ -111,16 +102,45 @@ _Allowed values: <%- param.allowedValues %>_<% } -%> |
 <% }) // foreach (group) parameter -%>
 <% }) // foreach field -%>
 <% } // if success.fields -%>
-<% if (sub.error && sub.error.examples && sub.error.examples.length) { -%>
 
-### Error Response
+<% if (sub.success && sub.success.examples && sub.success.examples.length) { -%>
+### Success response example
+<% sub.success.examples.forEach(example => { -%>
+#### Success response example - `<%= example.title %>`
+
+```
+<%- example.content %>
+```
+<% }) // foreach success example -%>
+<% } // if success.examples -%>
+
+<% if (sub.error && sub.error.fields) { -%>
+### Error response
+<% Object.keys(sub.error.fields).forEach(g => { -%>
+#### Error response - `<%= g %>`
+| Name     | Type       | Description                           |
+|:---------|:-----------|:--------------------------------------|
+<% sub.error.fields[g].forEach(param => { -%>
+| <%- param.field %> | <%- param.type ? `param.type` : ''  %> | <%- param.optional ? '**optional**' : '' %><%- param.description -%>
+<% if (param.defaultValue) { -%>
+_Default value: <%- param.defaultValue %>_<br><% } -%>
+<% if (param.size) { -%>
+_Size range: <%- param.size -%>_<br><% } -%>
+<% if (param.allowedValues) { -%>
+_Allowed values: <%- param.allowedValues %>_<% } -%> |
+<% }) // foreach (group) parameter -%>
+<% }) // foreach field -%>
+<% } // if error.fields -%>
+
+<% if (sub.error && sub.error.examples && sub.error.examples.length) { -%>
+### Error response example
 <% sub.error.examples.forEach(example => { -%>
-<%= example.title %>
+#### Error response example - `<%= example.title %>`
 
 ```
 <%- example.content %>
 ```
 <% }) // foreach error example -%>
-<% } // if examples -%>
-<% }) // foreach sub  -%>
+<% } // if error.examples -%>
+<% }) // foreach sub -%>
 <% }) // foreach group -%>
