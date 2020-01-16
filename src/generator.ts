@@ -84,10 +84,11 @@ export const getCompiler = async ({ apiDocPath, template, prepend }: Pick<Config
 
   // This is the config passed to the template
   const templateConfig = {
-    project: projectData,
-    prepend: prepend ? (await fs.readFile(prepend)).toString() : null,
     // Every functions in `utils_template.js` are passed to the EJS compiler
-    ...utilsTemplate
+    ...utilsTemplate,
+
+    project: projectData,
+    prepend: prepend ? (await fs.readFile(prepend)).toString() : null
   }
 
   return {
