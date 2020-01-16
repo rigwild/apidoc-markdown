@@ -19,14 +19,23 @@ Multilines are possible.
 GET /post/:id
 ```
 
-### Parameter Parameters
+### Parameters - `Parameter`
 | Name     | Type       | Description                           |
 |:---------|:-----------|:--------------------------------------|
 | id | `String` | The post ID. |
 
 
-### Success 200
+### Success response
+#### Success response - `Success 200`
 | Name     | Type       | Description                           |
 |:---------|:-----------|:--------------------------------------|
-| id | `String` | The post ID. |
-| name | `Date` | Creation date of the post. |
+| id | param.type | The post ID. |
+| name | param.type | Creation date of the post. |
+
+
+### Error response
+#### Error response - `Error 4xx`
+| Name     | Type       | Description                           |
+|:---------|:-----------|:--------------------------------------|
+| UserNotFound |  | The <code>id</code> of the User was not found. |
+

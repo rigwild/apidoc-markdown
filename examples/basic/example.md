@@ -24,7 +24,7 @@ Compare Verison 0.3.0 with 0.2.0 and you will see the green markers with new ite
 GET /user/:id
 ```
 
-### Parameter Parameters
+### Parameters - `Parameter`
 | Name     | Type       | Description                           |
 |:---------|:-----------|:--------------------------------------|
 | id | `String` | The Users-ID. |
@@ -39,7 +39,7 @@ CURL example:
 
 ```
 
-### Param Examples
+### Parameters examples
 `json` - Param example:
 
 ```json
@@ -51,8 +51,17 @@ CURL example:
   "description": "The Users-ID."
 }
 ```
-### Success Response
-Success-Response (example):
+
+### Success response
+#### Success response - `Success 200`
+| Name     | Type       | Description                           |
+|:---------|:-----------|:--------------------------------------|
+| id | param.type | The Users-ID. |
+| registered | param.type | Registration Date. |
+| name | param.type | Fullname of the User. |
+
+### Success response example
+#### Success response example - `Success-Response (example):`
 
 ```
    HTTP/1.1 200 OK
@@ -64,15 +73,15 @@ Success-Response (example):
 
 ```
 
-### Success 200
+### Error response
+#### Error response - `Error 4xx`
 | Name     | Type       | Description                           |
 |:---------|:-----------|:--------------------------------------|
-| id | `String` | The Users-ID. |
-| registered | `Date` | Registration Date. |
-| name | `Date` | Fullname of the User. |
+| NoAccessRight |  | Only authenticated Admins can access the data. |
+| UserNotFound |  | The <code>id</code> of the User was not found. |
 
-### Error Response
-Error-Response (example):
+### Error response example
+#### Error response example - `Error-Response (example):`
 
 ```
    HTTP/1.1 401 Not Authenticated
@@ -91,19 +100,28 @@ Define blocks with params that will be used in several functions, so you dont ha
 POST /user
 ```
 
-### Parameter Parameters
+### Parameters - `Parameter`
 | Name     | Type       | Description                           |
 |:---------|:-----------|:--------------------------------------|
 | name | `String` | Name of the User. |
 
 
-### Success 200
+### Success response
+#### Success response - `Success 200`
 | Name     | Type       | Description                           |
 |:---------|:-----------|:--------------------------------------|
-| id | `String` | The new Users-ID. |
+| id | param.type | The new Users-ID. |
 
-### Error Response
- Response (example):
+
+### Error response
+#### Error response - `Error 4xx`
+| Name     | Type       | Description                           |
+|:---------|:-----------|:--------------------------------------|
+| NoAccessRight |  | Only authenticated Admins can access the data. |
+| UserNameTooShort |  | Minimum of 5 characters required. |
+
+### Error response example
+#### Error response example - ` Response (example):`
 
 ```
    HTTP/1.1 400 Bad Request
@@ -122,19 +140,28 @@ Define blocks with params that will be used in several functions, so you dont ha
 POST /user
 ```
 
-### Parameter Parameters
+### Parameters - `Parameter`
 | Name     | Type       | Description                           |
 |:---------|:-----------|:--------------------------------------|
 | name | `String` | Name of the User. |
 
 
-### Success 200
+### Success response
+#### Success response - `Success 200`
 | Name     | Type       | Description                           |
 |:---------|:-----------|:--------------------------------------|
-| id | `String` | The Users-ID. |
+| id | param.type | The Users-ID. |
 
-### Error Response
- Response (example):
+
+### Error response
+#### Error response - `Error 4xx`
+| Name     | Type       | Description                           |
+|:---------|:-----------|:--------------------------------------|
+| NoAccessRight |  | Only authenticated Admins can access the data. |
+| UserNameTooShort |  | Minimum of 5 characters required. |
+
+### Error response example
+#### Error response example - ` Response (example):`
 
 ```
    HTTP/1.1 400 Bad Request
@@ -152,15 +179,23 @@ This function has same errors like POST /user, but errors not defined again, the
 PUT /user/:id
 ```
 
-### Parameter Parameters
+### Parameters - `Parameter`
 | Name     | Type       | Description                           |
 |:---------|:-----------|:--------------------------------------|
 | name | `String` | Name of the User. |
 
 
 
-### Error Response
- Response (example):
+
+### Error response
+#### Error response - `Error 4xx`
+| Name     | Type       | Description                           |
+|:---------|:-----------|:--------------------------------------|
+| NoAccessRight |  | Only authenticated Admins can access the data. |
+| UserNameTooShort |  | Minimum of 5 characters required. |
+
+### Error response example
+#### Error response example - ` Response (example):`
 
 ```
    HTTP/1.1 400 Bad Request
@@ -181,14 +216,23 @@ Multilines are possible.
 GET /post/:id
 ```
 
-### Parameter Parameters
+### Parameters - `Parameter`
 | Name     | Type       | Description                           |
 |:---------|:-----------|:--------------------------------------|
 | id | `String` | The post ID. |
 
 
-### Success 200
+### Success response
+#### Success response - `Success 200`
 | Name     | Type       | Description                           |
 |:---------|:-----------|:--------------------------------------|
-| id | `String` | The post ID. |
-| name | `Date` | Creation date of the post. |
+| id | param.type | The post ID. |
+| name | param.type | Creation date of the post. |
+
+
+### Error response
+#### Error response - `Error 4xx`
+| Name     | Type       | Description                           |
+|:---------|:-----------|:--------------------------------------|
+| UserNotFound |  | The <code>id</code> of the User was not found. |
+
