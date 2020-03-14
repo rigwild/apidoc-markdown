@@ -1,20 +1,24 @@
 import path from 'path'
-import { generateMarkdownFile } from '../../src'
+import { generateMarkdownFileSystem } from '../../src'
 
 // The following will generate the `./example.md` file.
-
 export default () =>
-  generateMarkdownFile({
+  generateMarkdownFileSystem({
     // Path to apiDoc data directory
-    apiDocPath: path.resolve(__dirname, '..', '_apiDocData'),
+    apiDocPath: path.resolve(__dirname, '..', '_apiDocData', 'out'),
+
     // Output path
-    output: path.resolve(__dirname, 'output'),
+    output: path.resolve(__dirname, 'example.md'),
+
     // Template path
     template: path.resolve(__dirname, '..', '..', 'templates', 'default.md'),
+
     // File to preprend documentation with
-    prepend: null,
+    prepend: undefined,
+
     // Should the documentation be generated one file per group
-    multi: true,
+    multi: false,
+
     // Should the path to output path be recursively generated (mkdir -p)
-    createPath: true
+    createPath: false
   })

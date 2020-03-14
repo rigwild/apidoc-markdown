@@ -23,6 +23,8 @@
   "scripts": {
     "build": "tsc",
     "help": "node bin/index.js -h",
+    "example:apidoc": "cd examples/_apiDocData && rm -rf out && apidoc -i src -o out",
+    "example:generate": "ts-node examples/generateExamples.ts",
     "example:clean": "rm -rf examples/basic/example.md examples/multi/output/ examples/ordered/example.md",
     "test": "ava --verbose"
   },
@@ -36,6 +38,7 @@
     "@types/node": "^13.7.6",
     "@types/semver": "^7.1.0",
     "@types/yargs": "^15.0.4",
+    "apidoc": "^0.20.0",
     "ava": "^3.4.0",
     "ts-node": "^8.6.2",
     "typescript": "^3.8.2"
