@@ -6,4 +6,4 @@
 const argv = require('../dist/cli').default
 
 // Start the binary
-require('../dist').generateMarkdownFile(argv)
+require('../dist/index').generateMarkdownFileSystem(argv)

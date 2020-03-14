@@ -1,6 +1,6 @@
 {
   "name": "@rigwild/apidoc-markdown",
-  "version": "3.2.2",
+  "version": "4.0.0",
   "description": "Generate API documentation in Markdown format from apiDoc data",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -21,7 +21,7 @@
     "command-line"
   ],
   "scripts": {
-    "build": "tsc",
+    "build": "tsc -p tsconfig.prod.json",
     "help": "node bin/index.js -h",
     "example:apidoc": "cd examples/_apiDocData && rm -rf out && apidoc -i src -o out",
     "example:generate": "ts-node examples/generateExamples.ts",

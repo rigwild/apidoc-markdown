@@ -1,6 +1,6 @@
 import path from 'path'
 import yargs from 'yargs'
-import { ConfigurationObj } from './types'
+import { ConfigurationObjectCLI } from './types'
 
 const cli = yargs
   .usage('Generate Markdown documentation from apiDoc data.')
@@ -49,4 +49,4 @@ const cli = yargs
   .epilog('@rigwild/apidoc-markdown - https://github.com/rigwild/apidoc-markdown')
   .wrap(yargs.terminalWidth())
 
-export default <ConfigurationObj>cli.argv
+export default <ConfigurationObjectCLI>cli.argv
