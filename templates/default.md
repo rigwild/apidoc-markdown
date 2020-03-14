@@ -7,34 +7,33 @@
 - [<%= group.name %>](#<%= toLink(group.name) %>)
 	<% group.subs.forEach(sub => { -%>
 - [<%= sub.title %>](#<%= toLink(sub.title) %>)
-	<% }) -%>
-
+	<% }) %>
 <% }) -%>
 
 <% if (prepend) { -%>
 <%- prepend %>
 <% } -%>
 <% data.forEach(group => { -%>
-# <a name='<%= toLink(group.name) %>'></a> <%= group.name %>
 
+# <a name='<%= toLink(group.name) %>'></a> <%= group.name %>
 <% group.subs.forEach(sub => { -%>
+
 ## <a name='<%= toLink(sub.title) %>'></a> <%= sub.title %>
 [Back to top](#top)
 
-<%- sub.description %>
-
+<%- sub.description ? `${sub.description}\n\n` : '' -%>
 ```
 <%- sub.type.toUpperCase() %> <%= sub.url %>
 ```
-<% if (sub.header && sub.header.fields.Header.length) { -%>
+<% if (sub.header && sub.header.fields && sub.header.fields.Header.length) { -%>
+
 ### Headers
 | Name    | Type      | Description                          |
 |---------|-----------|--------------------------------------|
 <% sub.header.fields.Header.forEach(header => { -%>
-| <%- header.field %> | <%- header.type ? `\`${header.type}\`` : '' %> | <%- header.optional ? '**optional**' : '' %><%- header.description %>|
+| <%- header.field %> | <%- header.type ? `\`${header.type}\`` : '' %> | <%- header.optional ? '**optional**' : '' %><%- header.description %> |
 <% }) // foreach parameter -%>
 <% } // if parameters -%>
-
 <% if (sub.header && sub.header.examples && sub.header.examples.length) { -%>
 
 ### Header examples
@@ -48,11 +47,12 @@
 <% } // if example -%>
 <% if (sub.parameter && sub.parameter.fields) { -%>
 <% Object.keys(sub.parameter.fields).forEach(g => { -%>
+
 ### Parameters - `<%= g -%>`
 | Name     | Type       | Description                           |
 |:---------|:-----------|:--------------------------------------|
 <% sub.parameter.fields[g].forEach(param => { -%>
-| <%- param.field -%> | <%- param.type ? `\`${param.type}\`` : '' %> | <%- param.optional ? '**optional**' : '' -%><%- param.description -%>
+| <%- param.field -%> | <%- param.type ? `\`${param.type}\`` : '' %> | <%- param.optional ? '**optional** ' : '' -%><%- param.description -%>
 <% if (param.defaultValue) { -%>
 _Default value: <%= param.defaultValue %>_<br><% } -%>
 <% if (param.size) { -%>
@@ -73,8 +73,8 @@ _Allowed values: <%- param.allowedValues %>_<% } -%> |
 ```
 <% }) // foreach example -%>
 <% } // if example -%>
-
 <% if (sub.parameter && sub.parameter.examples && sub.parameter.examples.length) { -%>
+
 ### Parameters examples
 <% sub.parameter.examples.forEach(exampleParam => { -%>
 `<%= exampleParam.type %>` - <%= exampleParam.title %>
@@ -84,10 +84,11 @@ _Allowed values: <%- param.allowedValues %>_<% } -%> |
 ```
 <% }) // foreach exampleParam -%>
 <% } // if exampleParam -%>
-
 <% if (sub.success && sub.success.fields) { -%>
+
 ### Success response
 <% Object.keys(sub.success.fields).forEach(g => { -%>
+
 #### Success response - `<%= g %>`
 | Name     | Type       | Description                           |
 |:---------|:-----------|:--------------------------------------|
@@ -102,10 +103,11 @@ _Allowed values: <%- param.allowedValues %>_<% } -%> |
 <% }) // foreach (group) parameter -%>
 <% }) // foreach field -%>
 <% } // if success.fields -%>
-
 <% if (sub.success && sub.success.examples && sub.success.examples.length) { -%>
+
 ### Success response example
 <% sub.success.examples.forEach(example => { -%>
+
 #### Success response example - `<%= example.title %>`
 
 ```
@@ -113,10 +115,11 @@ _Allowed values: <%- param.allowedValues %>_<% } -%> |
 ```
 <% }) // foreach success example -%>
 <% } // if success.examples -%>
-
 <% if (sub.error && sub.error.fields) { -%>
+
 ### Error response
 <% Object.keys(sub.error.fields).forEach(g => { -%>
+
 #### Error response - `<%= g %>`
 | Name     | Type       | Description                           |
 |:---------|:-----------|:--------------------------------------|
@@ -131,10 +134,11 @@ _Allowed values: <%- param.allowedValues %>_<% } -%> |
 <% }) // foreach (group) parameter -%>
 <% }) // foreach field -%>
 <% } // if error.fields -%>
-
 <% if (sub.error && sub.error.examples && sub.error.examples.length) { -%>
+
 ### Error response example
 <% sub.error.examples.forEach(example => { -%>
+
 #### Error response example - `<%= example.title %>`
 
 ```
