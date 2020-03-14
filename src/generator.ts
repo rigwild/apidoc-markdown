@@ -13,16 +13,18 @@ import { ConfigurationObj } from './types'
  * @param param0 Generator parameters
  * @throws A parameter is not set or invalid
  */
-const loadApiDocProject = async ({ apiDocPath, template, prepend }: Pick<ConfigurationObj, 'apiDocPath' | 'template' | 'prepend'>) => {
+const loadApiDocProject = async ({
+  apiDocPath,
+  template,
+  prepend
+}: Pick<ConfigurationObj, 'apiDocPath' | 'template' | 'prepend'>) => {
   // Check the apiDoc data path exists
   if (!apiDocPath) throw new Error('`apiDocPath` is required but was not provided.')
-  if (!(await utils.pathExists(apiDocPath)))
-    throw new Error('The `apiDocPath` path does not exist or is not readable.')
+  if (!(await utils.pathExists(apiDocPath))) throw new Error('The `apiDocPath` path does not exist or is not readable.')
 
   // Check the template file path exists
   if (!template) throw new Error('`template` is required but was not provided.')
-  if (!(await utils.pathExists(template)))
-    throw new Error('The `template` path does not exist or is not readable.')
+  if (!(await utils.pathExists(template))) throw new Error('The `template` path does not exist or is not readable.')
 
   // Check the prepend file path exists
   if (prepend && !(await utils.pathExists(prepend)))
@@ -41,45 +43,49 @@ const loadApiDocProject = async ({ apiDocPath, template, prepend }: Pick<Configu
  * @param param0 Documentation generator parameters
  * @returns The single and multi file compilers, ready for usage
  */
-export const getCompiler = async ({ apiDocPath, template, prepend }: Pick<ConfigurationObj, 'apiDocPath' | 'template' | 'prepend'>) => {
+export const getCompiler = async ({
+  apiDocPath,
+  template,
+  prepend
+}: Pick<ConfigurationObj, 'apiDocPath' | 'template' | 'prepend'>) => {
   const { apiData, projectData, ejsCompiler } = await loadApiDocProject({ apiDocPath, template, prepend })
-
   // Define template data
   let apiByGroupAndName: any[]
 
-  if (projectData.order) {
-    // Group apiDoc data by group, name and with respect of order
-    apiByGroupAndName = projectData.order
-      .reduce((acc: any, cur: any) => {
-        if (apiData.find(x => x.group === cur)) acc.push({ name: cur, subs: [] })
-        return acc
-      }, [])
-      .map((g: any) => {
-        projectData.order.forEach((x: any) => {
-          let groupItem = apiData.find(y => y.group === g.name && y.name === x)
-          if (groupItem) g.subs.push(groupItem)
-        })
-        return g
-      })
-  }
-  else {
-    // Group apiDoc data by group and name
-    apiByGroupAndName = utils.unique(Object.values(apiData).map(x => x.group))
-      .reduce((acc, cur) => {
-        if (apiData.find(x => x.group === cur)) acc.push({ name: cur, subs: [] })
-        return acc
-      }, [] as {}[])
-      .map((g: any) => {
-        apiData.forEach(x => x.group === g.name && g.subs.push(x))
-        return g
-      })
-      .map((g: any) => {
-        g.subs = Object.values(g.subs.reduce((acc: any, cur: any) => {
+  // Group apiDoc data by group and name
+  apiByGroupAndName = utils
+    .unique(Object.values(apiData).map(x => x.group))
+    .reduce((acc, cur) => {
+      if (apiData.find(x => x.group === cur)) acc.push({ name: cur, subs: [] })
+      return acc
+    }, [] as {}[])
+    .map((g: any) => {
+      apiData.forEach(x => x.group === g.name && g.subs.push(x))
+      return g
+    })
+    .map((g: any) => {
+      g.subs = Object.values(
+        g.subs.reduce((acc: any, cur: any) => {
           if (!acc[cur.title] || semver.gt(cur.version, acc[cur.title].version)) acc[cur.title] = cur
           return acc
-        }, {}))
-        return g
-      })
+        }, {})
+      )
+      return g
+    })
+
+  // Order using the project order setting
+  if (projectData.order) {
+    // Lowercased project order setting array
+    const orderLowerCase = projectData.order.map((x: string) => x.toLowerCase())
+    // Find items not in the project order setting array
+    const notInOrderArr = apiByGroupAndName.filter(x => orderLowerCase.indexOf(x.name.toLowerCase()) === -1)
+    // Sorted, with the ones not in the project order setting array appended to it
+    apiByGroupAndName = [
+      ...apiByGroupAndName.sort((a, b) =>
+        orderLowerCase.indexOf(a.name.toLowerCase()) >= orderLowerCase.indexOf(b.name.toLowerCase()) ? 1 : -1
+      ),
+      ...notInOrderArr
+    ]
   }
 
   // This is the config passed to the template
@@ -93,10 +99,11 @@ export const getCompiler = async ({ apiDocPath, template, prepend }: Pick<Config
 
   return {
     singleCompiler: () => [{ name: 'main', content: ejsCompiler({ ...templateConfig, data: apiByGroupAndName }) }],
-    multiCompiler: () => apiByGroupAndName.map(x => ({
-      name: x.name,
-      content: ejsCompiler({ ...templateConfig, data: [x] })
-    }))
+    multiCompiler: () =>
+      apiByGroupAndName.map(x => ({
+        name: x.name,
+        content: ejsCompiler({ ...templateConfig, data: [x] })
+      }))
   }
 }
 
@@ -105,7 +112,12 @@ export const getCompiler = async ({ apiDocPath, template, prepend }: Pick<Config
  * @param param0 Generator configuration
  * @returns Generated documentation
  */
-export const generateMarkdown = async ({ apiDocPath, template, prepend, multi }: Omit<ConfigurationObj, 'output' | 'createPath'>) => {
+export const generateMarkdown = async ({
+  apiDocPath,
+  template,
+  prepend,
+  multi
+}: Omit<ConfigurationObj, 'output' | 'createPath'>) => {
   const compilers = await getCompiler({ apiDocPath, template, prepend })
   return !multi ? compilers.singleCompiler() : compilers.multiCompiler()
 }
@@ -115,30 +127,34 @@ export const generateMarkdown = async ({ apiDocPath, template, prepend, multi }:
  * @param param0 Generator configuration
  * @returns Generated documentation data
  */
-export const generateMarkdownFile = async ({ apiDocPath, output, template, prepend, multi, createPath }: ConfigurationObj) => {
+export const generateMarkdownFile = async ({
+  apiDocPath,
+  output,
+  template,
+  prepend,
+  multi,
+  createPath
+}: ConfigurationObj) => {
   // Recursively create directory arborescence if cli option is true
   if (createPath) await utils.mkdirp(output)
 
   // Check the output path exists (only parent directory if unique file)
   if (!output) throw new Error('`output` is required but was not provided.')
   const outputPath = multi ? output : path.parse(path.resolve('.', output)).dir
-  if (!(await utils.pathExists(outputPath)))
-    throw new Error('The `output` path does not exist or is not readable.')
-
+  if (!(await utils.pathExists(outputPath))) throw new Error('The `output` path does not exist or is not readable.')
 
   const docs = await generateMarkdown({ apiDocPath, template, prepend, multi })
   if (!multi) {
     // Single file documentation generation
     const singleDoc = docs[0].content
-    return fs.writeFile(output, singleDoc)
-      .then(() => ({ outputFile: output, content: singleDoc }))
-  }
-  else {
+    return fs.writeFile(output, singleDoc).then(() => ({ outputFile: output, content: singleDoc }))
+  } else {
     // Multi file documentation generation
-    return Promise.all(docs.map(aDoc => {
-      const filePath = path.resolve(outputPath, `${aDoc.name}.md`)
-      return fs.writeFile(filePath, aDoc.content)
-        .then(() => ({ outputFile: filePath, content: aDoc.content }))
-    }))
+    return Promise.all(
+      docs.map(aDoc => {
+        const filePath = path.resolve(outputPath, `${aDoc.name}.md`)
+        return fs.writeFile(filePath, aDoc.content).then(() => ({ outputFile: filePath, content: aDoc.content }))
+      })
+    )
   }
 }
