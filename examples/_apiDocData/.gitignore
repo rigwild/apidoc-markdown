@@ -1,0 +1,3 @@
+out*/**
+!out/api_project.json
+!out/api_data.json
