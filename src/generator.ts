@@ -92,7 +92,7 @@ export const generateMarkdown = async ({
   multi
 }: ConfigurationObject) => {
   // Create the EJS compiler. Load the default documentation template if not provided
-  const ejsCompiler = ejs.compile(template ? template : (await fs.readFile(defaultTemplatePath)).toString())
+  const ejsCompiler = ejs.compile(template ? template : await fs.readFile(defaultTemplatePath, 'utf-8'))
 
   // Generate the actual documentation
   return generate({ apiDocProjectData, apiDocApiData, prepend, multi, ejsCompiler })
@@ -142,7 +142,7 @@ export const generateMarkdownFileSystem = async ({
   const apiDocApiData = Object.values<any>(await import(path.resolve(apiDocPath, 'api_data.json'))).filter(x => x.type)
 
   // Import documentation template
-  const ejsCompiler = ejs.compile((await fs.readFile(template)).toString())
+  const ejsCompiler = ejs.compile(await fs.readFile(template, 'utf-8'))
 
   // Generate the actual documentation
   const documentation = generate({ apiDocProjectData, apiDocApiData, prepend, multi, ejsCompiler })

@@ -1,8 +1,8 @@
 node_modules
-src
 test
 tsconfig.json
 .vscode
 package-lock.json
 examples
 .prettierrc.js
+.github
