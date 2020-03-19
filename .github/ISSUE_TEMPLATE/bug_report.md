@@ -19,7 +19,7 @@ apidoc-markdown -p ./examples/basic -o ./examples/basic/example.md
 ```
 
 ```ts
-import { generateMarkdown } from '@rigwild/apidoc-markdown'
+import { generateMarkdown } from 'apidoc-markdown'
 
 const documentation = await generateMarkdown({
   apiDocProjectData: { name: 'test', version: '0.13.0', /* ... */ },
@@ -118,7 +118,7 @@ A clear and concise description of what you expected to happen.
  - `Node.js` version: `complete_this` [e.g. `13.9.0`]
  - `TypeScript` version: `complete_this` [e.g. `13.9.0`]
  - `apiDoc` version: `complete_this` [e.g. `0.20.0`]
- - `@rigwild/apidoc-markdown` version: `complete_this` [e.g. `1.12.3`]
+ - `apidoc-markdown` version: `complete_this` [e.g. `1.12.3`]
 
 **Additional context**
 Add any other context about the problem here.

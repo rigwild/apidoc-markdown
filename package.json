@@ -1,6 +1,6 @@
 {
-  "name": "@rigwild/apidoc-markdown",
-  "version": "4.0.1",
+  "name": "apidoc-markdown",
+  "version": "5.0.0",
   "description": "Generate API documentation in Markdown format from apiDoc data",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -25,7 +25,7 @@
     "help": "node bin/index.js -h",
     "example:apidoc": "cd examples/_apiDocData && rm -rf out && apidoc -i src -o out",
     "example:generate": "ts-node examples/generateExamples.ts",
-    "example:clean": "rm -rf examples/basic/example.md examples/multi/output/ examples/ordered/example.md",
+    "example:clean": "rm -rf examples/basic/example.md examples/multi/output/",
     "test": "ava --verbose"
   },
   "dependencies": {

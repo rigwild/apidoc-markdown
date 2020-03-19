@@ -1,20 +1,23 @@
-# @rigwild/apidoc-markdown
-[![npm badge](https://img.shields.io/npm/v/@rigwild/apidoc-markdown.svg?logo=npm)](https://www.npmjs.com/package/@rigwild/apidoc-markdown)
+# apidoc-markdown
+[![npm badge](https://img.shields.io/npm/v/apidoc-markdown.svg?logo=npm)](https://www.npmjs.com/package/apidoc-markdown)
 
 Generate API documentation in markdown from [apiDoc](https://github.com/apidoc/apidoc) data.
 
 This is an up to date and maintained fork of [@martinj/node-apidoc-markdown](https://github.com/martinj/node-apidoc-markdown) (which is not maintained). The template was updated with recent apiDoc features thanks to [this fork](https://github.com/softdevstory/node-apidoc-markdown).
 
-The documentation template has been updated. The project was fully rewrote to TypeScript and programmatic usage. Tests were added.
+The documentation template has been updated. The project was fully rewrote to TypeScript with programmatic usage support.
+
+**Note**: If you are upgrading from [`@rigwild/apidoc-markdown`](https://www.npmjs.com/package/@rigwild/apidoc-markdown) to [`apidoc-markdown`](https://www.npmjs.com/package/apidoc-markdown), you must uninstall [`@rigwild/apidoc-markdown`](https://www.npmjs.com/package/@rigwild/apidoc-markdown) first (see [How to uninstall](https://www.npmjs.com/package/@rigwild/apidoc-markdown#deprecated)).
 
 ## Installation
 ```bash
 # For the command line utility
-yarn global add @rigwild/apidoc-markdown # or npm i -g @rigwild/apidoc-markdown
+yarn global add apidoc-markdown # or npm i -g apidoc-markdown
 
 # For programmatic usage
-yarn add @rigwild/apidoc-markdown # or npm i @rigwild/apidoc-markdown
+yarn add apidoc-markdown # or npm i apidoc-markdown
 ```
+
 Then, generate your documentation using your newly added command *`apidoc-markdown`* or [programmatically](#programmatic-usage-API).
 
 ## Usage
@@ -37,7 +40,7 @@ Examples:
   apidoc-markdown -p doc/ -o doc.md                         Generate from `doc/` apiDoc output to `./doc.md`
   apidoc-markdown -p doc -o multi/ --multi --createPath     Generate from `doc/` apiDoc output to `./multi/<group>.md`
 
-@rigwild/apidoc-markdown - https://github.com/rigwild/apidoc-markdown
+apidoc-markdown - https://github.com/rigwild/apidoc-markdown
 ```
 
 ### Command-line arguments
@@ -50,6 +53,8 @@ Examples:
 | `--prepend <file_path>` |  | Path to file content to add before route groups documentation. |
 | `--multi` |  | Output one file per group to the `--output` directory. |
 | `--createPath` |  | Recursively create directory arborescence to the `--output` directory |
+
+See [Example](#example) for usage examples.
 
 ## Programmatic usage API
 #### generateMarkdown
@@ -81,7 +86,7 @@ export declare interface ConfigurationObject {
 
 Usage example:
 ```ts
-import { generateMarkdown } from '@rigwild/apidoc-markdown'
+import { generateMarkdown } from 'apidoc-markdown'
 
 const documentation = await generateMarkdown({
   apiDocProjectData: { name: 'test', version: '0.13.0', /* ... */ },
@@ -125,7 +130,7 @@ export declare interface ConfigurationObjectCLI {
 Usage example (see [`./examples/basic/generate.ts`](./examples/basic/generate.ts)):
 ```ts
 import path from 'path'
-import { generateMarkdownFileSystem } from '@rigwild/apidoc-markdown'
+import { generateMarkdownFileSystem } from 'apidoc-markdown'
 
 const documentation = await generateMarkdownFileSystem({
   apiDocPath: path.resolve(__dirname, 'path', 'to', 'apiDoc', 'output', 'files', 'directory'),

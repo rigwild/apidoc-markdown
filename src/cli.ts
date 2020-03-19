@@ -46,7 +46,7 @@ const cli = yargs
   })
   .help('h')
   .alias('h', 'help')
-  .epilog('@rigwild/apidoc-markdown - https://github.com/rigwild/apidoc-markdown')
+  .epilog('apidoc-markdown - https://github.com/rigwild/apidoc-markdown')
   .wrap(yargs.terminalWidth())
 
 export default <ConfigurationObjectCLI>cli.argv
