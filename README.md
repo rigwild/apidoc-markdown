@@ -136,7 +136,7 @@ const documentation = await generateMarkdownFileSystem({
   apiDocPath: path.resolve(__dirname, 'path', 'to', 'apiDoc', 'output', 'files', 'directory'),
   output: path.resolve(__dirname, 'output'),
   template: path.resolve(__dirname, '..', '..', 'templates', 'default.md'),
-  prepend: 'Prepend this!',
+  prepend: path.resolve(__dirname, 'path', 'to', 'file', 'to', 'prepend')',
   multi: true,
   createPath: true
 })
