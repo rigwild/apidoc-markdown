@@ -4,5 +4,7 @@ module.exports = {
   printWidth: 120,
   useTabs: false,
   vueIndentScriptAndStyle: false,
-  disableLanguages: ['markdown']
+  disableLanguages: ['markdown'],
+  trailingComma: 'none',
+  arrowParens: 'avoid',
 }

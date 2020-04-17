@@ -12,7 +12,7 @@ const defaultTemplatePath = path.resolve(__dirname, '..', 'default.md')
  * Get the documentation generator
  *
  * @param param0 Documentation generator parameters
- * @returns The single and multi file compilers, ready for usage
+ * @returns The single or multi file EJS compiler, ready for usage
  */
 export const generate = ({
   apiDocProjectData,
@@ -73,7 +73,7 @@ export const generate = ({
   return !multi
     ? [{ name: 'main', content: ejsCompiler({ ...templateConfig, data: apiByGroupAndName }) }]
     : apiByGroupAndName.map(x => ({
-        name: x.name,
+        name: x.name as string,
         content: ejsCompiler({ ...templateConfig, data: [x] })
       }))
 }
@@ -151,14 +151,15 @@ export const generateMarkdownFileSystem = async ({
   if (!multi) {
     // Single file documentation generation
     const singleDoc = documentation[0].content
-    return fs.writeFile(output, singleDoc).then(() => [{ outputFile: output, content: singleDoc }])
-  } else {
-    // Multi file documentation generation
-    return Promise.all(
-      documentation.map(aDoc => {
-        const filePath = path.resolve(outputPath, `${aDoc.name}.md`)
-        return fs.writeFile(filePath, aDoc.content).then(() => ({ outputFile: filePath, content: aDoc.content }))
-      })
-    )
+    await fs.writeFile(output, singleDoc)
+    return [{ outputFile: output, content: singleDoc }]
   }
+  // Multi file documentation generation
+  return Promise.all(
+    documentation.map(async aDoc => {
+      const filePath = path.resolve(outputPath, `${aDoc.name}.md`)
+      await fs.writeFile(filePath, aDoc.content)
+      return { outputFile: filePath, content: aDoc.content }
+    })
+  )
 }
