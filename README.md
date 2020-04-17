@@ -20,7 +20,7 @@ yarn global add apidoc-markdown # npm i -g apidoc-markdown
 yarn add apidoc-markdown # npm i apidoc-markdown
 ```
 
-Then, generate your documentation using your newly added command *`apidoc-markdown`* or [programmatically](#programmatic-usage-API).
+Then, generate your documentation using your newly added command `apidoc-markdown` or [programmatically](#programmatic-usage-API).
 
 ## Usage
 ### Help message
