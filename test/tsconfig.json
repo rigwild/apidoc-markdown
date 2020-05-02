@@ -9,6 +9,6 @@
     "alwaysStrict": true,
     "esModuleInterop": true
   },
-  "include": ["tests.ts"],
+  "include": ["test.ts"],
   "exclude": [""]
 }
