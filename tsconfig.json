@@ -11,6 +11,6 @@
     "esModuleInterop": true,
     "resolveJsonModule": true
   },
-  "include": ["src/**/*", "examples/**/*"],
+  "include": ["src/**/*", "example/**/*"],
   "exclude": ["node_modules/**/*"]
 }
