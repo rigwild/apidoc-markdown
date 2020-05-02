@@ -6,5 +6,5 @@ module.exports = {
   vueIndentScriptAndStyle: false,
   disableLanguages: ['markdown'],
   trailingComma: 'none',
-  arrowParens: 'avoid',
+  arrowParens: 'avoid'
 }
