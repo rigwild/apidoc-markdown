@@ -5,6 +5,7 @@ tsconfig.prod.json
 .vscode
 .github
 package-lock.json
-examples
+example
+screenshot.png
 .prettierrc.js
 .gitignore

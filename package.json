@@ -2,31 +2,44 @@
   "name": "apidoc-markdown",
   "version": "5.0.1",
   "description": "Generate API documentation in Markdown format from apiDoc data",
+  "license": "MIT",
+  "repository": "rigwild/apidoc-markdown",
+  "author": {
+    "name": "rigwild",
+    "email": "me@rigwild.dev",
+    "url": "https://rigwild.dev"
+  },
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "bin": {
     "apidoc-markdown": "./bin/index.js"
   },
   "directories": {
-    "example": "examples",
+    "example": "example",
     "lib": "src",
     "test": "test"
   },
   "keywords": [
     "apidoc",
     "markdown",
+    "portable",
+    "api",
+    "documentation",
     "api-documentation",
     "generator",
     "programmatic",
+    "cli",
+    "cli-app",
     "command-line"
   ],
   "scripts": {
     "build": "tsc -p tsconfig.prod.json",
     "help": "node bin/index.js -h",
-    "example:apidoc": "cd examples/_apiDocData && rm -rf out && apidoc -i src -o out",
-    "example:generate": "ts-node examples/generateExamples.ts",
-    "example:clean": "rm -rf examples/basic/example.md examples/multi/output/",
-    "test": "ava --verbose"
+    "example:apidoc": "cd example/_apiDocData && rm -rf out && apidoc -i src -o out",
+    "example:generate": "ts-node example/generateExamples.ts",
+    "example:clean": "rm -rf example/basic/example.md example/multi/output/",
+    "test": "ava --verbose",
+    "prepublishOnly": "yarn build"
   },
   "dependencies": {
     "ejs": "^3.0.2",
@@ -51,18 +64,9 @@
       "ts-node/register"
     ]
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/rigwild/apidoc-markdown"
-  },
-  "bugs": {
-    "url": "https://github.com/rigwild/apidoc-markdown/issues"
-  },
-  "author": "rigwild <me@rigwild.dev> (https://rigwild.dev/)",
   "contributors": [
     "martinj (https://github.com/martinj)",
     "softdevstory (https://github.com/softdevstory)",
     "vanekj (https://github.com/vanekj)"
-  ],
-  "license": "MIT"
+  ]
 }

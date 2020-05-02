@@ -1,7 +1,9 @@
 # apidoc-markdown
-[![npm badge](https://img.shields.io/npm/v/apidoc-markdown.svg?logo=npm)](https://www.npmjs.com/package/apidoc-markdown)
+[![Node.js CI](https://github.com/rigwild/apidoc-markdown/workflows/Node.js%20CI/badge.svg)](https://github.com/rigwild/apidoc-markdown/actions) [![npm package](https://img.shields.io/npm/v/apidoc-markdown.svg?logo=npm)](https://www.npmjs.com/package/apidoc-markdown) ![npm downloads](https://img.shields.io/npm/dw/apidoc-markdown) ![license](https://img.shields.io/npm/l/apidoc-markdown?color=blue)
 
 Generate API documentation in Markdown from [apiDoc](https://github.com/apidoc/apidoc) data. Fully supports programmatic usage.
+
+![Screenshot](screenshot.png)
 
 **Motivation:** I really like the idea of generating API documentations with simple annotations like [apiDoc](https://github.com/apidoc/apidoc) does. Unfortunately, [apiDoc](https://github.com/apidoc/apidoc) outputs a big HTML/CSS/JavaScript project which is not ideal when you want to add it to your GIT project. `apidoc-markdown` lets you convert data from [apiDoc](https://github.com/apidoc/apidoc) to a nice and portable Markdown documentation! 😊
 
@@ -9,22 +11,23 @@ ___
 
 This project is a full-rewrite fork of [@martinj/node-apidoc-markdown](https://github.com/martinj/node-apidoc-markdown), which transfered the npm package name `apidoc-markdown` to me.
 
-**Note**: If you are upgrading from [`@rigwild/apidoc-markdown`](https://www.npmjs.com/package/@rigwild/apidoc-markdown) to [`apidoc-markdown`](https://www.npmjs.com/package/apidoc-markdown), you must uninstall [`@rigwild/apidoc-markdown`](https://www.npmjs.com/package/@rigwild/apidoc-markdown) first (see [How to uninstall](https://www.npmjs.com/package/@rigwild/apidoc-markdown#deprecated)).
-
 ## Installation
+
 ```bash
 # For the command line utility
-yarn global add apidoc-markdown # npm i -g apidoc-markdown
+yarn global add apidoc-markdown
+# npm i -g apidoc-markdown
 
 # For programmatic usage
-yarn add apidoc-markdown # npm i apidoc-markdown
+yarn add apidoc-markdown
+# npm i apidoc-markdown
 ```
 
 Then, generate your documentation using your newly added command `apidoc-markdown` or [programmatically](#programmatic-usage-API).
 
-## Usage
-### Help message
-```bash
+## CLI usage
+
+```
 Generate Markdown documentation from apiDoc data.
 Usage: apidoc-markdown -p <path> -o <output_file> [-t <template_path>] [--multi] [--createPath] [--prepend <file_path>]
 
@@ -51,12 +54,38 @@ apidoc-markdown - https://github.com/rigwild/apidoc-markdown
 | `--help` | `-h` | Show help message |
 | `--apiDocPath <apiDoc_path>` | `-p` | Path to generated apiDoc output directory. Where `api_data.json` and `api_project.json` resides. |
 | `--output <output_path>` | `-o` | Output file or directory to write output to. |
-| `--template <template_path>` | `-t` | Path to an EJS template file. If not specified, the [default template](./templates/default.md) is used (see [Examples](#example)). |
+| `--template <template_path>` | `-t` | Path to an EJS template file. If not specified, the [default template](./templates/default.md) is used (see [Examples](#examples)). |
 | `--prepend <file_path>` |  | Path to file content to add before route groups documentation. |
 | `--multi` |  | Output one file per group to the `--output` directory. |
 | `--createPath` |  | Recursively create directory arborescence to the `--output` directory |
 
-See [Example](#example) for usage examples.
+See [Examples](#examples) for usage examples.
+
+## Quick and easy project integration
+Install [apiDoc](https://github.com/apidoc/apidoc) and [apidoc-markdown](https://github.com/rigwild/apidoc-markdown) as dev dependencies
+
+```bash
+yarn add -D apidoc apidoc-markdown # npm i -D apidoc apidoc-markdown
+```
+
+Add the following script to your `package.json` file (`src` is where are stored your source files containing [apiDoc](https://apidocjs.com/) annotations).
+
+```json
+{
+  "scripts": {
+    "doc": "apidoc -i src -o apidoc-out && apidoc-markdown -p apidoc-out -o DOCUMENTATION.md && rm -rf apidoc-out"
+  }
+}
+```
+
+Run the npm script to generate the `DOCUMENTATION.md` file.
+
+```bash
+yarn doc
+# npm run doc
+```
+
+___
 
 ## Programmatic usage API
 #### generateMarkdown
@@ -67,6 +96,7 @@ generateMarkdown: (config: ConfigurationObject) => Promise<{ name: string, conte
 ```
 
 See [`./src/types`](./src/types.ts).
+
 ```ts
 export declare interface ConfigurationObject {
   /** apiDoc project JSON data object (`api_project.json` (or legacy `apidoc.json`) file content) */
@@ -87,6 +117,7 @@ export declare interface ConfigurationObject {
 ```
 
 Usage example:
+
 ```ts
 import { generateMarkdown } from 'apidoc-markdown'
 
@@ -113,6 +144,7 @@ generateMarkdownFileSystem: (config: ConfigurationObjectCLI) => Promise<{ output
 ```
 
 See [`./src/types`](./src/types.ts).
+
 ```ts
 export declare interface ConfigurationObjectCLI {
   /** Path to generated apiDoc output directory. Where `api_data.json` and `api_project.json` are located */
@@ -135,7 +167,8 @@ export declare interface ConfigurationObjectCLI {
 }
 ```
 
-Usage example (see [`./examples/basic/generate.ts`](./examples/basic/generate.ts)):
+Usage example (see [`./example/basic/generate.ts`](./example/basic/generate.ts)):
+
 ```ts
 import path from 'path'
 import { generateMarkdownFileSystem } from 'apidoc-markdown'
@@ -158,53 +191,30 @@ documentation: {
 
 ## Configuration
 ### Groups order
-You can choose the order in which the documentation groups gets generated by adding an `order` key in `api_project.json` (or `apidoc.json`). [See example](./examples/_apiDocData/out/api_project.json#L15-L22) and [example output](./examples/basic/example.md).
+You can choose the order in which the documentation groups gets generated by adding an `order` key in `api_project.json` (or `apidoc.json`). [See example](./example/_apiDocData/out/api_project.json#L15-L22) and [example output](./example/basic/example.md).
 
 **Note:** This in only available when generating the documentation to a single output file (the `multi` mode generates 1 file per group, so there is nothing to sort).
 
-## Example
+## Examples
 ### Generate apiDoc data
-`apidoc-markdown` requires `apiDoc` generated data (only [`api_data.json`](./examples/_apiDocData/out/api_data.json) and [`api_project.json`](./examples/_apiDocData/out/api_project.json), you can delete every other files).
+`apidoc-markdown` requires `apiDoc` generated data (only [`api_data.json`](./example/_apiDocData/out/api_data.json) and [`api_project.json`](./example/_apiDocData/out/api_project.json), you can delete every other files).
 
 ```bash
 apidoc -i src -o apidoc-out
 ```
 
 ### Basic example
-Generate documentation from the included example data (See [`./examples/basic/example.md`](./examples/basic/example.md)).
+Generate documentation from the included example data (See [`./example/basic/example.md`](./example/basic/example.md)).
 
 ```bash
-apidoc-markdown -p ./examples/basic -o ./examples/basic/example.md
+apidoc-markdown -p ./example/basic -o ./example/basic/example.md
 ```
 
 ### Multi-files example
-Generate documentation from the included example data, one file per group and creating the parent directory of the output (See [`./examples/multi/output/`](./examples/multi/output/)).
+Generate documentation from the included example data, one file per group and creating the parent directory of the output (See [`./example/multi/output/`](./example/multi/output/)).
 
 ```bash
-apidoc-markdown -p ./examples/multi -o ./examples/multi/output --multi --createPath
-```
-
-## Quick and easy project integration
-Install [apiDoc](https://github.com/apidoc/apidoc) and [apidoc-markdown](https://github.com/rigwild/apidoc-markdown) as dev dependencies
-
-```bash
-yarn add -D apidoc apidoc-markdown # npm i -D apidoc apidoc-markdown
-```
-
-Add the following script to your `package.json` file (`src` is where are stored your source files containing [apiDoc](https://apidocjs.com/) annotations).
-
-```json
-{
-  "scripts": {
-    "doc": "apidoc -i src -o apidoc-out && apidoc-markdown -p apidoc-out -o DOCUMENTATION.md && rm -rf apidoc-out"
-  }
-}
-```
-
-Run the npm script to generate the `DOCUMENTATION.md` file.
-
-```bash
-yarn doc # npm run doc
+apidoc-markdown -p ./example/multi -o ./example/multi/output --multi --createPath
 ```
 
 ## Contribute
@@ -215,4 +225,4 @@ When reporting bugs, please fill the issue template correctly with as much info 
 ⭐ Star the project to help it grow! 😄
 
 ## License
-[The MIT license - rigwild](./LICENSE)
+[The MIT license](./LICENSE)

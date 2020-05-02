@@ -15,7 +15,7 @@ A clear and concise description of what the bug is.
 Used `apidoc-markdown` command or script.
 
 ```bash
-apidoc-markdown -p ./examples/basic -o ./examples/basic/example.md
+apidoc-markdown -p ./example/basic -o ./example/basic/example.md
 ```
 
 ```ts
