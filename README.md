@@ -14,7 +14,7 @@
 ![license](https://img.shields.io/npm/l/apidoc-markdown?color=blue)
 
 
-![Screenshot](screenshot.png)
+![Demo GIF](./demo.gif)
 
 ## Motivation
 I really like the idea of generating API documentations with simple annotations like [apiDoc](https://github.com/apidoc/apidoc) does.
