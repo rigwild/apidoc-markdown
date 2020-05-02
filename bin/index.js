@@ -7,3 +7,6 @@ const argv = require('../dist/cli').default
 
 // Start the binary
 require('../dist/index').generateMarkdownFileSystem(argv)
+
+// Check for update
+require('update-notifier')({ pkg: require('../package.json'), updateCheckInterval: 10 }).notify()
