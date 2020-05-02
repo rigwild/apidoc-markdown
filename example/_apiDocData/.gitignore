@@ -1,3 +1,10 @@
-out*/**
-!out/api_project.json
-!out/api_data.json
+out/api_data.js
+out/api_project.js
+out/css
+out/fonts
+out/img
+out/index.html
+out/locales
+out/main.js
+out/utils
+out/vendor

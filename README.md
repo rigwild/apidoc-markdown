@@ -1,7 +1,18 @@
-# apidoc-markdown
-[![Node.js CI](https://github.com/rigwild/apidoc-markdown/workflows/Node.js%20CI/badge.svg)](https://github.com/rigwild/apidoc-markdown/actions) [![npm package](https://img.shields.io/npm/v/apidoc-markdown.svg?logo=npm)](https://www.npmjs.com/package/apidoc-markdown) ![npm downloads](https://img.shields.io/npm/dw/apidoc-markdown) ![license](https://img.shields.io/npm/l/apidoc-markdown?color=blue)
+<div align="center">
+	<br>
+	<br>
+	<img width="360" src="logo.png" alt="apidoc-markdown" />
+	<br>
+	<br>
+</div>
 
-Generate API documentation in Markdown from [apiDoc](https://github.com/apidoc/apidoc) data. Fully supports programmatic usage.
+> 📝 Generate API documentation in Markdown from [apiDoc](https://github.com/apidoc/apidoc) data
+
+[![Node.js CI](https://github.com/rigwild/apidoc-markdown/workflows/Node.js%20CI/badge.svg)](https://github.com/rigwild/apidoc-markdown/actions)
+[![npm package](https://img.shields.io/npm/v/apidoc-markdown.svg?logo=npm)](https://www.npmjs.com/package/apidoc-markdown)
+![npm downloads](https://img.shields.io/npm/dw/apidoc-markdown)
+![license](https://img.shields.io/npm/l/apidoc-markdown?color=blue)
+
 
 ![Screenshot](screenshot.png)
 
@@ -12,9 +23,7 @@ Unfortunately, [apiDoc](https://github.com/apidoc/apidoc) outputs a big HTML/CSS
 
 `apidoc-markdown` lets you convert data from [apiDoc](https://github.com/apidoc/apidoc) to a nice and portable Markdown documentation! 😊
 
-___
-
-This project is a full-rewrite fork of [@martinj/node-apidoc-markdown](https://github.com/martinj/node-apidoc-markdown), which transfered the npm package name `apidoc-markdown` to me.
+ This project is a full-rewrite fork of [@martinj/node-apidoc-markdown](https://github.com/martinj/node-apidoc-markdown), which transfered the npm package name `apidoc-markdown` to me.
 
 ## Installation
 

@@ -1,7 +1,7 @@
 {
   "name": "apidoc-markdown",
   "version": "5.0.1",
-  "description": "Generate API documentation in Markdown format from apiDoc data",
+  "description": "📝 Generate API documentation in Markdown from apiDoc data",
   "license": "MIT",
   "repository": "rigwild/apidoc-markdown",
   "author": {
@@ -14,23 +14,10 @@
   "bin": {
     "apidoc-markdown": "./bin/index.js"
   },
-  "directories": {
-    "example": "example",
-    "lib": "src",
-    "test": "test"
-  },
-  "keywords": [
-    "apidoc",
-    "markdown",
-    "portable",
-    "api",
-    "documentation",
-    "api-documentation",
-    "generator",
-    "programmatic",
-    "cli",
-    "cli-app",
-    "command-line"
+  "files": [
+    "bin",
+    "dist",
+    "templates"
   ],
   "scripts": {
     "build": "tsc -p tsconfig.prod.json",
@@ -39,7 +26,7 @@
     "example:generate": "ts-node example/generateExamples.ts",
     "example:clean": "rm -rf example/basic/example.md example/multi/output/",
     "test": "ava --verbose",
-    "prepublishOnly": "yarn build"
+    "prepublishOnly": "tsc -p tsconfig.prod.json"
   },
   "dependencies": {
     "ejs": "^3.0.2",
@@ -56,6 +43,21 @@
     "ts-node": "^8.8.2",
     "typescript": "^3.8.3"
   },
+  "keywords": [
+    "apidoc",
+    "markdown",
+    "portable",
+    "api",
+    "doc",
+    "documentation",
+    "generator",
+    "programmatic",
+    "cli",
+    "cli-app",
+    "command-line",
+    "rest",
+    "restful"
+  ],
   "ava": {
     "extensions": [
       "ts"
@@ -63,10 +65,5 @@
     "require": [
       "ts-node/register"
     ]
-  },
-  "contributors": [
-    "martinj (https://github.com/martinj)",
-    "softdevstory (https://github.com/softdevstory)",
-    "vanekj (https://github.com/vanekj)"
-  ]
+  }
 }
