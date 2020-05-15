@@ -3,9 +3,10 @@
 
 RESTful web API Documentation Generator
 
-- [Example](#Example)
-	- [Example](#Example)
-	
+ - [Example](#Example)
+   - [Example](#Example)
+
+___
 
 
 # <a name='Example'></a> Example
@@ -22,12 +23,12 @@ GET /example/
 ### Examples
 PHP Example (new)
 
-```
+```PHP
 echo 'This is the content. (new)';
 ```
 JS Example
 
-```
+```JS
 console.log('This is the content.');
 ```
 
@@ -35,13 +36,13 @@ console.log('This is the content.');
 
 #### Success response example - `PHP Success Example (new)`
 
-```
+```PHP
 echo 'This is the success content. (new)';
 ```
 
 #### Success response example - `JS Success Example`
 
-```
+```JS
 console.log('This is the success content.');
 ```
 
@@ -49,12 +50,12 @@ console.log('This is the success content.');
 
 #### Error response example - `PHP Error Example`
 
-```
+```PHP
 echo 'This is the error content.';
 ```
 
 #### Error response example - `JS Error Example`
 
-```
+```JS
 console.log('This is the error content.');
 ```

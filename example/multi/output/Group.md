@@ -3,9 +3,10 @@
 
 RESTful web API Documentation Generator
 
-- [Group](#Group)
-	- [Group and Description](#Group-and-Description)
-	
+ - [Group](#Group)
+   - [Group and Description](#Group-and-Description)
+
+___
 
 
 # <a name='Group'></a> Group

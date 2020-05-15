@@ -3,9 +3,10 @@
 
 RESTful web API Documentation Generator
 
-- [Permission](#Permission)
-	- [Permission](#Permission)
-	
+ - [Permission](#Permission)
+   - [Permission](#Permission)
+
+___
 
 
 # <a name='Permission'></a> Permission

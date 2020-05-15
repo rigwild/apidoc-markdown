@@ -3,29 +3,30 @@
 
 RESTful web API Documentation Generator
 
-- [Language](#Language)
-	- [Clojure](#Clojure)
-	- [Clojure indented 1](#Clojure-indented-1)
-	- [CoffeeScript](#CoffeeScript)
-	- [CoffeeScript indented 1](#CoffeeScript-indented-1)
-	- [CoffeeScript indented 2](#CoffeeScript-indented-2)
-	- [Erlang](#Erlang)
-	- [Erlang indented 1](#Erlang-indented-1)
-	- [Erlang indented 2](#Erlang-indented-2)
-	- [JavaScript](#JavaScript)
-	- [JavaScript indented 1](#JavaScript-indented-1)
-	- [JavaScript indented 2](#JavaScript-indented-2)
-	- [Perl](#Perl)
-	- [Perl indented 1](#Perl-indented-1)
-	- [Perl indented 2](#Perl-indented-2)
-	- [Perl comment with pod and cut](#Perl-comment-with-pod-and-cut)
-	- [Python](#Python)
-	- [Python indented 1](#Python-indented-1)
-	- [Python indented 2](#Python-indented-2)
-	- [Ruby](#Ruby)
-	- [Ruby indented 1](#Ruby-indented-1)
-	- [Ruby indented 2](#Ruby-indented-2)
-	
+ - [Language](#Language)
+   - [Clojure](#Clojure)
+   - [Clojure indented 1](#Clojure-indented-1)
+   - [CoffeeScript](#CoffeeScript)
+   - [CoffeeScript indented 1](#CoffeeScript-indented-1)
+   - [CoffeeScript indented 2](#CoffeeScript-indented-2)
+   - [Erlang](#Erlang)
+   - [Erlang indented 1](#Erlang-indented-1)
+   - [Erlang indented 2](#Erlang-indented-2)
+   - [JavaScript](#JavaScript)
+   - [JavaScript indented 1](#JavaScript-indented-1)
+   - [JavaScript indented 2](#JavaScript-indented-2)
+   - [Perl](#Perl)
+   - [Perl indented 1](#Perl-indented-1)
+   - [Perl indented 2](#Perl-indented-2)
+   - [Perl comment with pod and cut](#Perl-comment-with-pod-and-cut)
+   - [Python](#Python)
+   - [Python indented 1](#Python-indented-1)
+   - [Python indented 2](#Python-indented-2)
+   - [Ruby](#Ruby)
+   - [Ruby indented 1](#Ruby-indented-1)
+   - [Ruby indented 2](#Ruby-indented-2)
+
+___
 
 
 # <a name='Language'></a> Language
@@ -49,7 +50,7 @@ GET /language/clojure/indented1
 ### Examples
 Test for indented comment.
 
-```
+```json
 This is example line 2.
 This is example line 3.
 		  Line 4 indented (with tab at beginning).
@@ -76,7 +77,7 @@ GET /language/coffeescript/indented1
 ### Examples
 Test for indented comment.
 
-```
+```json
 This is example line 2.
 This is example line 3.
     Line 4 indented (with tab at beginning).
@@ -94,7 +95,7 @@ GET /language/coffeescript/indented2
 ### Examples
 Test for indented comment.
 
-```
+```json
 This is example line 2.
 This is example line 3.
     Line 4 indented (with tab at beginning).
@@ -121,7 +122,7 @@ GET /language/erlang/indented1
 ### Examples
 Test for indented comment.
 
-```
+```json
 This is example line 2.
 This is example line 3.
 	    Line 4 indented (with tab at beginning).
@@ -139,7 +140,7 @@ GET /language/erlang/indented2
 ### Examples
 Test for indented comment.
 
-```
+```json
 This is example line 2.
 This is example line 3.
 Line 4 indented (with tab at beginning).
@@ -166,7 +167,7 @@ GET /language/javascript/indented1
 ### Examples
 Test for indented comment.
 
-```
+```json
 This is example line 2.
 This is example line 3.
 	    Line 4 indented (with tab at beginning).
@@ -184,7 +185,7 @@ GET /language/javascript/indented2
 ### Examples
 Test for indented comment.
 
-```
+```json
 This is example line 2.
 This is example line 3.
 	    Line 4 indented (with tab at beginning).
@@ -211,7 +212,7 @@ GET /language/perl/indented1
 ### Examples
 Test for indented comment.
 
-```
+```json
 This is example line 2.
 This is example line 3.
 		Line 4 indented (with tab at beginning).
@@ -229,7 +230,7 @@ GET /language/perl/indented2
 ### Examples
 Test for indented comment.
 
-```
+```json
 This is example line 2.
 This is example line 3.
 	    Line 4 indented (with tab at beginning).
@@ -247,7 +248,7 @@ GET /language/perl/podcut
 ### Examples
 Test for indented comment.
 
-```
+```json
 This is example line 2.
 This is example line 3.
         Line 4 indented (with tab at beginning).
@@ -274,7 +275,7 @@ GET /language/python/indented1
 ### Examples
 Test for indented comment.
 
-```
+```json
 This is example line 2.
 This is example line 3.
     Line 4 indented (with tab at beginning).
@@ -292,7 +293,7 @@ GET /language/python/indented2
 ### Examples
 Test for indented comment.
 
-```
+```json
 This is example line 2.
 This is example line 3.
     Line 4 indented (with tab at beginning).
@@ -319,7 +320,7 @@ GET /language/ruby/indented1
 ### Examples
 Test for indented comment.
 
-```
+```json
 This is example line 2.
 This is example line 3.
 	    Line 4 indented (with tab at beginning).
@@ -337,7 +338,7 @@ GET /language/ruby/indented2
 ### Examples
 Test for indented comment.
 
-```
+```json
 This is example line 2.
 This is example line 3.
 	    Line 4 indented (with tab at beginning).

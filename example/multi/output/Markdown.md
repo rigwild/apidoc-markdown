@@ -3,9 +3,10 @@
 
 RESTful web API Documentation Generator
 
-- [Markdown](#Markdown)
-	- [Markdown](#Markdown)
-	
+ - [Markdown](#Markdown)
+   - [Markdown](#Markdown)
+
+___
 
 
 # <a name='Markdown'></a> Markdown
@@ -21,5 +22,5 @@ GET /markdown/:id
 
 ### Parameters - `Parameter`
 | Name     | Type       | Description                           |
-|:---------|:-----------|:--------------------------------------|
+|----------|------------|---------------------------------------|
 | param1 | `String` | <p>This is a markdown <strong>apiParam</strong></p> <p>Separate line.</p> |

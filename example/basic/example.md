@@ -3,71 +3,61 @@
 
 RESTful web API Documentation Generator
 
-- [Markdown](#Markdown)
-	- [Markdown](#Markdown)
-	
-- [Example](#Example)
-	- [Example](#Example)
-	
-- [Define](#Define)
-	- [Define](#Define)
-	
-- [Deprecated](#Deprecated)
-	- [Deprecated + content](#Deprecated-+-content)
-	- [Deprecated](#Deprecated)
-	
-- [Escape](#Escape)
-	- [Escape Example](#Escape-Example)
-	
-- [Group](#Group)
-	- [Group and Description](#Group-and-Description)
-	
-- [Grouping](#Grouping)
-	- [Grouping](#Grouping)
-	
-- [Header](#Header)
-	- [Parameters](#Parameters)
-	- [Header Example](#Header-Example)
-	
-- [Language](#Language)
-	- [Clojure](#Clojure)
-	- [Clojure indented 1](#Clojure-indented-1)
-	- [CoffeeScript](#CoffeeScript)
-	- [CoffeeScript indented 1](#CoffeeScript-indented-1)
-	- [CoffeeScript indented 2](#CoffeeScript-indented-2)
-	- [Erlang](#Erlang)
-	- [Erlang indented 1](#Erlang-indented-1)
-	- [Erlang indented 2](#Erlang-indented-2)
-	- [JavaScript](#JavaScript)
-	- [JavaScript indented 1](#JavaScript-indented-1)
-	- [JavaScript indented 2](#JavaScript-indented-2)
-	- [Perl](#Perl)
-	- [Perl indented 1](#Perl-indented-1)
-	- [Perl indented 2](#Perl-indented-2)
-	- [Perl comment with pod and cut](#Perl-comment-with-pod-and-cut)
-	- [Python](#Python)
-	- [Python indented 1](#Python-indented-1)
-	- [Python indented 2](#Python-indented-2)
-	- [Ruby](#Ruby)
-	- [Ruby indented 1](#Ruby-indented-1)
-	- [Ruby indented 2](#Ruby-indented-2)
-	
-- [Param](#Param)
-	- [Errors](#Errors)
-	- [Parameters](#Parameters)
-	- [Param Example](#Param-Example)
-	- [Success](#Success)
-	
-- [Permission](#Permission)
-	- [Permission](#Permission)
-	
-- [indent](#indent)
-	- [Trim multi line (spaces)](#Trim-multi-line-(spaces))
-	- [Trim multi line (tabs)](#Trim-multi-line-(tabs))
-	- [Trim multi line (tabs and space)](#Trim-multi-line-(tabs-and-space))
-	- [Trim single line](#Trim-single-line)
-	- [Indent a word](#Indent-a-word)
-	
+ - [Markdown](#Markdown)
+   - [Markdown](#Markdown)
+ - [Example](#Example)
+   - [Example](#Example)
+ - [Define](#Define)
+   - [Define](#Define)
+ - [Deprecated](#Deprecated)
+   - [Deprecated + content](#Deprecated-+-content)
+   - [Deprecated](#Deprecated)
+ - [Escape](#Escape)
+   - [Escape Example](#Escape-Example)
+ - [Group](#Group)
+   - [Group and Description](#Group-and-Description)
+ - [Grouping](#Grouping)
+   - [Grouping](#Grouping)
+ - [Header](#Header)
+   - [Parameters](#Parameters)
+   - [Header Example](#Header-Example)
+ - [Language](#Language)
+   - [Clojure](#Clojure)
+   - [Clojure indented 1](#Clojure-indented-1)
+   - [CoffeeScript](#CoffeeScript)
+   - [CoffeeScript indented 1](#CoffeeScript-indented-1)
+   - [CoffeeScript indented 2](#CoffeeScript-indented-2)
+   - [Erlang](#Erlang)
+   - [Erlang indented 1](#Erlang-indented-1)
+   - [Erlang indented 2](#Erlang-indented-2)
+   - [JavaScript](#JavaScript)
+   - [JavaScript indented 1](#JavaScript-indented-1)
+   - [JavaScript indented 2](#JavaScript-indented-2)
+   - [Perl](#Perl)
+   - [Perl indented 1](#Perl-indented-1)
+   - [Perl indented 2](#Perl-indented-2)
+   - [Perl comment with pod and cut](#Perl-comment-with-pod-and-cut)
+   - [Python](#Python)
+   - [Python indented 1](#Python-indented-1)
+   - [Python indented 2](#Python-indented-2)
+   - [Ruby](#Ruby)
+   - [Ruby indented 1](#Ruby-indented-1)
+   - [Ruby indented 2](#Ruby-indented-2)
+ - [Param](#Param)
+   - [Errors](#Errors)
+   - [Parameters](#Parameters)
+   - [Param Example](#Param-Example)
+   - [Success](#Success)
+ - [Permission](#Permission)
+   - [Permission](#Permission)
+ - [indent](#indent)
+   - [Trim multi line (spaces)](#Trim-multi-line-(spaces))
+   - [Trim multi line (tabs)](#Trim-multi-line-(tabs))
+   - [Trim multi line (tabs and space)](#Trim-multi-line-(tabs-and-space))
+   - [Trim single line](#Trim-single-line)
+   - [Indent a word](#Indent-a-word)
+
+___
 
 
 # <a name='Markdown'></a> Markdown
@@ -83,7 +73,7 @@ GET /markdown/:id
 
 ### Parameters - `Parameter`
 | Name     | Type       | Description                           |
-|:---------|:-----------|:--------------------------------------|
+|----------|------------|---------------------------------------|
 | param1 | `String` | <p>This is a markdown <strong>apiParam</strong></p> <p>Separate line.</p> |
 
 # <a name='Example'></a> Example
@@ -100,12 +90,12 @@ GET /example/
 ### Examples
 PHP Example (new)
 
-```
+```PHP
 echo 'This is the content. (new)';
 ```
 JS Example
 
-```
+```JS
 console.log('This is the content.');
 ```
 
@@ -113,13 +103,13 @@ console.log('This is the content.');
 
 #### Success response example - `PHP Success Example (new)`
 
-```
+```PHP
 echo 'This is the success content. (new)';
 ```
 
 #### Success response example - `JS Success Example`
 
-```
+```JS
 console.log('This is the success content.');
 ```
 
@@ -127,13 +117,13 @@ console.log('This is the success content.');
 
 #### Error response example - `PHP Error Example`
 
-```
+```PHP
 echo 'This is the error content.';
 ```
 
 #### Error response example - `JS Error Example`
 
-```
+```JS
 console.log('This is the error content.');
 ```
 
@@ -150,7 +140,7 @@ GET /define
 
 ### Parameters - `Parameter`
 | Name     | Type       | Description                           |
-|:---------|:-----------|:--------------------------------------|
+|----------|------------|---------------------------------------|
 | field3 |  | <p>This is Field 3 (local).</p> |
 | field1 |  | <p>This is Field 1.</p> |
 | field2 |  | <p>This is Field 2.</p> |
@@ -168,7 +158,7 @@ GET /deprecated/bar/:id
 
 ### Parameters - `Parameter`
 | Name     | Type       | Description                           |
-|:---------|:-----------|:--------------------------------------|
+|----------|------------|---------------------------------------|
 | param1 |  | <p>Parameter and description.</p> |
 
 ## <a name='Deprecated'></a> Deprecated
@@ -182,7 +172,7 @@ GET /deprecated/foo/:id
 
 ### Parameters - `Parameter`
 | Name     | Type       | Description                           |
-|:---------|:-----------|:--------------------------------------|
+|----------|------------|---------------------------------------|
 | param1 |  | <p>Parameter and description.</p> |
 
 # <a name='Escape'></a> Escape
@@ -199,7 +189,7 @@ GET /test/escape
 ### Examples
 Example usage:
 
-```
+```json
 curl -i http://localhost/escape/text
 <b>curl -i http://localhost/escape/html</b>
 <xml>curl -i http://localhost/escape/xml</xml>
@@ -209,7 +199,7 @@ curl -i http://localhost/escape/text
 
 #### Success response example - `Example Response`
 
-```
+```json
 HTTP/1.1 200 OK {
   field_text: 'text-value',
   field_html: '<b>html-value</b>',
@@ -239,12 +229,12 @@ GET /test/:id
 
 ### Parameters - `Parameter`
 | Name     | Type       | Description                           |
-|:---------|:-----------|:--------------------------------------|
+|----------|------------|---------------------------------------|
 | param1 | `String` | <p>No Group, automatically set Group to &quot;Parameter&quot;</p> |
 
 ### Parameters - `Replace &#34;login&#34; with this text.`
 | Name     | Type       | Description                           |
-|:---------|:-----------|:--------------------------------------|
+|----------|------------|---------------------------------------|
 | param2 | `String` | <p>Group &quot;login&quot;</p> |
 | param3 | `String` | <p>Group &quot;login&quot; with default Value</p>_Default value: Default Value_<br> |
 
@@ -252,30 +242,30 @@ GET /test/:id
 
 #### Success response - `201 - Everything ok, replace &#34;201&#34; with this text.`
 | Name     | Type       | Description                           |
-|:---------|:-----------|:--------------------------------------|
+|----------|------------|---------------------------------------|
 | success2 | `String` | <p>Group &quot;201&quot;</p> |
 | success3 | `String` | <p>Group &quot;201&quot; with default Value</p>_Default value: Default Value_<br> |
 
 #### Success response - `Success 200`
 | Name     | Type       | Description                           |
-|:---------|:-----------|:--------------------------------------|
+|----------|------------|---------------------------------------|
 | success1 | `String` | <p>No Group, automatically set &quot;Success 200&quot;</p> |
 
 ### Error response
 
 #### Error response - `400`
 | Name     | Type       | Description                           |
-|:---------|:-----------|:--------------------------------------|
+|----------|------------|---------------------------------------|
 | error2 | `String` | <p>Undefined Group &quot;400&quot;</p> |
 
 #### Error response - `401 - Oh oh, replace &#34;401&#34; with this text`
 | Name     | Type       | Description                           |
-|:---------|:-----------|:--------------------------------------|
+|----------|------------|---------------------------------------|
 | error3 | `String` | <p>Group &quot;401&quot;</p> |
 
 #### Error response - `Error 4xx`
 | Name     | Type       | Description                           |
-|:---------|:-----------|:--------------------------------------|
+|----------|------------|---------------------------------------|
 | error1 | `String` | <p>No Group automatically set &quot;Error 4xx&quot;</p> |
 
 # <a name='Header'></a> Header
@@ -289,7 +279,7 @@ GET /test/:id
 GET /header/:id
 ```
 
-### Header
+### Headers - `Header`
 | Name    | Type      | Description                          |
 |---------|-----------|--------------------------------------|
 | header1 | `String` | <p>Parameter with type and description.</p> |
@@ -321,7 +311,7 @@ GET /header/example/
 ### Header examples
 An example:
 
-```
+```json
 curl -i http://localhost/header/example/
 ```
 
@@ -346,7 +336,7 @@ GET /language/clojure/indented1
 ### Examples
 Test for indented comment.
 
-```
+```json
 This is example line 2.
 This is example line 3.
 		  Line 4 indented (with tab at beginning).
@@ -373,7 +363,7 @@ GET /language/coffeescript/indented1
 ### Examples
 Test for indented comment.
 
-```
+```json
 This is example line 2.
 This is example line 3.
     Line 4 indented (with tab at beginning).
@@ -391,7 +381,7 @@ GET /language/coffeescript/indented2
 ### Examples
 Test for indented comment.
 
-```
+```json
 This is example line 2.
 This is example line 3.
     Line 4 indented (with tab at beginning).
@@ -418,7 +408,7 @@ GET /language/erlang/indented1
 ### Examples
 Test for indented comment.
 
-```
+```json
 This is example line 2.
 This is example line 3.
 	    Line 4 indented (with tab at beginning).
@@ -436,7 +426,7 @@ GET /language/erlang/indented2
 ### Examples
 Test for indented comment.
 
-```
+```json
 This is example line 2.
 This is example line 3.
 Line 4 indented (with tab at beginning).
@@ -463,7 +453,7 @@ GET /language/javascript/indented1
 ### Examples
 Test for indented comment.
 
-```
+```json
 This is example line 2.
 This is example line 3.
 	    Line 4 indented (with tab at beginning).
@@ -481,7 +471,7 @@ GET /language/javascript/indented2
 ### Examples
 Test for indented comment.
 
-```
+```json
 This is example line 2.
 This is example line 3.
 	    Line 4 indented (with tab at beginning).
@@ -508,7 +498,7 @@ GET /language/perl/indented1
 ### Examples
 Test for indented comment.
 
-```
+```json
 This is example line 2.
 This is example line 3.
 		Line 4 indented (with tab at beginning).
@@ -526,7 +516,7 @@ GET /language/perl/indented2
 ### Examples
 Test for indented comment.
 
-```
+```json
 This is example line 2.
 This is example line 3.
 	    Line 4 indented (with tab at beginning).
@@ -544,7 +534,7 @@ GET /language/perl/podcut
 ### Examples
 Test for indented comment.
 
-```
+```json
 This is example line 2.
 This is example line 3.
         Line 4 indented (with tab at beginning).
@@ -571,7 +561,7 @@ GET /language/python/indented1
 ### Examples
 Test for indented comment.
 
-```
+```json
 This is example line 2.
 This is example line 3.
     Line 4 indented (with tab at beginning).
@@ -589,7 +579,7 @@ GET /language/python/indented2
 ### Examples
 Test for indented comment.
 
-```
+```json
 This is example line 2.
 This is example line 3.
     Line 4 indented (with tab at beginning).
@@ -616,7 +606,7 @@ GET /language/ruby/indented1
 ### Examples
 Test for indented comment.
 
-```
+```json
 This is example line 2.
 This is example line 3.
 	    Line 4 indented (with tab at beginning).
@@ -634,7 +624,7 @@ GET /language/ruby/indented2
 ### Examples
 Test for indented comment.
 
-```
+```json
 This is example line 2.
 This is example line 3.
 	    Line 4 indented (with tab at beginning).
@@ -657,7 +647,7 @@ GET /param/:id
 
 #### Error response - `Error 4xx`
 | Name     | Type       | Description                           |
-|:---------|:-----------|:--------------------------------------|
+|----------|------------|---------------------------------------|
 | error1Error |  | <p>This is Error 1.</p> |
 | error2Error |  | <p>This is Error 2.</p> |
 
@@ -672,7 +662,7 @@ GET /param/:id
 
 ### Parameters - `Parameter`
 | Name     | Type       | Description                           |
-|:---------|:-----------|:--------------------------------------|
+|----------|------------|---------------------------------------|
 | param1 |  | <p>Parameter and description.</p> |
 | param2 |  |  |
 | param3 |  | <p>Parameter, default value and description.</p>_Default value: Default Value_<br> |
@@ -713,13 +703,13 @@ GET /param/example/
 
 ### Parameters - `Parameter`
 | Name     | Type       | Description                           |
-|:---------|:-----------|:--------------------------------------|
+|----------|------------|---------------------------------------|
 | name | `String` | <p>Fullname.</p> |
 
 ### Examples
 A common example:
 
-```
+```json
 curl -i http://localhost/param/example/
 ```
 
@@ -745,7 +735,7 @@ GET /param/:id
 
 #### Error response - `Error 4xx`
 | Name     | Type       | Description                           |
-|:---------|:-----------|:--------------------------------------|
+|----------|------------|---------------------------------------|
 | success1 |  | <p>This is Success 1.</p> |
 | success2 |  | <p>This is Success 2.</p> |
 

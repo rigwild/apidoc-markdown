@@ -3,9 +3,10 @@
 
 RESTful web API Documentation Generator
 
-- [Define](#Define)
-	- [Define](#Define)
-	
+ - [Define](#Define)
+   - [Define](#Define)
+
+___
 
 
 # <a name='Define'></a> Define
@@ -21,7 +22,7 @@ GET /define
 
 ### Parameters - `Parameter`
 | Name     | Type       | Description                           |
-|:---------|:-----------|:--------------------------------------|
+|----------|------------|---------------------------------------|
 | field3 |  | <p>This is Field 3 (local).</p> |
 | field1 |  | <p>This is Field 1.</p> |
 | field2 |  | <p>This is Field 2.</p> |

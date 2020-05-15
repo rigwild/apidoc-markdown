@@ -3,12 +3,13 @@
 
 RESTful web API Documentation Generator
 
-- [Param](#Param)
-	- [Errors](#Errors)
-	- [Parameters](#Parameters)
-	- [Param Example](#Param-Example)
-	- [Success](#Success)
-	
+ - [Param](#Param)
+   - [Errors](#Errors)
+   - [Parameters](#Parameters)
+   - [Param Example](#Param-Example)
+   - [Success](#Success)
+
+___
 
 
 # <a name='Param'></a> Param
@@ -26,7 +27,7 @@ GET /param/:id
 
 #### Error response - `Error 4xx`
 | Name     | Type       | Description                           |
-|:---------|:-----------|:--------------------------------------|
+|----------|------------|---------------------------------------|
 | error1Error |  | <p>This is Error 1.</p> |
 | error2Error |  | <p>This is Error 2.</p> |
 
@@ -41,7 +42,7 @@ GET /param/:id
 
 ### Parameters - `Parameter`
 | Name     | Type       | Description                           |
-|:---------|:-----------|:--------------------------------------|
+|----------|------------|---------------------------------------|
 | param1 |  | <p>Parameter and description.</p> |
 | param2 |  |  |
 | param3 |  | <p>Parameter, default value and description.</p>_Default value: Default Value_<br> |
@@ -82,13 +83,13 @@ GET /param/example/
 
 ### Parameters - `Parameter`
 | Name     | Type       | Description                           |
-|:---------|:-----------|:--------------------------------------|
+|----------|------------|---------------------------------------|
 | name | `String` | <p>Fullname.</p> |
 
 ### Examples
 A common example:
 
-```
+```json
 curl -i http://localhost/param/example/
 ```
 
@@ -114,6 +115,6 @@ GET /param/:id
 
 #### Error response - `Error 4xx`
 | Name     | Type       | Description                           |
-|:---------|:-----------|:--------------------------------------|
+|----------|------------|---------------------------------------|
 | success1 |  | <p>This is Success 1.</p> |
 | success2 |  | <p>This is Success 2.</p> |

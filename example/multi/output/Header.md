@@ -3,10 +3,11 @@
 
 RESTful web API Documentation Generator
 
-- [Header](#Header)
-	- [Parameters](#Parameters)
-	- [Header Example](#Header-Example)
-	
+ - [Header](#Header)
+   - [Parameters](#Parameters)
+   - [Header Example](#Header-Example)
+
+___
 
 
 # <a name='Header'></a> Header
@@ -20,7 +21,7 @@ RESTful web API Documentation Generator
 GET /header/:id
 ```
 
-### Header
+### Headers - `Header`
 | Name    | Type      | Description                          |
 |---------|-----------|--------------------------------------|
 | header1 | `String` | <p>Parameter with type and description.</p> |
@@ -52,6 +53,6 @@ GET /header/example/
 ### Header examples
 An example:
 
-```
+```json
 curl -i http://localhost/header/example/
 ```

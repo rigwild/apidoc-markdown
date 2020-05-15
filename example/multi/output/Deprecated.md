@@ -3,10 +3,11 @@
 
 RESTful web API Documentation Generator
 
-- [Deprecated](#Deprecated)
-	- [Deprecated + content](#Deprecated-+-content)
-	- [Deprecated](#Deprecated)
-	
+ - [Deprecated](#Deprecated)
+   - [Deprecated + content](#Deprecated-+-content)
+   - [Deprecated](#Deprecated)
+
+___
 
 
 # <a name='Deprecated'></a> Deprecated
@@ -22,7 +23,7 @@ GET /deprecated/bar/:id
 
 ### Parameters - `Parameter`
 | Name     | Type       | Description                           |
-|:---------|:-----------|:--------------------------------------|
+|----------|------------|---------------------------------------|
 | param1 |  | <p>Parameter and description.</p> |
 
 ## <a name='Deprecated'></a> Deprecated
@@ -36,5 +37,5 @@ GET /deprecated/foo/:id
 
 ### Parameters - `Parameter`
 | Name     | Type       | Description                           |
-|:---------|:-----------|:--------------------------------------|
+|----------|------------|---------------------------------------|
 | param1 |  | <p>Parameter and description.</p> |

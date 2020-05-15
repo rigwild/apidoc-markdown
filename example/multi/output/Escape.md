@@ -3,9 +3,10 @@
 
 RESTful web API Documentation Generator
 
-- [Escape](#Escape)
-	- [Escape Example](#Escape-Example)
-	
+ - [Escape](#Escape)
+   - [Escape Example](#Escape-Example)
+
+___
 
 
 # <a name='Escape'></a> Escape
@@ -22,7 +23,7 @@ GET /test/escape
 ### Examples
 Example usage:
 
-```
+```json
 curl -i http://localhost/escape/text
 <b>curl -i http://localhost/escape/html</b>
 <xml>curl -i http://localhost/escape/xml</xml>
@@ -32,7 +33,7 @@ curl -i http://localhost/escape/text
 
 #### Success response example - `Example Response`
 
-```
+```json
 HTTP/1.1 200 OK {
   field_text: 'text-value',
   field_html: '<b>html-value</b>',
