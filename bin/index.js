@@ -9,4 +9,4 @@ const argv = require('../dist/cli').default
 require('../dist/index').generateMarkdownFileSystem(argv)
 
 // Check for update
-require('update-notifier')({ pkg: require('../package.json'), updateCheckInterval: 10 }).notify()
+require('update-notifier')({ pkg: require('../package.json') }).notify()

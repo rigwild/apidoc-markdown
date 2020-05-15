@@ -25,14 +25,16 @@
 ```
 <%- sub.type.toUpperCase() %> <%= sub.url %>
 ```
-<% if (sub.header && sub.header.fields && sub.header.fields.Header.length) { -%>
+<% if (sub.header && sub.header.fields) { -%>
+<% Object.entries(sub.header.fields).forEach(([headersGroup, headersGroupContent]) => { -%>
 
-### Headers
+### <%= headersGroup %>
 | Name    | Type      | Description                          |
 |---------|-----------|--------------------------------------|
-<% sub.header.fields.Header.forEach(header => { -%>
+<% headersGroupContent.forEach(header => { -%>
 | <%- header.field %> | <%- header.type ? `\`${header.type}\`` : '' %> | <%- header.optional ? '**optional**' : '' %><%- header.description %> |
 <% }) // foreach parameter -%>
+<% }) // foreach header fields -%>
 <% } // if parameters -%>
 <% if (sub.header && sub.header.examples && sub.header.examples.length) { -%>
 

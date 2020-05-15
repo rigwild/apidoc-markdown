@@ -20,7 +20,7 @@ RESTful web API Documentation Generator
 GET /header/:id
 ```
 
-### Headers
+### Header
 | Name    | Type      | Description                          |
 |---------|-----------|--------------------------------------|
 | header1 | `String` | <p>Parameter with type and description.</p> |

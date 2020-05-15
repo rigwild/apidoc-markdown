@@ -10,6 +10,9 @@
  * @apiHeader {String} header3="Default Value" Parameter with type, description and default value.
  * @apiHeader {String} header4="Default Value"
  *
+ * @apiHeader (Request headers) reqHeader1                 Basic Parameter with description.
+ * @apiHeader (Request headers) reqHeader2                 Basic Parameter with description.
+ *
  * @apiHeader header5                 Basic Parameter with description.
  * @apiHeader header6
  * @apiHeader header7="Default Value" Basic Parameter with description and default value.
