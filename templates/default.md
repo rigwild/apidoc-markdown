@@ -4,11 +4,12 @@
 <%= project.description %>
 
 <% data.forEach(group => { -%>
-- [<%= group.name %>](#<%= toLink(group.name) %>)
-	<% group.subs.forEach(sub => { -%>
-- [<%= sub.title %>](#<%= toLink(sub.title) %>)
-	<% }) %>
-<% }) -%>
+ - [<%= group.name %>](#<%= toLink(group.name) -%>)
+<% group.subs.forEach(sub => { -%>
+   - [<%= sub.title %>](#<%= toLink(sub.title) %>)
+<% })}) -%>
+
+___
 
 <% if (prepend) { -%>
 <%- prepend %>
@@ -28,7 +29,7 @@
 <% if (sub.header && sub.header.fields) { -%>
 <% Object.entries(sub.header.fields).forEach(([headersGroup, headersGroupContent]) => { -%>
 
-### <%= headersGroup %>
+### Headers - `<%= headersGroup %>`
 | Name    | Type      | Description                          |
 |---------|-----------|--------------------------------------|
 <% headersGroupContent.forEach(header => { -%>
@@ -42,18 +43,18 @@
 <% sub.header.examples.forEach(example => { -%>
 <%= example.title %>
 
-```
+```<%= example.type %>
 <%- example.content %>
 ```
 <% }) // foreach example -%>
 <% } // if example -%>
 <% if (sub.parameter && sub.parameter.fields) { -%>
-<% Object.keys(sub.parameter.fields).forEach(g => { -%>
+<% Object.entries(sub.parameter.fields).forEach(([parametersGroup, parametersGroupContent]) => { -%>
 
-### Parameters - `<%= g -%>`
+### Parameters - `<%= parametersGroup -%>`
 | Name     | Type       | Description                           |
-|:---------|:-----------|:--------------------------------------|
-<% sub.parameter.fields[g].forEach(param => { -%>
+|----------|------------|---------------------------------------|
+<% parametersGroupContent.forEach(param => { -%>
 | <%- param.field -%> | <%- param.type ? `\`${param.type}\`` : '' %> | <%- param.optional ? '**optional** ' : '' -%><%- param.description -%>
 <% if (param.defaultValue) { -%>
 _Default value: <%= param.defaultValue %>_<br><% } -%>
@@ -61,7 +62,7 @@ _Default value: <%= param.defaultValue %>_<br><% } -%>
 _Size range: <%- param.size %>_<br><% } -%>
 <% if (param.allowedValues) { -%>
 _Allowed values: <%- param.allowedValues %>_<% } -%> |
-<% }) // foreach (group) parameter -%>
+<% }) // foreach parameters -%>
 <% }) // foreach param parameter -%>
 <% } // if parameters -%>
 <% if (sub.examples && sub.examples.length) { -%>
@@ -70,7 +71,7 @@ _Allowed values: <%- param.allowedValues %>_<% } -%> |
 <% sub.examples.forEach(example => { -%>
 <%= example.title %>
 
-```
+```<%= example.type %>
 <%- example.content %>
 ```
 <% }) // foreach example -%>
@@ -89,12 +90,12 @@ _Allowed values: <%- param.allowedValues %>_<% } -%> |
 <% if (sub.success && sub.success.fields) { -%>
 
 ### Success response
-<% Object.keys(sub.success.fields).forEach(g => { -%>
+<% Object.entries(sub.success.fields).forEach(([responsesGroup, responsesGroupContent]) => { -%>
 
-#### Success response - `<%= g %>`
+#### Success response - `<%= responsesGroup %>`
 | Name     | Type       | Description                           |
-|:---------|:-----------|:--------------------------------------|
-<% sub.success.fields[g].forEach(param => { -%>
+|----------|------------|---------------------------------------|
+<% responsesGroupContent.forEach(param => { -%>
 | <%- param.field %> | <%- param.type ? `\`${param.type}\`` : '' %> | <%- param.optional ? '**optional**' : '' %><%- param.description -%>
 <% if (param.defaultValue) { -%>
 _Default value: <%- param.defaultValue %>_<br><% } -%>
@@ -102,7 +103,7 @@ _Default value: <%- param.defaultValue %>_<br><% } -%>
 _Size range: <%- param.size -%>_<br><% } -%>
 <% if (param.allowedValues) { -%>
 _Allowed values: <%- param.allowedValues %>_<% } -%> |
-<% }) // foreach (group) parameter -%>
+<% }) // foreach reponses -%>
 <% }) // foreach field -%>
 <% } // if success.fields -%>
 <% if (sub.success && sub.success.examples && sub.success.examples.length) { -%>
@@ -112,7 +113,7 @@ _Allowed values: <%- param.allowedValues %>_<% } -%> |
 
 #### Success response example - `<%= example.title %>`
 
-```
+```<%= example.type %>
 <%- example.content %>
 ```
 <% }) // foreach success example -%>
@@ -120,12 +121,12 @@ _Allowed values: <%- param.allowedValues %>_<% } -%> |
 <% if (sub.error && sub.error.fields) { -%>
 
 ### Error response
-<% Object.keys(sub.error.fields).forEach(g => { -%>
+<% Object.entries(sub.error.fields).forEach(([errorsGroup, errorsGroupContent]) => { -%>
 
-#### Error response - `<%= g %>`
+#### Error response - `<%= errorsGroup %>`
 | Name     | Type       | Description                           |
-|:---------|:-----------|:--------------------------------------|
-<% sub.error.fields[g].forEach(param => { -%>
+|----------|------------|---------------------------------------|
+<% errorsGroupContent.forEach(param => { -%>
 | <%- param.field %> | <%- param.type ? `\`${param.type}\`` : '' %> | <%- param.optional ? '**optional**' : '' %><%- param.description -%>
 <% if (param.defaultValue) { -%>
 _Default value: <%- param.defaultValue %>_<br><% } -%>
@@ -133,7 +134,7 @@ _Default value: <%- param.defaultValue %>_<br><% } -%>
 _Size range: <%- param.size -%>_<br><% } -%>
 <% if (param.allowedValues) { -%>
 _Allowed values: <%- param.allowedValues %>_<% } -%> |
-<% }) // foreach (group) parameter -%>
+<% }) // foreach errors -%>
 <% }) // foreach field -%>
 <% } // if error.fields -%>
 <% if (sub.error && sub.error.examples && sub.error.examples.length) { -%>
@@ -143,7 +144,7 @@ _Allowed values: <%- param.allowedValues %>_<% } -%> |
 
 #### Error response example - `<%= example.title %>`
 
-```
+```<%= example.type %>
 <%- example.content %>
 ```
 <% }) // foreach error example -%>
