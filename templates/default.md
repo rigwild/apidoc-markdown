@@ -30,6 +30,7 @@ ___
 <% Object.entries(sub.header.fields).forEach(([headersGroup, headersGroupContent]) => { -%>
 
 ### Headers - `<%= headersGroup %>`
+
 | Name    | Type      | Description                          |
 |---------|-----------|--------------------------------------|
 <% headersGroupContent.forEach(header => { -%>
@@ -52,6 +53,7 @@ ___
 <% Object.entries(sub.parameter.fields).forEach(([parametersGroup, parametersGroupContent]) => { -%>
 
 ### Parameters - `<%= parametersGroup -%>`
+
 | Name     | Type       | Description                           |
 |----------|------------|---------------------------------------|
 <% parametersGroupContent.forEach(param => { -%>
@@ -93,6 +95,7 @@ _Allowed values: <%- param.allowedValues %>_<% } -%> |
 <% Object.entries(sub.success.fields).forEach(([responsesGroup, responsesGroupContent]) => { -%>
 
 #### Success response - `<%= responsesGroup %>`
+
 | Name     | Type       | Description                           |
 |----------|------------|---------------------------------------|
 <% responsesGroupContent.forEach(param => { -%>
@@ -124,6 +127,7 @@ _Allowed values: <%- param.allowedValues %>_<% } -%> |
 <% Object.entries(sub.error.fields).forEach(([errorsGroup, errorsGroupContent]) => { -%>
 
 #### Error response - `<%= errorsGroup %>`
+
 | Name     | Type       | Description                           |
 |----------|------------|---------------------------------------|
 <% errorsGroupContent.forEach(param => { -%>

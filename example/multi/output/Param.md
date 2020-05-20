@@ -26,6 +26,7 @@ GET /param/:id
 ### Error response
 
 #### Error response - `Error 4xx`
+
 | Name     | Type       | Description                           |
 |----------|------------|---------------------------------------|
 | error1Error |  | <p>This is Error 1.</p> |
@@ -41,6 +42,7 @@ GET /param/:id
 ```
 
 ### Parameters - `Parameter`
+
 | Name     | Type       | Description                           |
 |----------|------------|---------------------------------------|
 | param1 |  | <p>Parameter and description.</p> |
@@ -82,6 +84,7 @@ GET /param/example/
 ```
 
 ### Parameters - `Parameter`
+
 | Name     | Type       | Description                           |
 |----------|------------|---------------------------------------|
 | name | `String` | <p>Fullname.</p> |
@@ -114,6 +117,7 @@ GET /param/:id
 ### Error response
 
 #### Error response - `Error 4xx`
+
 | Name     | Type       | Description                           |
 |----------|------------|---------------------------------------|
 | success1 |  | <p>This is Success 1.</p> |

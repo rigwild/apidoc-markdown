@@ -21,6 +21,7 @@ GET /define
 ```
 
 ### Parameters - `Parameter`
+
 | Name     | Type       | Description                           |
 |----------|------------|---------------------------------------|
 | field3 |  | <p>This is Field 3 (local).</p> |

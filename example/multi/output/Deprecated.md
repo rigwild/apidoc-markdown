@@ -22,6 +22,7 @@ GET /deprecated/bar/:id
 ```
 
 ### Parameters - `Parameter`
+
 | Name     | Type       | Description                           |
 |----------|------------|---------------------------------------|
 | param1 |  | <p>Parameter and description.</p> |
@@ -36,6 +37,7 @@ GET /deprecated/foo/:id
 ```
 
 ### Parameters - `Parameter`
+
 | Name     | Type       | Description                           |
 |----------|------------|---------------------------------------|
 | param1 |  | <p>Parameter and description.</p> |

@@ -21,6 +21,7 @@ GET /markdown/:id
 ```
 
 ### Parameters - `Parameter`
+
 | Name     | Type       | Description                           |
 |----------|------------|---------------------------------------|
 | param1 | `String` | <p>This is a markdown <strong>apiParam</strong></p> <p>Separate line.</p> |
