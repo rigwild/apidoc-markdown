@@ -20,13 +20,13 @@
     "templates"
   ],
   "scripts": {
-    "build": "tsc -p tsconfig.prod.json",
+    "build": "tsc",
     "help": "node bin/index.js -h",
     "example:apidoc": "cd example/_apiDocData && rm -rf out && apidoc -i src -o out",
     "example:generate": "ts-node example/generateExamples.ts",
     "example:clean": "rm -rf example/basic/example.md example/multi/output/",
     "test": "ava --verbose",
-    "prepublishOnly": "tsc -p tsconfig.prod.json"
+    "prepublishOnly": "tsc"
   },
   "dependencies": {
     "ejs": "^3.1.2",

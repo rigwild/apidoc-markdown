@@ -1,7 +1,7 @@
 import path from 'path'
 import { promises as fs } from 'fs'
 import ejs from 'ejs'
-import semver from 'semver'
+import semverGt from 'semver/functions/gt'
 
 import * as utils from './utils'
 import { ConfigurationObject, ConfigurationObjectCLI } from './types'
@@ -39,7 +39,7 @@ export const generate = ({
     .map((g: any) => {
       g.subs = Object.values(
         g.subs.reduce((acc: any, cur: any) => {
-          if (!acc[cur.title] || semver.gt(cur.version, acc[cur.title].version)) acc[cur.title] = cur
+          if (!acc[cur.title] || semverGt(cur.version, acc[cur.title].version)) acc[cur.title] = cur
           return acc
         }, {})
       )
