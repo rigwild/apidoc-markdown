@@ -19,6 +19,9 @@
     "dist",
     "templates"
   ],
+  "engines": {
+    "node": ">=10"
+  },
   "scripts": {
     "build": "tsc",
     "help": "node bin/index.js -h",
