@@ -59,6 +59,27 @@ export const generate = ({
       ),
       ...notInOrderArr
     ]
+  } else {
+    // apply default order by group name and title asc
+    apiByGroupAndName = apiByGroupAndName.sort((a: any, b: any) => {
+      if (a.name > b.name) {
+        return 1
+      } else if (a.name < b.name) {
+        return -1
+      }
+      return 0
+    })
+
+    apiByGroupAndName.map(x =>
+      x.subs.sort((a: any, b: any) => {
+        if (a.title > b.title) {
+          return 1
+        } else if (a.title < b.title) {
+          return -1
+        }
+        return 0
+      })
+    )
   }
 
   // This is the config passed to the template
