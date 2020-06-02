@@ -14,7 +14,7 @@ export default () =>
     template: path.resolve(__dirname, '..', '..', 'templates', 'default.md'),
 
     // File to preprend documentation with
-    prepend: undefined,
+    prepend: path.resolve(__dirname, 'prepended.md'),
 
     // Should the documentation be generated one file per group
     multi: false,

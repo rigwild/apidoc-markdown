@@ -48,14 +48,14 @@ Generate Markdown documentation from apiDoc data.
 Usage: apidoc-markdown -p <path> -o <output_file> [-t <template_path>] [--multi] [--createPath] [--prepend <file_path>]
 
 Options:
-  --version       Show version number                                                                                                                [boolean]
-  --path, -p      Path to generated apiDoc output directory. Where `api_data.json` and `api_project.json` resides.                         [string] [required]
-  --output, -o    Output file or directory to write output to.                                                                             [string] [required]
-  --template, -t  Path to EJS template file, if not specified default template will be used.                        [string] [default: "templates/default.md"]
-  --prepend       Path to file content to add before route groups documentation.                                                                      [string]
-  --multi         Output one file per group to the `output` directory.                                                              [boolean] [default: false]
-  --createPath    Recursively create directory arborescence to the `output` directory.                                              [boolean] [default: false]
-  -h, --help      Show help                                                                                                                          [boolean]
+  --version        Show version number                                                                                                                [boolean]
+  --apiDocPath, -p Path to generated apiDoc output directory. Where `api_data.json` and `api_project.json` resides.                         [string] [required]
+  --output, -o     Output file or directory to write output to.                                                                             [string] [required]
+  --template, -t   Path to EJS template file, if not specified default template will be used.                        [string] [default: "templates/default.md"]
+  --prepend        Path to file content to add before route groups documentation.                                                                      [string]
+  --multi          Output one file per group to the `output` directory.                                                              [boolean] [default: false]
+  --createPath     Recursively create directory arborescence to the `output` directory.                                              [boolean] [default: false]
+  -h, --help       Show help                                                                                                                          [boolean]
 
 Examples:
   apidoc-markdown -p doc/ -o doc.md                         Generate from `doc/` apiDoc output to `./doc.md`

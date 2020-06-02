@@ -135,8 +135,11 @@ export const generateMarkdownFileSystem = async ({
   if (!(await utils.pathExists(template))) throw new Error('The `template` path does not exist or is not readable.')
 
   // Check the prepend file path exists
-  if (prepend && !(await utils.pathExists(prepend)))
-    throw new Error('The `prepend` path does not exist or is not readable.')
+  if (prepend) {
+    if (!(await utils.pathExists(prepend))) throw new Error('The `prepend` path does not exist or is not readable.')
+
+    prepend = (await fs.readFile(prepend as string, { encoding: 'utf-8' })) as string
+  }
 
   // Check the output path exists (only parent directory if unique file)
   if (!output) throw new Error('`output` is required but was not provided.')
