@@ -16,9 +16,9 @@ RESTful web API Documentation Generator
    - [JavaScript indented 1](#JavaScript-indented-1)
    - [JavaScript indented 2](#JavaScript-indented-2)
    - [Perl](#Perl)
+   - [Perl comment with pod and cut](#Perl-comment-with-pod-and-cut)
    - [Perl indented 1](#Perl-indented-1)
    - [Perl indented 2](#Perl-indented-2)
-   - [Perl comment with pod and cut](#Perl-comment-with-pod-and-cut)
    - [Python](#Python)
    - [Python indented 1](#Python-indented-1)
    - [Python indented 2](#Python-indented-2)
@@ -202,6 +202,24 @@ This is example line 6.
 GET /language/perl
 ```
 
+## <a name='Perl-comment-with-pod-and-cut'></a> Perl comment with pod and cut
+[Back to top](#top)
+
+```
+GET /language/perl/podcut
+```
+
+### Examples
+Test for indented comment.
+
+```json
+This is example line 2.
+This is example line 3.
+        Line 4 indented (with tab at beginning).
+    Line 5 indented.
+This is example line 6.
+```
+
 ## <a name='Perl-indented-1'></a> Perl indented 1
 [Back to top](#top)
 
@@ -234,24 +252,6 @@ Test for indented comment.
 This is example line 2.
 This is example line 3.
 	    Line 4 indented (with tab at beginning).
-    Line 5 indented.
-This is example line 6.
-```
-
-## <a name='Perl-comment-with-pod-and-cut'></a> Perl comment with pod and cut
-[Back to top](#top)
-
-```
-GET /language/perl/podcut
-```
-
-### Examples
-Test for indented comment.
-
-```json
-This is example line 2.
-This is example line 3.
-        Line 4 indented (with tab at beginning).
     Line 5 indented.
 This is example line 6.
 ```
