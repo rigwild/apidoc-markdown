@@ -46,40 +46,32 @@ export const generate = ({
       return g
     })
 
+  // Sort entries by group name and title ascending
+  apiByGroupAndName = apiByGroupAndName.sort((a: any, b: any) => a.name.localeCompare(b.name))
+  apiByGroupAndName.forEach(x => x.subs.sort((a: any, b: any) => a.title.localeCompare(b.title)))
+
   // Order using the project order setting
   if (apiDocProjectData.order) {
     // Lowercased project order setting array
     const orderLowerCase = apiDocProjectData.order.map((x: string) => x.toLowerCase())
-    // Find items not in the project order setting array
-    const notInOrderArr = apiByGroupAndName.filter(x => orderLowerCase.indexOf(x.name.toLowerCase()) === -1)
+
+    // Filter items in/not in the project order setting array
+    const inOrderArr: any[] = []
+    const notInOrderArr: any[] = []
+    apiByGroupAndName.forEach(x =>
+      orderLowerCase.indexOf(x.name.toLowerCase()) === -1 ? notInOrderArr.push(x) : inOrderArr.push(x)
+    )
+
     // Sorted, with the ones not in the project order setting array appended to it
     apiByGroupAndName = [
-      ...apiByGroupAndName.sort((a, b) =>
-        orderLowerCase.indexOf(a.name.toLowerCase()) >= orderLowerCase.indexOf(b.name.toLowerCase()) ? 1 : -1
-      ),
+      ...inOrderArr.sort((a, b) => {
+        const aIndex = orderLowerCase.indexOf(a.name.toLowerCase())
+        const bIndex = orderLowerCase.indexOf(b.name.toLowerCase())
+        if (aIndex === -1 && bIndex === -1) return 0
+        return aIndex > bIndex ? 1 : -1
+      }),
       ...notInOrderArr
     ]
-  } else {
-    // apply default order by group name and title asc
-    apiByGroupAndName = apiByGroupAndName.sort((a: any, b: any) => {
-      if (a.name > b.name) {
-        return 1
-      } else if (a.name < b.name) {
-        return -1
-      }
-      return 0
-    })
-
-    apiByGroupAndName.map(x =>
-      x.subs.sort((a: any, b: any) => {
-        if (a.title > b.title) {
-          return 1
-        } else if (a.title < b.title) {
-          return -1
-        }
-        return 0
-      })
-    )
   }
 
   // This is the config passed to the template
