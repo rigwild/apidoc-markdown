@@ -5,8 +5,8 @@ RESTful web API Documentation Generator
 
  - [Param](#Param)
    - [Errors](#Errors)
-   - [Parameters](#Parameters)
    - [Param Example](#Param-Example)
+   - [Parameters](#Parameters)
    - [Success](#Success)
 
 ___
@@ -31,6 +31,37 @@ GET /param/:id
 |----------|------------|---------------------------------------|
 | error1Error |  | <p>This is Error 1.</p> |
 | error2Error |  | <p>This is Error 2.</p> |
+
+## <a name='Param-Example'></a> Param Example
+[Back to top](#top)
+
+<p>Usage of @apiParamExample.</p>
+
+```
+GET /param/example/
+```
+
+### Parameters - `Parameter`
+
+| Name     | Type       | Description                           |
+|----------|------------|---------------------------------------|
+| name | `String` | <p>Fullname.</p> |
+
+### Examples
+A common example:
+
+```json
+curl -i http://localhost/param/example/
+```
+
+### Parameters examples
+`json` - A JSON example:
+
+```json
+{
+  "name": "John Doe"
+}
+```
 
 ## <a name='Parameters'></a> Parameters
 [Back to top](#top)
@@ -73,37 +104,6 @@ GET /param/:id
 | param27 | `Number` | <p>Type, size, parameter and allowed value.</p>_Size range: 1-9999_<br>_Allowed values: 4711_ |
 | param28 | `Number` | <p>Type, size, parameter and allowed list of values.</p>_Size range: 1-9999_<br>_Allowed values: 4711,4712_ |
 | param29 | `<a href="http://en.wikipedia.org/wiki/Data_type">Custom</a>` | <p>Type with markdown link.</p> |
-
-## <a name='Param-Example'></a> Param Example
-[Back to top](#top)
-
-<p>Usage of @apiParamExample.</p>
-
-```
-GET /param/example/
-```
-
-### Parameters - `Parameter`
-
-| Name     | Type       | Description                           |
-|----------|------------|---------------------------------------|
-| name | `String` | <p>Fullname.</p> |
-
-### Examples
-A common example:
-
-```json
-curl -i http://localhost/param/example/
-```
-
-### Parameters examples
-`json` - A JSON example:
-
-```json
-{
-  "name": "John Doe"
-}
-```
 
 ## <a name='Success'></a> Success
 [Back to top](#top)

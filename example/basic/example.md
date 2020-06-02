@@ -7,11 +7,16 @@ RESTful web API Documentation Generator
    - [Markdown](#Markdown)
  - [Example](#Example)
    - [Example](#Example)
+ - [Param](#Param)
+   - [Errors](#Errors)
+   - [Param Example](#Param-Example)
+   - [Parameters](#Parameters)
+   - [Success](#Success)
  - [Define](#Define)
    - [Define](#Define)
  - [Deprecated](#Deprecated)
-   - [Deprecated + content](#Deprecated-+-content)
    - [Deprecated](#Deprecated)
+   - [Deprecated + content](#Deprecated-+-content)
  - [Escape](#Escape)
    - [Escape Example](#Escape-Example)
  - [Group](#Group)
@@ -19,8 +24,14 @@ RESTful web API Documentation Generator
  - [Grouping](#Grouping)
    - [Grouping](#Grouping)
  - [Header](#Header)
-   - [Parameters](#Parameters)
    - [Header Example](#Header-Example)
+   - [Parameters](#Parameters)
+ - [indent](#indent)
+   - [Indent a word](#Indent-a-word)
+   - [Trim multi line (spaces)](#Trim-multi-line-(spaces))
+   - [Trim multi line (tabs and space)](#Trim-multi-line-(tabs-and-space))
+   - [Trim multi line (tabs)](#Trim-multi-line-(tabs))
+   - [Trim single line](#Trim-single-line)
  - [Language](#Language)
    - [Clojure](#Clojure)
    - [Clojure indented 1](#Clojure-indented-1)
@@ -34,28 +45,17 @@ RESTful web API Documentation Generator
    - [JavaScript indented 1](#JavaScript-indented-1)
    - [JavaScript indented 2](#JavaScript-indented-2)
    - [Perl](#Perl)
+   - [Perl comment with pod and cut](#Perl-comment-with-pod-and-cut)
    - [Perl indented 1](#Perl-indented-1)
    - [Perl indented 2](#Perl-indented-2)
-   - [Perl comment with pod and cut](#Perl-comment-with-pod-and-cut)
    - [Python](#Python)
    - [Python indented 1](#Python-indented-1)
    - [Python indented 2](#Python-indented-2)
    - [Ruby](#Ruby)
    - [Ruby indented 1](#Ruby-indented-1)
    - [Ruby indented 2](#Ruby-indented-2)
- - [Param](#Param)
-   - [Errors](#Errors)
-   - [Parameters](#Parameters)
-   - [Param Example](#Param-Example)
-   - [Success](#Success)
  - [Permission](#Permission)
    - [Permission](#Permission)
- - [indent](#indent)
-   - [Trim multi line (spaces)](#Trim-multi-line-(spaces))
-   - [Trim multi line (tabs)](#Trim-multi-line-(tabs))
-   - [Trim multi line (tabs and space)](#Trim-multi-line-(tabs-and-space))
-   - [Trim single line](#Trim-single-line)
-   - [Indent a word](#Indent-a-word)
 
 ___
 
@@ -128,6 +128,117 @@ echo 'This is the error content.';
 console.log('This is the error content.');
 ```
 
+# <a name='Param'></a> Param
+
+## <a name='Errors'></a> Errors
+[Back to top](#top)
+
+<p>Returned error parameters. Syntax is the same as for @apiParam</p>
+
+```
+GET /param/:id
+```
+
+### Error response
+
+#### Error response - `Error 4xx`
+
+| Name     | Type       | Description                           |
+|----------|------------|---------------------------------------|
+| error1Error |  | <p>This is Error 1.</p> |
+| error2Error |  | <p>This is Error 2.</p> |
+
+## <a name='Param-Example'></a> Param Example
+[Back to top](#top)
+
+<p>Usage of @apiParamExample.</p>
+
+```
+GET /param/example/
+```
+
+### Parameters - `Parameter`
+
+| Name     | Type       | Description                           |
+|----------|------------|---------------------------------------|
+| name | `String` | <p>Fullname.</p> |
+
+### Examples
+A common example:
+
+```json
+curl -i http://localhost/param/example/
+```
+
+### Parameters examples
+`json` - A JSON example:
+
+```json
+{
+  "name": "John Doe"
+}
+```
+
+## <a name='Parameters'></a> Parameters
+[Back to top](#top)
+
+<p>Parameters and different Versions: 0.1.1</p>
+
+```
+GET /param/:id
+```
+
+### Parameters - `Parameter`
+
+| Name     | Type       | Description                           |
+|----------|------------|---------------------------------------|
+| param1 |  | <p>Parameter and description.</p> |
+| param2 |  |  |
+| param3 |  | <p>Parameter, default value and description.</p>_Default value: Default Value_<br> |
+| param4 |  | _Default value: Default Value_<br> |
+| param5 |  | **optional** <p>Optional parameter and description.</p> |
+| param6 |  | **optional**  |
+| param7 |  | **optional** <p>Optional parameter, default value and description.</p>_Default value: Default Value_<br> |
+| param8 |  | **optional** _Default value: Default Value_<br> |
+| param9 | `String` | <p>Type, parameter and description.</p> |
+| param10 | `String` |  |
+| param11 | `String` | <p>Type, parameter and default value.</p>_Default value: Default Value_<br> |
+| param12 | `String` | _Default value: Default Value_<br> |
+| param13 | `String` | **optional** <p>Type, optional parameter and description.</p> |
+| param14 | `String` | **optional**  |
+| param15 | `String` | **optional** <p>Type, optional parameter, default value and description.</p>_Default value: Default Value_<br> |
+| param26 | `String` | **optional** _Default value: Default Value_<br> |
+| param17 | `String` | <p>Type, size, parameter and description.</p>_Size range: 4,8_<br> |
+| param18 | `Number` | <p>Type, size, parameter and description.</p>_Size range: 1-3_<br> |
+| param19 | `String` | <p>Type, size, parameter, default value and description.</p>_Default value: Default Value_<br>_Size range: 4,8_<br> |
+| param20 | `Number` | <p>Type, size, parameter, default value and description.</p>_Default value: 1_<br>_Size range: 1-3_<br> |
+| param21 | `String` | <p>Type, parameter and allowed string value.</p>_Allowed values: "value 1"_ |
+| param22 | `String` | <p>Type, parameter and allowed list of string values.</p>_Allowed values: "value 1","value 2"_ |
+| param23 | `Number` | <p>Type, parameter and allowed value.</p>_Allowed values: 4711_ |
+| param24 | `Number` | <p>Type, parameter and allowed list of values.</p>_Allowed values: 4711,4712_ |
+| param25 | `String` | <p>Type, size, parameter and allowed string value.</p>_Size range: 1,10_<br>_Allowed values: "value 1"_ |
+| param27 | `Number` | <p>Type, size, parameter and allowed value.</p>_Size range: 1-9999_<br>_Allowed values: 4711_ |
+| param28 | `Number` | <p>Type, size, parameter and allowed list of values.</p>_Size range: 1-9999_<br>_Allowed values: 4711,4712_ |
+| param29 | `<a href="http://en.wikipedia.org/wiki/Data_type">Custom</a>` | <p>Type with markdown link.</p> |
+
+## <a name='Success'></a> Success
+[Back to top](#top)
+
+<p>Returned success parameters. Syntax is the same as for @apiParam</p>
+
+```
+GET /param/:id
+```
+
+### Error response
+
+#### Error response - `Error 4xx`
+
+| Name     | Type       | Description                           |
+|----------|------------|---------------------------------------|
+| success1 |  | <p>This is Success 1.</p> |
+| success2 |  | <p>This is Success 2.</p> |
+
 # <a name='Define'></a> Define
 
 ## <a name='Define'></a> Define
@@ -149,13 +260,13 @@ GET /define
 
 # <a name='Deprecated'></a> Deprecated
 
-## <a name='Deprecated-+-content'></a> Deprecated + content
+## <a name='Deprecated'></a> Deprecated
 [Back to top](#top)
 
-<p>This is a deprecated hint with a link to the new method.</p>
+<p>This is a simple deprecated hint.</p>
 
 ```
-GET /deprecated/bar/:id
+GET /deprecated/foo/:id
 ```
 
 ### Parameters - `Parameter`
@@ -164,13 +275,13 @@ GET /deprecated/bar/:id
 |----------|------------|---------------------------------------|
 | param1 |  | <p>Parameter and description.</p> |
 
-## <a name='Deprecated'></a> Deprecated
+## <a name='Deprecated-+-content'></a> Deprecated + content
 [Back to top](#top)
 
-<p>This is a simple deprecated hint.</p>
+<p>This is a deprecated hint with a link to the new method.</p>
 
 ```
-GET /deprecated/foo/:id
+GET /deprecated/bar/:id
 ```
 
 ### Parameters - `Parameter`
@@ -281,6 +392,22 @@ GET /test/:id
 
 # <a name='Header'></a> Header
 
+## <a name='Header-Example'></a> Header Example
+[Back to top](#top)
+
+<p>Usage of @headerExample.</p>
+
+```
+GET /header/example/
+```
+
+### Header examples
+An example:
+
+```json
+curl -i http://localhost/header/example/
+```
+
 ## <a name='Parameters'></a> Parameters
 [Back to top](#top)
 
@@ -311,20 +438,51 @@ GET /header/:id
 | header15 | `String` | **optional**<p>Optional Parameter with type, description and default value.</p> |
 | header16 | `String` | **optional** |
 
-## <a name='Header-Example'></a> Header Example
+# <a name='indent'></a> indent
+
+## <a name='Indent-a-word'></a> Indent a word
 [Back to top](#top)
 
-<p>Usage of @headerExample.</p>
+<p>text.</p>
 
 ```
-GET /header/example/
+GET /indent/word
 ```
 
-### Header examples
-An example:
+## <a name='Trim-multi-line-(spaces)'></a> Trim multi line (spaces)
+[Back to top](#top)
 
-```json
-curl -i http://localhost/header/example/
+<p>Text line 1 (Begin: 4xSpaces (3 removed)). Text line 2 (Begin: 3xSpaces (3 removed), End: 2xSpaces).</p>
+
+```
+GET /indent/trim/multi/spaces
+```
+
+## <a name='Trim-multi-line-(tabs-and-space)'></a> Trim multi line (tabs and space)
+[Back to top](#top)
+
+<p>Text line 1 (Begin: 1xTab, 2xSpaces). Text line 2 (Begin: 3xSpaces, End: 1xTab).</p>
+
+```
+GET /indent/trim/multi/tabs/and/space
+```
+
+## <a name='Trim-multi-line-(tabs)'></a> Trim multi line (tabs)
+[Back to top](#top)
+
+<p>Text line 1 (Begin: 3xTab (2 removed)). Text line 2 (Begin: 2x Tab (2 removed), End: 1xTab).</p>
+
+```
+GET /indent/trim/multi/tabs
+```
+
+## <a name='Trim-single-line'></a> Trim single line
+[Back to top](#top)
+
+<p>Text line 1 (Begin: 3xSpaces (3 removed), End: 1xSpace).</p>
+
+```
+GET /indent/trim/single
 ```
 
 # <a name='Language'></a> Language
@@ -500,6 +658,24 @@ This is example line 6.
 GET /language/perl
 ```
 
+## <a name='Perl-comment-with-pod-and-cut'></a> Perl comment with pod and cut
+[Back to top](#top)
+
+```
+GET /language/perl/podcut
+```
+
+### Examples
+Test for indented comment.
+
+```json
+This is example line 2.
+This is example line 3.
+        Line 4 indented (with tab at beginning).
+    Line 5 indented.
+This is example line 6.
+```
+
 ## <a name='Perl-indented-1'></a> Perl indented 1
 [Back to top](#top)
 
@@ -532,24 +708,6 @@ Test for indented comment.
 This is example line 2.
 This is example line 3.
 	    Line 4 indented (with tab at beginning).
-    Line 5 indented.
-This is example line 6.
-```
-
-## <a name='Perl-comment-with-pod-and-cut'></a> Perl comment with pod and cut
-[Back to top](#top)
-
-```
-GET /language/perl/podcut
-```
-
-### Examples
-Test for indented comment.
-
-```json
-This is example line 2.
-This is example line 3.
-        Line 4 indented (with tab at beginning).
     Line 5 indented.
 This is example line 6.
 ```
@@ -644,117 +802,6 @@ This is example line 3.
 This is example line 6.
 ```
 
-# <a name='Param'></a> Param
-
-## <a name='Errors'></a> Errors
-[Back to top](#top)
-
-<p>Returned error parameters. Syntax is the same as for @apiParam</p>
-
-```
-GET /param/:id
-```
-
-### Error response
-
-#### Error response - `Error 4xx`
-
-| Name     | Type       | Description                           |
-|----------|------------|---------------------------------------|
-| error1Error |  | <p>This is Error 1.</p> |
-| error2Error |  | <p>This is Error 2.</p> |
-
-## <a name='Parameters'></a> Parameters
-[Back to top](#top)
-
-<p>Parameters and different Versions: 0.1.1</p>
-
-```
-GET /param/:id
-```
-
-### Parameters - `Parameter`
-
-| Name     | Type       | Description                           |
-|----------|------------|---------------------------------------|
-| param1 |  | <p>Parameter and description.</p> |
-| param2 |  |  |
-| param3 |  | <p>Parameter, default value and description.</p>_Default value: Default Value_<br> |
-| param4 |  | _Default value: Default Value_<br> |
-| param5 |  | **optional** <p>Optional parameter and description.</p> |
-| param6 |  | **optional**  |
-| param7 |  | **optional** <p>Optional parameter, default value and description.</p>_Default value: Default Value_<br> |
-| param8 |  | **optional** _Default value: Default Value_<br> |
-| param9 | `String` | <p>Type, parameter and description.</p> |
-| param10 | `String` |  |
-| param11 | `String` | <p>Type, parameter and default value.</p>_Default value: Default Value_<br> |
-| param12 | `String` | _Default value: Default Value_<br> |
-| param13 | `String` | **optional** <p>Type, optional parameter and description.</p> |
-| param14 | `String` | **optional**  |
-| param15 | `String` | **optional** <p>Type, optional parameter, default value and description.</p>_Default value: Default Value_<br> |
-| param26 | `String` | **optional** _Default value: Default Value_<br> |
-| param17 | `String` | <p>Type, size, parameter and description.</p>_Size range: 4,8_<br> |
-| param18 | `Number` | <p>Type, size, parameter and description.</p>_Size range: 1-3_<br> |
-| param19 | `String` | <p>Type, size, parameter, default value and description.</p>_Default value: Default Value_<br>_Size range: 4,8_<br> |
-| param20 | `Number` | <p>Type, size, parameter, default value and description.</p>_Default value: 1_<br>_Size range: 1-3_<br> |
-| param21 | `String` | <p>Type, parameter and allowed string value.</p>_Allowed values: "value 1"_ |
-| param22 | `String` | <p>Type, parameter and allowed list of string values.</p>_Allowed values: "value 1","value 2"_ |
-| param23 | `Number` | <p>Type, parameter and allowed value.</p>_Allowed values: 4711_ |
-| param24 | `Number` | <p>Type, parameter and allowed list of values.</p>_Allowed values: 4711,4712_ |
-| param25 | `String` | <p>Type, size, parameter and allowed string value.</p>_Size range: 1,10_<br>_Allowed values: "value 1"_ |
-| param27 | `Number` | <p>Type, size, parameter and allowed value.</p>_Size range: 1-9999_<br>_Allowed values: 4711_ |
-| param28 | `Number` | <p>Type, size, parameter and allowed list of values.</p>_Size range: 1-9999_<br>_Allowed values: 4711,4712_ |
-| param29 | `<a href="http://en.wikipedia.org/wiki/Data_type">Custom</a>` | <p>Type with markdown link.</p> |
-
-## <a name='Param-Example'></a> Param Example
-[Back to top](#top)
-
-<p>Usage of @apiParamExample.</p>
-
-```
-GET /param/example/
-```
-
-### Parameters - `Parameter`
-
-| Name     | Type       | Description                           |
-|----------|------------|---------------------------------------|
-| name | `String` | <p>Fullname.</p> |
-
-### Examples
-A common example:
-
-```json
-curl -i http://localhost/param/example/
-```
-
-### Parameters examples
-`json` - A JSON example:
-
-```json
-{
-  "name": "John Doe"
-}
-```
-
-## <a name='Success'></a> Success
-[Back to top](#top)
-
-<p>Returned success parameters. Syntax is the same as for @apiParam</p>
-
-```
-GET /param/:id
-```
-
-### Error response
-
-#### Error response - `Error 4xx`
-
-| Name     | Type       | Description                           |
-|----------|------------|---------------------------------------|
-| success1 |  | <p>This is Success 1.</p> |
-| success2 |  | <p>This is Success 2.</p> |
-
 # <a name='Permission'></a> Permission
 
 ## <a name='Permission'></a> Permission
@@ -764,51 +811,4 @@ GET /param/:id
 
 ```
 GET /permission/
-```
-
-# <a name='indent'></a> indent
-
-## <a name='Trim-multi-line-(spaces)'></a> Trim multi line (spaces)
-[Back to top](#top)
-
-<p>Text line 1 (Begin: 4xSpaces (3 removed)). Text line 2 (Begin: 3xSpaces (3 removed), End: 2xSpaces).</p>
-
-```
-GET /indent/trim/multi/spaces
-```
-
-## <a name='Trim-multi-line-(tabs)'></a> Trim multi line (tabs)
-[Back to top](#top)
-
-<p>Text line 1 (Begin: 3xTab (2 removed)). Text line 2 (Begin: 2x Tab (2 removed), End: 1xTab).</p>
-
-```
-GET /indent/trim/multi/tabs
-```
-
-## <a name='Trim-multi-line-(tabs-and-space)'></a> Trim multi line (tabs and space)
-[Back to top](#top)
-
-<p>Text line 1 (Begin: 1xTab, 2xSpaces). Text line 2 (Begin: 3xSpaces, End: 1xTab).</p>
-
-```
-GET /indent/trim/multi/tabs/and/space
-```
-
-## <a name='Trim-single-line'></a> Trim single line
-[Back to top](#top)
-
-<p>Text line 1 (Begin: 3xSpaces (3 removed), End: 1xSpace).</p>
-
-```
-GET /indent/trim/single
-```
-
-## <a name='Indent-a-word'></a> Indent a word
-[Back to top](#top)
-
-<p>text.</p>
-
-```
-GET /indent/word
 ```

@@ -12,20 +12,7 @@
     "title": "My own footer title",
     "content": "<h1>Footer .md File</h1>\n<p>Content of footer.md file.</p>\n"
   },
-  "order": [
-    "Markdown",
-    "Example",
-    "Define",
-    "Deprecated",
-    "Escape",
-    "Group",
-    "Grouping",
-    "Header",
-    "Language",
-    "Param",
-    "Permission",
-    "indent"
-  ],
+  "order": ["Markdown", "Example", "Param"],
   "defaultVersion": "0.0.0",
   "apidoc": "0.3.0",
   "generator": {
