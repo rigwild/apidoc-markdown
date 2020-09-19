@@ -6,7 +6,7 @@ import semverGt from 'semver/functions/gt'
 import * as utils from './utils'
 import { ConfigurationObject, ConfigurationObjectCLI } from './types'
 
-const defaultTemplatePath = path.resolve(__dirname, '..', 'default.md')
+const defaultTemplatePath = path.resolve(__dirname, '..', 'templates', 'default.md')
 
 /**
  * Get the documentation generator
