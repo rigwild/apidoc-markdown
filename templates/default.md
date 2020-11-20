@@ -22,7 +22,7 @@ ___
 ## <a name='<%= toLink(sub.title) %>'></a> <%= sub.title %>
 [Back to top](#top)
 
-<%- sub.description ? `${sub.description.replace('<p>', '').replace('</p>', '')}\n\n` : '' -%>
+<%- sub.description ? `${sub.description}\n\n` : '' -%>
 ```
 <%- sub.type.toUpperCase() %> <%= sub.url %>
 ```
@@ -34,7 +34,7 @@ ___
 | Name    | Type      | Description                          |
 |---------|-----------|--------------------------------------|
 <% headersGroupContent.forEach(header => { -%>
-| <%- header.field %> | <%- header.type ? `\`${header.type}\`` : '' %> | <%- header.optional ? '**optional**' : '' %><%= header.description.replace('<p>', '').replace('</p>', ''); %> |
+| <%- header.field %> | <%- header.type ? `\`${header.type}\`` : '' %> | <%- header.optional ? '**optional**' : '' %><%- header.description %> |
 <% }) // foreach parameter -%>
 <% }) // foreach header fields -%>
 <% } // if parameters -%>
@@ -57,7 +57,7 @@ ___
 | Name     | Type       | Description                           |
 |----------|------------|---------------------------------------|
 <% parametersGroupContent.forEach(param => { -%>
-| <%- param.field -%> | <%- param.type ? `\`${param.type}\`` : '' %> | <%- param.optional ? '**optional** ' : '' -%><%= param.description.replace('<p>', '').replace('</p>', ''); %>
+| <%- param.field -%> | <%- param.type ? `\`${param.type}\`` : '' %> | <%- param.optional ? '**optional** ' : '' -%><%- param.description -%>
 <% if (param.defaultValue) { -%>
 _Default value: <%= param.defaultValue %>_<br><% } -%>
 <% if (param.size) { -%>
@@ -99,7 +99,7 @@ _Allowed values: <%- param.allowedValues %>_<% } -%> |
 | Name     | Type       | Description                           |
 |----------|------------|---------------------------------------|
 <% responsesGroupContent.forEach(param => { -%>
-| <%- param.field %> | <%- param.type ? `\`${param.type}\`` : '' %> | <%- param.optional ? '**optional**' : '' %><%= param.description.replace('<p>', '').replace('</p>', ''); %>
+| <%- param.field %> | <%- param.type ? `\`${param.type}\`` : '' %> | <%- param.optional ? '**optional**' : '' %><%- param.description -%>
 <% if (param.defaultValue) { -%>
 _Default value: <%- param.defaultValue %>_<br><% } -%>
 <% if (param.size) { -%>
@@ -131,7 +131,7 @@ _Allowed values: <%- param.allowedValues %>_<% } -%> |
 | Name     | Type       | Description                           |
 |----------|------------|---------------------------------------|
 <% errorsGroupContent.forEach(param => { -%>
-| <%- param.field %> | <%- param.type ? `\`${param.type}\`` : '' %> | <%- param.optional ? '**optional**' : '' %><%= param.description.replace('<p>', '').replace('</p>', ''); %>
+| <%- param.field %> | <%- param.type ? `\`${param.type}\`` : '' %> | <%- param.optional ? '**optional**' : '' %><%- param.description -%>
 <% if (param.defaultValue) { -%>
 _Default value: <%- param.defaultValue %>_<br><% } -%>
 <% if (param.size) { -%>
