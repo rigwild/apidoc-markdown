@@ -4,17 +4,17 @@
 	<img width="360" src="logo.png" alt="apidoc-markdown" />
 	<br>
 	<br>
-</div>
 
-> 📝 Generate API documentation in Markdown from [apiDoc](https://github.com/apidoc/apidoc) data
+📝 Generate API documentation in Markdown from [apiDoc](https://github.com/apidoc/apidoc) data
 
 [![Node.js CI](https://github.com/rigwild/apidoc-markdown/workflows/Node.js%20CI/badge.svg)](https://github.com/rigwild/apidoc-markdown/actions)
 [![npm package](https://img.shields.io/npm/v/apidoc-markdown.svg?logo=npm)](https://www.npmjs.com/package/apidoc-markdown)
-![npm downloads](https://img.shields.io/npm/dw/apidoc-markdown)
-![license](https://img.shields.io/npm/l/apidoc-markdown?color=blue)
-
+[![npm downloads](https://img.shields.io/npm/dw/apidoc-markdown)](https://www.npmjs.com/package/apidoc-markdown)
+[![license](https://img.shields.io/npm/l/apidoc-markdown?color=blue)](./LICENSE)
 
 ![Demo GIF](./demo.gif)
+
+</div>
 
 ## Motivation
 I really like the idea of generating API documentations with simple annotations like [apiDoc](https://github.com/apidoc/apidoc) does.
