@@ -5,9 +5,17 @@ import { ConfigurationObjectCLI } from './types'
 const cli = yargs
   .usage('Generate Markdown documentation from apiDoc data.')
   .usage(
-    'Usage: apidoc-markdown -p <path> -o <output_file> [-t <template_path>] [--multi] [--createPath] [--prepend <file_path>]'
+    'Usage: apidoc-markdown -p <path> -o <output_file> [-t <template_name>] [--multi] [--createPath] [--prepend <file_path>]'
   )
   .example('apidoc-markdown -p doc/ -o doc.md', 'Generate from `doc/` apiDoc output to `./doc.md`')
+  .example(
+    'apidoc-markdown -p doc/ -o doc.md -t bitbucket',
+    'Generate from `doc/` apiDoc output to `./doc.md` using the bitbucket template'
+  )
+  .example(
+    'apidoc-markdown -p doc/ -o doc.md -t ./mytemplate.md',
+    'Generate from `doc/` apiDoc output to `./doc.md` using a provided template file'
+  )
   .example(
     'apidoc-markdown -p doc -o multi --multi --createPath',
     'Generate from `doc/` apiDoc output to `./multi/<group>.md`'
@@ -26,8 +34,9 @@ const cli = yargs
   })
   .option('template', {
     alias: 't',
-    describe: 'Path to EJS template file, if not specified default template will be used.',
-    default: path.resolve(__dirname, '..', 'templates', 'default.md'),
+    describe:
+      'Name of the template to be used (`default`, `bitbucket`) or path to an EJS template file. If not specified, the default template is used',
+    default: 'default',
     type: 'string'
   })
   .option('prepend', {
