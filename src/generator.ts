@@ -3,10 +3,8 @@ import { promises as fs } from 'fs'
 import ejs from 'ejs'
 import semverGt from 'semver/functions/gt'
 
-import * as utils from './utils'
+import { loadTemplate, mkdirp, pathExists, templateUtils, unique } from './utils'
 import { ConfigurationObject, ConfigurationObjectCLI } from './types'
-
-const defaultTemplatePath = path.resolve(__dirname, '..', 'templates', 'default.md')
 
 /**
  * Get the documentation generator
@@ -26,8 +24,7 @@ export const generate = ({
   let apiByGroupAndName: any[]
 
   // Group apiDoc data by group and name
-  apiByGroupAndName = utils
-    .unique(Object.values(apiDocApiData).map(x => x.group))
+  apiByGroupAndName = unique(Object.values(apiDocApiData).map(x => x.group))
     .reduce((acc, cur) => {
       if (apiDocApiData.find(x => x.group === cur)) acc.push({ name: cur, subs: [] })
       return acc
@@ -77,7 +74,7 @@ export const generate = ({
   // This is the config passed to the template
   const templateConfig = {
     // Every functions in `utils_template.js` are passed to the EJS compiler
-    ...utils.templateUtils,
+    ...templateUtils,
 
     project: apiDocProjectData,
     prepend
@@ -103,13 +100,8 @@ export const generateMarkdown = async ({
   template,
   prepend,
   multi
-}: ConfigurationObject) => {
-  // Create the EJS compiler. Load the default documentation template if not provided
-  const ejsCompiler = ejs.compile(template ? template : await fs.readFile(defaultTemplatePath, 'utf-8'))
-
-  // Generate the actual documentation
-  return generate({ apiDocProjectData, apiDocApiData, prepend, multi, ejsCompiler })
-}
+}: ConfigurationObject) =>
+  generate({ apiDocProjectData, apiDocApiData, prepend, multi, ejsCompiler: await loadTemplate(template, false) })
 
 /**
  * Generate mardown documentation and create output file(s).
@@ -128,25 +120,23 @@ export const generateMarkdownFileSystem = async ({
 }: ConfigurationObjectCLI) => {
   // Check the apiDoc data path exists
   if (!apiDocPath) throw new Error('`apiDocPath` is required but was not provided.')
-  if (!(await utils.pathExists(apiDocPath))) throw new Error('The `apiDocPath` path does not exist or is not readable.')
-
-  // Check the template file path exists, take default if template if not provided
-  if (!template) template = defaultTemplatePath
-  if (!(await utils.pathExists(template))) throw new Error('The `template` path does not exist or is not readable.')
+  if (!(await pathExists(apiDocPath))) throw new Error('The `apiDocPath` path does not exist or is not readable.')
 
   // Check the prepend file path exists
   if (prepend) {
-    if (!(await utils.pathExists(prepend))) throw new Error('The `prepend` path does not exist or is not readable.')
+    if (!(await pathExists(prepend))) throw new Error('The `prepend` path does not exist or is not readable.')
 
     prepend = (await fs.readFile(prepend as string, { encoding: 'utf-8' })) as string
   }
 
   // Check the output path exists (only parent directory if unique file)
   if (!output) throw new Error('`output` is required but was not provided.')
+
   // Recursively create directory arborescence if cli option is true
-  if (createPath) await utils.mkdirp(output)
+  if (createPath) await mkdirp(output)
+
   const outputPath = multi ? output : path.parse(path.resolve('.', output)).dir
-  if (!(await utils.pathExists(outputPath))) throw new Error('The `output` path does not exist or is not readable.')
+  if (!(await pathExists(outputPath))) throw new Error('The `output` path does not exist or is not readable.')
 
   // Load the apiDoc data, be backward-compatible with legacy `apidoc.json`
   const apiDocProjectData = await import(path.resolve(apiDocPath, 'api_project.json'))
@@ -157,11 +147,14 @@ export const generateMarkdownFileSystem = async ({
     })
   const apiDocApiData = Object.values<any>(await import(path.resolve(apiDocPath, 'api_data.json'))).filter(x => x.type)
 
-  // Import documentation template
-  const ejsCompiler = ejs.compile(await fs.readFile(template, 'utf-8'))
-
   // Generate the actual documentation
-  const documentation = generate({ apiDocProjectData, apiDocApiData, prepend, multi, ejsCompiler })
+  const documentation = generate({
+    apiDocProjectData,
+    apiDocApiData,
+    prepend,
+    multi,
+    ejsCompiler: await loadTemplate(template)
+  })
 
   // Create the output files
   if (!multi) {

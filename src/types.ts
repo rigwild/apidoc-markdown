@@ -5,7 +5,10 @@ export declare interface ConfigurationObject {
   /** apiDoc documentation JSON data object (`api_data.json` file content) */
   apiDocApiData: { [key: string]: any }[]
 
-  /** EJS template (will use default if ommitted, see './templates/default.md'). */
+  /** Name of template to be used (`default`, `bitbucket`)
+   * or path to EJS template file
+   * or raw EJS plain text template
+   * (will use default template if ommitted). */
   template?: string
 
   /** Content to add before route groups documentation */
@@ -22,8 +25,11 @@ export declare interface ConfigurationObjectCLI {
   /** Output file or directory to write output to */
   output: string
 
-  /** Path to EJS template file './templates/default.md' */
-  template: string
+  /** Name of template to be used (`default`, `bitbucket`)
+   * or path to EJS template file
+   * or raw EJS plain text template
+   * (will use default template if ommitted). */
+  template?: string
 
   /** Path to file content to add before route groups documentation */
   prepend?: string
