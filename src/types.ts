@@ -40,3 +40,8 @@ export declare interface ConfigurationObjectCLI {
   /** Recursively create directory arborescence to the `output` directory */
   createPath?: boolean
 }
+
+export const availableTemplates = {
+  default: 'default',
+  bitbucket: 'bitbucket'
+} as const

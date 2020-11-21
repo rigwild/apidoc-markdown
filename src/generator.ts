@@ -3,7 +3,7 @@ import { promises as fs } from 'fs'
 import ejs from 'ejs'
 import semverGt from 'semver/functions/gt'
 
-import { loadTemplate, mkdirp, pathExists, templateUtils, unique } from './utils'
+import { loadApidocFiles, loadTemplate, mkdirp, pathExists, templateUtils, unique } from './utils'
 import { ConfigurationObject, ConfigurationObjectCLI } from './types'
 
 /**
@@ -12,13 +12,13 @@ import { ConfigurationObject, ConfigurationObjectCLI } from './types'
  * @param param0 Documentation generator parameters
  * @returns The single or multi file EJS compiler, ready for usage
  */
-export const generate = ({
+export const generate = async ({
   apiDocProjectData,
   apiDocApiData,
   prepend,
   multi,
   ejsCompiler
-}: Omit<ConfigurationObject, 'template'> & { ejsCompiler: ejs.TemplateFunction }) => {
+}: Omit<ConfigurationObject, 'template'> & { ejsCompiler: ejs.AsyncTemplateFunction }) => {
   // const { apiData, projectData, ejsCompiler } = await loadApiDocProject({ apiDocPath, template, prepend })
   // Define template data
   let apiByGroupAndName: any[]
@@ -81,11 +81,13 @@ export const generate = ({
   }
 
   return !multi
-    ? [{ name: 'main', content: ejsCompiler({ ...templateConfig, data: apiByGroupAndName }) }]
-    : apiByGroupAndName.map(x => ({
-        name: x.name as string,
-        content: ejsCompiler({ ...templateConfig, data: [x] })
-      }))
+    ? [{ name: 'main', content: await ejsCompiler({ ...templateConfig, data: apiByGroupAndName }) }]
+    : await Promise.all(
+        apiByGroupAndName.map(async x => ({
+          name: x.name as string,
+          content: await ejsCompiler({ ...templateConfig, data: [x] })
+        }))
+      )
 }
 
 /**
@@ -133,22 +135,15 @@ export const generateMarkdownFileSystem = async ({
   if (!output) throw new Error('`output` is required but was not provided.')
 
   // Recursively create directory arborescence if cli option is true
-  if (createPath) await mkdirp(output)
+  if (createPath) await mkdirp(path.dirname(output))
 
   const outputPath = multi ? output : path.parse(path.resolve('.', output)).dir
   if (!(await pathExists(outputPath))) throw new Error('The `output` path does not exist or is not readable.')
 
-  // Load the apiDoc data, be backward-compatible with legacy `apidoc.json`
-  const apiDocProjectData = await import(path.resolve(apiDocPath, 'api_project.json'))
-    .catch(() => import(path.resolve(apiDocPath, 'apidoc.json')))
-    .catch(err => {
-      err.message = 'Could not load `api_project.json` or `apidoc.json` - ' + err.message
-      throw err
-    })
-  const apiDocApiData = Object.values<any>(await import(path.resolve(apiDocPath, 'api_data.json'))).filter(x => x.type)
+  const { apiDocProjectData, apiDocApiData } = await loadApidocFiles(apiDocPath)
 
   // Generate the actual documentation
-  const documentation = generate({
+  const documentation = await generate({
     apiDocProjectData,
     apiDocApiData,
     prepend,
