@@ -59,8 +59,6 @@ RESTful web API Documentation Generator
 
 ___
 
- > this quote is a prepend from [prepended.md](./prepended.md)
-
 
 # <a name='Markdown'></a> Markdown
 

@@ -1,0 +1,23 @@
+<a name="top"></a>
+# test v0.13.0
+
+RESTful web API Documentation Generator
+
+ - [Permission](#Permission)
+   - [Permission](#Permission)
+
+___
+
+ > this quote is prepended to this doc using a file `prepended.md`
+
+
+# <a name='Permission'></a> Permission
+
+## <a name='Permission'></a> Permission
+[Back to top](#top)
+
+<p>@apiPermission test.</p>
+
+```
+GET /permission/
+```

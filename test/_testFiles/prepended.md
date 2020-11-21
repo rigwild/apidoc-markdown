@@ -1,1 +1,1 @@
- > this quote is a prepend from [prepended.md](./prepended.md)
+ > this quote is prepended to this doc using a file `prepended.md`
