@@ -25,11 +25,11 @@
   "scripts": {
     "build": "tsc",
     "help": "node bin/index.js -h",
-    "example:generate": "TODO",
-    "example:clean": "rm -rf example/basic/example.md example/multi/output/",
+    "example:generate": "node example/generateExamples.js",
+    "example:clean": "rm -rf example/basic/example.md example/multi/*",
     "test": "tsc && ava",
     "test:ava": "ava",
-    "test:gen-apidoc": "cd test/_apiDocData && rm -rf out && apidoc -i src -o out",
+    "test:gen-apidoc": "cd test/_apidoc && rm -rf out && apidoc -i src -o out",
     "prepublishOnly": "tsc"
   },
   "dependencies": {
@@ -66,7 +66,7 @@
   "ava": {
     "files": [
       "test/**/*",
-      "!test/_apiDocData"
+      "!test/_apidoc"
     ],
     "verbose": true
   }

@@ -6,7 +6,7 @@ const path = require('path')
 const r = path.resolve
 
 const TEMPLATES_DIR = r(__dirname, '..', 'templates')
-const APIDOC_DATA_DIR = r(__dirname, '_apiDocData', 'out')
+const APIDOC_DATA_DIR = r(__dirname, '_apidoc', 'out')
 const TEST_FILES_DIR = r(__dirname, '_testFiles')
 const OUTPUT_EXPECTED_DIR = r(__dirname, 'output-expected')
 const OUTPUT_DIR = r(__dirname, 'output')

@@ -135,7 +135,7 @@ export const generateMarkdownFileSystem = async ({
   if (!output) throw new Error('`output` is required but was not provided.')
 
   // Recursively create directory arborescence if cli option is true
-  if (createPath) await mkdirp(path.dirname(output))
+  if (createPath) await mkdirp(output.toLowerCase().endsWith('.md') ? path.dirname(output) : output)
 
   const outputPath = multi ? output : path.parse(path.resolve('.', output)).dir
   if (!(await pathExists(outputPath))) throw new Error('The `output` path does not exist or is not readable.')
