@@ -2,11 +2,17 @@
 # <%= project.name %> v<%= project.version %>
 
 <%= project.description %>
+<% if (header) { -%>
+
+<%- header %>
+<% } -%>
+
+# Table of contents
 
 <% data.forEach(group => { -%>
- - [<%= group.name %>](#<%= toLink(group.name) -%>)
+- [<%= group.name %>](#<%= toLink(group.name) -%>)
 <% group.subs.forEach(sub => { -%>
-   - [<%= sub.title %>](#<%= toLink(sub.title) %>)
+  - [<%= sub.title %>](#<%= toLink(sub.title) %>)
 <% })}) -%>
 
 ___
@@ -155,3 +161,7 @@ _Allowed values: <%- param.allowedValues %>_<% } -%> |
 <% } // if error.examples -%>
 <% }) // foreach sub -%>
 <% }) // foreach group -%>
+
+<% if (footer) { -%>
+<%- footer %>
+<% } -%>

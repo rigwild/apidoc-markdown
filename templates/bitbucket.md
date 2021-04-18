@@ -2,11 +2,17 @@
 # <%= project.name %> v<%= project.version %>
 
 <%= project.description %>
+<% if (header) { -%>
+
+<%- header %>
+<% } -%>
+
+# Table of contents
 
 <% data.forEach(group => { -%>
- - [<%= group.name %>](#markdown-header-<%= toLink(group.name).toLowerCase() -%>)
+- [<%= group.name %>](#markdown-header-<%= toLink(group.name).toLowerCase() -%>)
 <% group.subs.forEach(sub => { -%>
-   - [<%= sub.title %>](#markdown-header-<%= toLink(sub.title).toLowerCase() %>)
+  - [<%= sub.title %>](#markdown-header-<%= toLink(sub.title).toLowerCase() %>)
 <% })}) -%>
 
 ___
@@ -155,3 +161,7 @@ _Allowed values: <%- param.allowedValues %>_<% } -%> |
 <% } // if error.examples -%>
 <% }) // foreach sub -%>
 <% }) // foreach group -%>
+
+<% if (footer) { -%>
+<%- footer %>
+<% } -%>

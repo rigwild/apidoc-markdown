@@ -20,6 +20,24 @@ const r = path.resolve
 
 test.before(beforeTestsHook)
 
+test('basic generation', async t => {
+  const res = await generateMarkdownFileSystem({
+    apiDocPath: APIDOC_DATA_DIR,
+    output: r(OUTPUT_DIR, 'default', 'example.md')
+  })
+  await areSameFile(t, res[0].outputFile, r(OUTPUT_EXPECTED_DIR, 'default', 'example.md'))
+})
+
+test('multi generation', async t => {
+  const res = await generateMarkdownFileSystem({
+    apiDocPath: APIDOC_DATA_DIR,
+    output: r(OUTPUT_DIR, 'multi'),
+    multi: true
+  })
+  const outputExpectedDir = r(OUTPUT_EXPECTED_DIR, 'multi')
+  for (let doc of res) await areSameFile(t, doc.outputFile, r(outputExpectedDir, path.basename(doc.outputFile)))
+})
+
 test('can recursively create the path', async t => {
   const res = await generateMarkdownFileSystem({
     apiDocPath: APIDOC_DATA_DIR,
@@ -56,32 +74,28 @@ test('use a template by passing its raw plain text content', async t => {
   await areSameFile(t, res[0].outputFile, r(OUTPUT_EXPECTED_DIR, 'raw-template', 'example.md'))
 })
 
-test('multi generation', async t => {
+test('add files to inject', async t => {
   const res = await generateMarkdownFileSystem({
     apiDocPath: APIDOC_DATA_DIR,
-    output: r(OUTPUT_DIR, 'multi'),
-    multi: true
+    output: r(OUTPUT_DIR, 'inject-files', 'example.md'),
+    header: r(TEST_FILES_DIR, 'header.md'),
+    footer: r(TEST_FILES_DIR, 'footer.md'),
+    prepend: r(TEST_FILES_DIR, 'prepend.md')
   })
-  const outputExpectedDir = r(OUTPUT_EXPECTED_DIR, 'multi')
-  for (let doc of res) await areSameFile(t, doc.outputFile, r(outputExpectedDir, path.basename(doc.outputFile)))
+  await Promise.all(
+    res.map(() => areSameFile(t, res[0].outputFile, r(OUTPUT_EXPECTED_DIR, 'inject-files', 'example.md')))
+  )
 })
 
-test('add a file to prepend', async t => {
+test('multi generation with injected files', async t => {
   const res = await generateMarkdownFileSystem({
     apiDocPath: APIDOC_DATA_DIR,
-    output: r(OUTPUT_DIR, 'prepend', 'example.md'),
-    prepend: r(TEST_FILES_DIR, 'prepended.md')
-  })
-  await Promise.all(res.map(() => areSameFile(t, res[0].outputFile, r(OUTPUT_EXPECTED_DIR, 'prepend', 'example.md'))))
-})
-
-test('multi generation with prepended file', async t => {
-  const res = await generateMarkdownFileSystem({
-    apiDocPath: APIDOC_DATA_DIR,
-    output: r(OUTPUT_DIR, 'prepend-multi'),
+    output: r(OUTPUT_DIR, 'inject-files-multi'),
     multi: true,
-    prepend: r(TEST_FILES_DIR, 'prepended.md')
+    header: r(TEST_FILES_DIR, 'header.md'),
+    footer: r(TEST_FILES_DIR, 'footer.md'),
+    prepend: r(TEST_FILES_DIR, 'prepend.md')
   })
-  const outputExpectedDir = r(OUTPUT_EXPECTED_DIR, 'prepend-multi')
+  const outputExpectedDir = r(OUTPUT_EXPECTED_DIR, 'inject-files-multi')
   await Promise.all(res.map(doc => areSameFile(t, doc.outputFile, r(outputExpectedDir, path.basename(doc.outputFile)))))
 })

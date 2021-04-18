@@ -31,6 +31,40 @@ export const pathExists = (p: string, logIfFail = true) =>
     .then(() => true)
     .catch(err => (logIfFail && console.error(err), false))
 
+export const loadFileOrThrowIfNotExist = async (optionName: string, filePath: string) => {
+  if (!(await pathExists(filePath)))
+    throw new Error(`The \`${optionName}\` path does not exist or is not readable. Path: ${filePath}`)
+  return await fs.readFile(filePath, { encoding: 'utf-8' })
+}
+
+/**
+ * Try to load file from CLI parameter or from `api_project.json`
+ * @param optionName CLI parameter/`api_project.json` key name
+ * @param cliParam Received CLI param value
+ * @param apiDocProjectData `api_project.json` content
+ * @returns
+ */
+export const loadFromCliParamOrApiDocProject = async (
+  optionName: string,
+  cliParam: string | undefined,
+  apiDocProjectData: any
+) => {
+  if (cliParam) return await loadFileOrThrowIfNotExist(`cli.${optionName}`, cliParam)
+  else if (apiDocProjectData[optionName]) {
+    if (apiDocProjectData[optionName].filename)
+      // This is not a valid option as apiDoc will convert input `filename` to actual markdown content
+      // But let's support it anyway.
+      return await loadFileOrThrowIfNotExist(
+        `apidoc_project_file.${optionName}.filename`,
+        apiDocProjectData[optionName].filename
+      )
+    else if (apiDocProjectData[optionName].content)
+      return `${apiDocProjectData[optionName].title ? `# ${apiDocProjectData[optionName].title}\n\n` : ''}${
+        apiDocProjectData[optionName].content
+      }`
+  }
+}
+
 /**
  * Check if a template is in the templates directory
  * @param name template name (without the `.md` file extension)

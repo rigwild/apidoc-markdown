@@ -11,6 +11,12 @@ export declare interface ConfigurationObject {
    * (will use default template if ommitted). */
   template?: string
 
+  /** Content to add at the top of the documentation */
+  header?: string
+
+  /** Content to add at the bottom of the documentation */
+  footer?: string
+
   /** Content to add before route groups documentation */
   prepend?: string
 
@@ -30,6 +36,12 @@ export declare interface ConfigurationObjectCLI {
    * or raw EJS plain text template
    * (will use default template if ommitted). */
   template?: string
+
+  /** Path to file content to add at the top of the documentation */
+  header?: string
+
+  /** Path to file content to add at the bottom of the documentation */
+  footer?: string
 
   /** Path to file content to add before route groups documentation */
   prepend?: string

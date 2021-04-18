@@ -20,13 +20,15 @@ test('basic generation', async t => {
   t.is(res[0].content, await getFile(r(OUTPUT_EXPECTED_DIR, 'default', 'example.md')))
 })
 
-test('add prepend text', async t => {
+test('add files to inject', async t => {
   const res = await generateMarkdown({
     ...t.context.apidocData,
-    prepend: await getFile(r(TEST_FILES_DIR, 'prepended.md'))
+    header: await getFile(r(TEST_FILES_DIR, 'header.md')),
+    footer: await getFile(r(TEST_FILES_DIR, 'footer.md')),
+    prepend: await getFile(r(TEST_FILES_DIR, 'prepend.md'))
   })
   t.is(res[0].name, 'main')
-  t.is(res[0].content, await getFile(r(OUTPUT_EXPECTED_DIR, 'prepend', 'example.md')))
+  t.is(res[0].content, await getFile(r(OUTPUT_EXPECTED_DIR, 'inject-files', 'example.md')))
 })
 
 test('use a template by its name', async t => {
@@ -65,12 +67,14 @@ test('multi generation', async t => {
   await Promise.all(res.map(async doc => t.is(doc.content, await getFile(r(outputExpectedDir, `${doc.name}.md`)))))
 })
 
-test('multi generation with prepended text', async t => {
+test('multi generation with injected files', async t => {
   const res = await generateMarkdown({
     ...t.context.apidocData,
-    prepend: await getFile(r(TEST_FILES_DIR, 'prepended.md')),
+    header: await getFile(r(TEST_FILES_DIR, 'header.md')),
+    footer: await getFile(r(TEST_FILES_DIR, 'footer.md')),
+    prepend: await getFile(r(TEST_FILES_DIR, 'prepend.md')),
     multi: true
   })
-  const outputExpectedDir = r(OUTPUT_EXPECTED_DIR, 'prepend-multi')
+  const outputExpectedDir = r(OUTPUT_EXPECTED_DIR, 'inject-files-multi')
   await Promise.all(res.map(async doc => t.is(doc.content, await getFile(r(outputExpectedDir, `${doc.name}.md`)))))
 })

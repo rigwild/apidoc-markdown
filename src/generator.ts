@@ -3,7 +3,15 @@ import { promises as fs } from 'fs'
 import ejs from 'ejs'
 import semverGt from 'semver/functions/gt'
 
-import { loadApidocFiles, loadTemplate, mkdirp, pathExists, templateUtils, unique } from './utils'
+import {
+  loadApidocFiles,
+  loadFromCliParamOrApiDocProject,
+  loadTemplate,
+  mkdirp,
+  pathExists,
+  templateUtils,
+  unique
+} from './utils'
 import { ConfigurationObject, ConfigurationObjectCLI } from './types'
 
 /**
@@ -17,6 +25,8 @@ export const generate = async ({
   apiDocApiData,
   prepend,
   multi,
+  header,
+  footer,
   ejsCompiler
 }: Omit<ConfigurationObject, 'template'> & { ejsCompiler: ejs.AsyncTemplateFunction }) => {
   // const { apiData, projectData, ejsCompiler } = await loadApiDocProject({ apiDocPath, template, prepend })
@@ -77,6 +87,8 @@ export const generate = async ({
     ...templateUtils,
 
     project: apiDocProjectData,
+    header,
+    footer,
     prepend
   }
 
@@ -101,9 +113,19 @@ export const generateMarkdown = async ({
   apiDocApiData,
   template,
   prepend,
+  header,
+  footer,
   multi
 }: ConfigurationObject) =>
-  generate({ apiDocProjectData, apiDocApiData, prepend, multi, ejsCompiler: await loadTemplate(template, false) })
+  generate({
+    apiDocProjectData,
+    apiDocApiData,
+    header,
+    footer,
+    prepend,
+    multi,
+    ejsCompiler: await loadTemplate(template, false)
+  })
 
 /**
  * Generate mardown documentation and create output file(s).
@@ -117,35 +139,39 @@ export const generateMarkdownFileSystem = async ({
   output,
   template,
   prepend,
+  header,
+  footer,
   multi,
   createPath
 }: ConfigurationObjectCLI) => {
   // Check the apiDoc data path exists
-  if (!apiDocPath) throw new Error('`apiDocPath` is required but was not provided.')
-  if (!(await pathExists(apiDocPath))) throw new Error('The `apiDocPath` path does not exist or is not readable.')
-
-  // Check the prepend file path exists
-  if (prepend) {
-    if (!(await pathExists(prepend))) throw new Error('The `prepend` path does not exist or is not readable.')
-
-    prepend = (await fs.readFile(prepend as string, { encoding: 'utf-8' })) as string
-  }
+  if (!apiDocPath) throw new Error('`cli.apiDocPath` is required but was not provided.')
+  if (!(await pathExists(apiDocPath)))
+    throw new Error(`The \`cli.apiDocPath\` path does not exist or is not readable. Path: ${apiDocPath}`)
 
   // Check the output path exists (only parent directory if unique file)
-  if (!output) throw new Error('`output` is required but was not provided.')
+  if (!output) throw new Error('`cli.output` is required but was not provided.')
 
   // Recursively create directory arborescence if cli option is true
   if (createPath) await mkdirp(output.toLowerCase().endsWith('.md') ? path.dirname(output) : output)
 
   const outputPath = multi ? output : path.parse(path.resolve('.', output)).dir
-  if (!(await pathExists(outputPath))) throw new Error('The `output` path does not exist or is not readable.')
+  if (!(await pathExists(outputPath)))
+    throw new Error(`The \`cli.output\` path does not exist or is not readable. Path: ${outputPath}`)
 
   const { apiDocProjectData, apiDocApiData } = await loadApidocFiles(apiDocPath)
+
+  // Check header, footer and prepend file path exist
+  header = await loadFromCliParamOrApiDocProject('header', header, apiDocProjectData)
+  footer = await loadFromCliParamOrApiDocProject('footer', footer, apiDocProjectData)
+  prepend = await loadFromCliParamOrApiDocProject('prepend', prepend, apiDocProjectData)
 
   // Generate the actual documentation
   const documentation = await generate({
     apiDocProjectData,
     apiDocApiData,
+    header,
+    footer,
     prepend,
     multi,
     ejsCompiler: await loadTemplate(template)

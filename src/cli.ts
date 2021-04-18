@@ -1,4 +1,3 @@
-import path from 'path'
 import yargs from 'yargs'
 import { ConfigurationObjectCLI } from './types'
 
@@ -37,6 +36,14 @@ const cli = yargs
     describe:
       'Name of the template to be used (`default`, `bitbucket`) or path to an EJS template file. If not specified, the default template is used',
     default: 'default',
+    type: 'string'
+  })
+  .option('header', {
+    describe: 'Path to file content to add at the top of the documentation.',
+    type: 'string'
+  })
+  .option('footer', {
+    describe: 'Path to file content to add at the bottom of the documentation.',
     type: 'string'
   })
   .option('prepend', {

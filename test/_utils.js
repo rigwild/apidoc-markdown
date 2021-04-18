@@ -18,7 +18,7 @@ const beforeTestsHook = async t => {
   await fs.remove(OUTPUT_DIR)
   await new Promise(res => setTimeout(res, 1000))
 
-  const dirs = ['.', 'default', 'bitbucket', 'raw-template', 'multi', 'prepend', 'prepend-multi']
+  const dirs = ['.', 'default', 'bitbucket', 'raw-template', 'multi', 'inject-files', 'inject-files-multi']
   await Promise.all(dirs.map(x => fs.promises.mkdir(r(OUTPUT_DIR, x), { recursive: true })))
 
   t.context.apidocData = {
