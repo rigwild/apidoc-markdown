@@ -278,7 +278,7 @@ Add it like this:
 }
 ```
 
-**Note:** This only works if you use the CLI or [`generateMarkdownFileSystem`](generateMarkdownFileSystem). It will not work if you use [`generateMarkdown`](generateMarkdown).
+**Note:** This only works if you use the CLI or [`generateMarkdownFileSystem`](#generateMarkdownFileSystem). It will not work if you use [`generateMarkdown`](#generateMarkdown).
 
 ### Groups order
 
