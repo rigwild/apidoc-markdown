@@ -25,7 +25,7 @@
   "scripts": {
     "build": "tsc",
     "help": "node bin/index.js -h",
-    "example:generate": "node example/generateExamples.js",
+    "example:generate": "cd example && node generateExamples.js",
     "example:clean": "rm -rf example/basic/example.md example/multi/*",
     "test": "tsc && ava",
     "test:ava": "ava",
@@ -34,19 +34,19 @@
   },
   "dependencies": {
     "ejs": "^3.1.6",
-    "semver": "^7.3.4",
+    "semver": "^7.3.5",
     "update-notifier": "^5.1.0",
     "yargs": "^16.2.0"
   },
   "devDependencies": {
     "@types/ejs": "^3.0.6",
-    "@types/node": "^14.14.35",
+    "@types/node": "^14.14.41",
     "@types/semver": "^7.3.4",
-    "@types/yargs": "^16.0.0",
+    "@types/yargs": "^16.0.1",
     "apidoc": "^0.27.1",
     "ava": "^3.15.0",
     "fs-extra": "^9.1.0",
-    "typescript": "^4.2.3"
+    "typescript": "^4.2.4"
   },
   "keywords": [
     "apidoc",
@@ -61,7 +61,9 @@
     "cli-app",
     "command-line",
     "rest",
-    "restful"
+    "restful",
+    "api-documentation",
+    "markdown-documentation"
   ],
   "ava": {
     "files": [
