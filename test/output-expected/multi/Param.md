@@ -3,11 +3,13 @@
 
 RESTful web API Documentation Generator
 
- - [Param](#Param)
-   - [Errors](#Errors)
-   - [Param Example](#Param-Example)
-   - [Parameters](#Parameters)
-   - [Success](#Success)
+# Table of contents
+
+- [Param](#Param)
+  - [Errors](#Errors)
+  - [Param Example](#Param-Example)
+  - [Parameters](#Parameters)
+  - [Success](#Success)
 
 ___
 
@@ -122,3 +124,4 @@ GET /param/:id
 |----------|------------|---------------------------------------|
 | success1 |  | <p>This is Success 1.</p> |
 | success2 |  | <p>This is Success 2.</p> |
+

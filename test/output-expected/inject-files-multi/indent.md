@@ -3,17 +3,22 @@
 
 RESTful web API Documentation Generator
 
- - [indent](#indent)
-   - [Indent a word](#Indent-a-word)
-   - [Trim multi line (spaces)](#Trim-multi-line-(spaces))
-   - [Trim multi line (tabs and space)](#Trim-multi-line-(tabs-and-space))
-   - [Trim multi line (tabs)](#Trim-multi-line-(tabs))
-   - [Trim single line](#Trim-single-line)
+# Header .md File
+
+This is the content of the `header.md` file.
+
+# Table of contents
+
+- [indent](#indent)
+  - [Indent a word](#Indent-a-word)
+  - [Trim multi line (spaces)](#Trim-multi-line-(spaces))
+  - [Trim multi line (tabs and space)](#Trim-multi-line-(tabs-and-space))
+  - [Trim multi line (tabs)](#Trim-multi-line-(tabs))
+  - [Trim single line](#Trim-single-line)
 
 ___
 
- > this quote is prepended to this doc using a file `prepended.md`
-
+ > this quote is prepended to this doc using a file `prepend.md`
 
 # <a name='indent'></a> indent
 
@@ -61,3 +66,7 @@ GET /indent/trim/multi/tabs
 ```
 GET /indent/trim/single
 ```
+
+# Footer .md File
+
+This is the content of the `footer.md` file.

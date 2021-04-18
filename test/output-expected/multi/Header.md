@@ -3,9 +3,11 @@
 
 RESTful web API Documentation Generator
 
- - [Header](#Header)
-   - [Header Example](#Header-Example)
-   - [Parameters](#Parameters)
+# Table of contents
+
+- [Header](#Header)
+  - [Header Example](#Header-Example)
+  - [Parameters](#Parameters)
 
 ___
 
@@ -57,3 +59,11 @@ GET /header/:id
 | header14 | `String` | **optional** |
 | header15 | `String` | **optional**<p>Optional Parameter with type, description and default value.</p> |
 | header16 | `String` | **optional** |
+
+### Headers - `Request headers`
+
+| Name    | Type      | Description                          |
+|---------|-----------|--------------------------------------|
+| reqHeader1 |  | <p>Basic Parameter with description.</p> |
+| reqHeader2 |  | <p>Basic Parameter with description.</p> |
+

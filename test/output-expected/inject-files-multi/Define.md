@@ -3,13 +3,18 @@
 
 RESTful web API Documentation Generator
 
- - [Define](#Define)
-   - [Define](#Define)
+# Header .md File
+
+This is the content of the `header.md` file.
+
+# Table of contents
+
+- [Define](#Define)
+  - [Define](#Define)
 
 ___
 
- > this quote is prepended to this doc using a file `prepended.md`
-
+ > this quote is prepended to this doc using a file `prepend.md`
 
 # <a name='Define'></a> Define
 
@@ -29,3 +34,7 @@ GET /define
 | field3 |  | <p>This is Field 3 (local).</p> |
 | field1 |  | <p>This is Field 1.</p> |
 | field2 |  | <p>This is Field 2.</p> |
+
+# Footer .md File
+
+This is the content of the `footer.md` file.

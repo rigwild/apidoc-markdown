@@ -3,8 +3,10 @@
 
 RESTful web API Documentation Generator
 
- - [Define](#Define)
-   - [Define](#Define)
+# Table of contents
+
+- [Define](#Define)
+  - [Define](#Define)
 
 ___
 
@@ -27,3 +29,4 @@ GET /define
 | field3 |  | <p>This is Field 3 (local).</p> |
 | field1 |  | <p>This is Field 1.</p> |
 | field2 |  | <p>This is Field 2.</p> |
+

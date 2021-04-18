@@ -521,6 +521,20 @@
             "defaultValue": "Default Value",
             "description": ""
           }
+        ],
+        "Request headers": [
+          {
+            "group": "Request headers",
+            "optional": false,
+            "field": "reqHeader1",
+            "description": "<p>Basic Parameter with description.</p>"
+          },
+          {
+            "group": "Request headers",
+            "optional": false,
+            "field": "reqHeader2",
+            "description": "<p>Basic Parameter with description.</p>"
+          }
         ]
       }
     },

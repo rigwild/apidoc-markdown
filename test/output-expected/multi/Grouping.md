@@ -3,8 +3,10 @@
 
 RESTful web API Documentation Generator
 
- - [Grouping](#Grouping)
-   - [Grouping](#Grouping)
+# Table of contents
+
+- [Grouping](#Grouping)
+  - [Grouping](#Grouping)
 
 ___
 
@@ -67,3 +69,4 @@ GET /test/:id
 | Name     | Type       | Description                           |
 |----------|------------|---------------------------------------|
 | error1 | `String` | <p>No Group automatically set &quot;Error 4xx&quot;</p> |
+

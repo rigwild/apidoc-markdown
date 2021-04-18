@@ -3,12 +3,14 @@
 
 RESTful web API Documentation Generator
 
- - [indent](#indent)
-   - [Indent a word](#Indent-a-word)
-   - [Trim multi line (spaces)](#Trim-multi-line-(spaces))
-   - [Trim multi line (tabs and space)](#Trim-multi-line-(tabs-and-space))
-   - [Trim multi line (tabs)](#Trim-multi-line-(tabs))
-   - [Trim single line](#Trim-single-line)
+# Table of contents
+
+- [indent](#indent)
+  - [Indent a word](#Indent-a-word)
+  - [Trim multi line (spaces)](#Trim-multi-line-(spaces))
+  - [Trim multi line (tabs and space)](#Trim-multi-line-(tabs-and-space))
+  - [Trim multi line (tabs)](#Trim-multi-line-(tabs))
+  - [Trim single line](#Trim-single-line)
 
 ___
 
@@ -59,3 +61,4 @@ GET /indent/trim/multi/tabs
 ```
 GET /indent/trim/single
 ```
+

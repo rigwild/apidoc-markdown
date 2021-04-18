@@ -3,8 +3,10 @@
 
 RESTful web API Documentation Generator
 
- - [Markdown](#Markdown)
-   - [Markdown](#Markdown)
+# Table of contents
+
+- [Markdown](#Markdown)
+  - [Markdown](#Markdown)
 
 ___
 
@@ -25,3 +27,4 @@ GET /markdown/:id
 | Name     | Type       | Description                           |
 |----------|------------|---------------------------------------|
 | param1 | `String` | <p>This is a markdown <strong>apiParam</strong></p> <p>Separate line.</p> |
+

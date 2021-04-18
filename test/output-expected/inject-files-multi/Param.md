@@ -3,16 +3,21 @@
 
 RESTful web API Documentation Generator
 
- - [Param](#Param)
-   - [Errors](#Errors)
-   - [Param Example](#Param-Example)
-   - [Parameters](#Parameters)
-   - [Success](#Success)
+# Header .md File
+
+This is the content of the `header.md` file.
+
+# Table of contents
+
+- [Param](#Param)
+  - [Errors](#Errors)
+  - [Param Example](#Param-Example)
+  - [Parameters](#Parameters)
+  - [Success](#Success)
 
 ___
 
- > this quote is prepended to this doc using a file `prepended.md`
-
+ > this quote is prepended to this doc using a file `prepend.md`
 
 # <a name='Param'></a> Param
 
@@ -124,3 +129,7 @@ GET /param/:id
 |----------|------------|---------------------------------------|
 | success1 |  | <p>This is Success 1.</p> |
 | success2 |  | <p>This is Success 2.</p> |
+
+# Footer .md File
+
+This is the content of the `footer.md` file.

@@ -3,13 +3,18 @@
 
 RESTful web API Documentation Generator
 
- - [Escape](#Escape)
-   - [Escape Example](#Escape-Example)
+# Header .md File
+
+This is the content of the `header.md` file.
+
+# Table of contents
+
+- [Escape](#Escape)
+  - [Escape Example](#Escape-Example)
 
 ___
 
- > this quote is prepended to this doc using a file `prepended.md`
-
+ > this quote is prepended to this doc using a file `prepend.md`
 
 # <a name='Escape'></a> Escape
 
@@ -42,3 +47,7 @@ HTTP/1.1 200 OK {
   field_xml: '<xml>xml-value</xml>'
 }
 ```
+
+# Footer .md File
+
+This is the content of the `footer.md` file.

@@ -3,13 +3,18 @@
 
 RESTful web API Documentation Generator
 
- - [Grouping](#Grouping)
-   - [Grouping](#Grouping)
+# Header .md File
+
+This is the content of the `header.md` file.
+
+# Table of contents
+
+- [Grouping](#Grouping)
+  - [Grouping](#Grouping)
 
 ___
 
- > this quote is prepended to this doc using a file `prepended.md`
-
+ > this quote is prepended to this doc using a file `prepend.md`
 
 # <a name='Grouping'></a> Grouping
 
@@ -69,3 +74,7 @@ GET /test/:id
 | Name     | Type       | Description                           |
 |----------|------------|---------------------------------------|
 | error1 | `String` | <p>No Group automatically set &quot;Error 4xx&quot;</p> |
+
+# Footer .md File
+
+This is the content of the `footer.md` file.

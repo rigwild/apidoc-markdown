@@ -3,28 +3,30 @@
 
 RESTful web API Documentation Generator
 
- - [Language](#Language)
-   - [Clojure](#Clojure)
-   - [Clojure indented 1](#Clojure-indented-1)
-   - [CoffeeScript](#CoffeeScript)
-   - [CoffeeScript indented 1](#CoffeeScript-indented-1)
-   - [CoffeeScript indented 2](#CoffeeScript-indented-2)
-   - [Erlang](#Erlang)
-   - [Erlang indented 1](#Erlang-indented-1)
-   - [Erlang indented 2](#Erlang-indented-2)
-   - [JavaScript](#JavaScript)
-   - [JavaScript indented 1](#JavaScript-indented-1)
-   - [JavaScript indented 2](#JavaScript-indented-2)
-   - [Perl](#Perl)
-   - [Perl comment with pod and cut](#Perl-comment-with-pod-and-cut)
-   - [Perl indented 1](#Perl-indented-1)
-   - [Perl indented 2](#Perl-indented-2)
-   - [Python](#Python)
-   - [Python indented 1](#Python-indented-1)
-   - [Python indented 2](#Python-indented-2)
-   - [Ruby](#Ruby)
-   - [Ruby indented 1](#Ruby-indented-1)
-   - [Ruby indented 2](#Ruby-indented-2)
+# Table of contents
+
+- [Language](#Language)
+  - [Clojure](#Clojure)
+  - [Clojure indented 1](#Clojure-indented-1)
+  - [CoffeeScript](#CoffeeScript)
+  - [CoffeeScript indented 1](#CoffeeScript-indented-1)
+  - [CoffeeScript indented 2](#CoffeeScript-indented-2)
+  - [Erlang](#Erlang)
+  - [Erlang indented 1](#Erlang-indented-1)
+  - [Erlang indented 2](#Erlang-indented-2)
+  - [JavaScript](#JavaScript)
+  - [JavaScript indented 1](#JavaScript-indented-1)
+  - [JavaScript indented 2](#JavaScript-indented-2)
+  - [Perl](#Perl)
+  - [Perl comment with pod and cut](#Perl-comment-with-pod-and-cut)
+  - [Perl indented 1](#Perl-indented-1)
+  - [Perl indented 2](#Perl-indented-2)
+  - [Python](#Python)
+  - [Python indented 1](#Python-indented-1)
+  - [Python indented 2](#Python-indented-2)
+  - [Ruby](#Ruby)
+  - [Ruby indented 1](#Ruby-indented-1)
+  - [Ruby indented 2](#Ruby-indented-2)
 
 ___
 
@@ -345,3 +347,4 @@ This is example line 3.
     Line 5 indented.
 This is example line 6.
 ```
+

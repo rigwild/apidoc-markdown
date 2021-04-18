@@ -3,9 +3,11 @@
 
 RESTful web API Documentation Generator
 
- - [Deprecated](#Deprecated)
-   - [Deprecated](#Deprecated)
-   - [Deprecated + content](#Deprecated-+-content)
+# Table of contents
+
+- [Deprecated](#Deprecated)
+  - [Deprecated](#Deprecated)
+  - [Deprecated + content](#Deprecated-+-content)
 
 ___
 
@@ -41,3 +43,4 @@ GET /deprecated/bar/:id
 | Name     | Type       | Description                           |
 |----------|------------|---------------------------------------|
 | param1 |  | <p>Parameter and description.</p> |
+

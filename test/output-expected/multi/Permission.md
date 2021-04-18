@@ -3,8 +3,10 @@
 
 RESTful web API Documentation Generator
 
- - [Permission](#Permission)
-   - [Permission](#Permission)
+# Table of contents
+
+- [Permission](#Permission)
+  - [Permission](#Permission)
 
 ___
 
@@ -19,3 +21,4 @@ ___
 ```
 GET /permission/
 ```
+

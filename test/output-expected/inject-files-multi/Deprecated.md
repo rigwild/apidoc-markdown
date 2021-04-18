@@ -3,14 +3,19 @@
 
 RESTful web API Documentation Generator
 
- - [Deprecated](#Deprecated)
-   - [Deprecated](#Deprecated)
-   - [Deprecated + content](#Deprecated-+-content)
+# Header .md File
+
+This is the content of the `header.md` file.
+
+# Table of contents
+
+- [Deprecated](#Deprecated)
+  - [Deprecated](#Deprecated)
+  - [Deprecated + content](#Deprecated-+-content)
 
 ___
 
- > this quote is prepended to this doc using a file `prepended.md`
-
+ > this quote is prepended to this doc using a file `prepend.md`
 
 # <a name='Deprecated'></a> Deprecated
 
@@ -43,3 +48,7 @@ GET /deprecated/bar/:id
 | Name     | Type       | Description                           |
 |----------|------------|---------------------------------------|
 | param1 |  | <p>Parameter and description.</p> |
+
+# Footer .md File
+
+This is the content of the `footer.md` file.

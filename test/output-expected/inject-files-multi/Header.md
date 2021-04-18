@@ -3,14 +3,19 @@
 
 RESTful web API Documentation Generator
 
- - [Header](#Header)
-   - [Header Example](#Header-Example)
-   - [Parameters](#Parameters)
+# Header .md File
+
+This is the content of the `header.md` file.
+
+# Table of contents
+
+- [Header](#Header)
+  - [Header Example](#Header-Example)
+  - [Parameters](#Parameters)
 
 ___
 
- > this quote is prepended to this doc using a file `prepended.md`
-
+ > this quote is prepended to this doc using a file `prepend.md`
 
 # <a name='Header'></a> Header
 
@@ -59,3 +64,14 @@ GET /header/:id
 | header14 | `String` | **optional** |
 | header15 | `String` | **optional**<p>Optional Parameter with type, description and default value.</p> |
 | header16 | `String` | **optional** |
+
+### Headers - `Request headers`
+
+| Name    | Type      | Description                          |
+|---------|-----------|--------------------------------------|
+| reqHeader1 |  | <p>Basic Parameter with description.</p> |
+| reqHeader2 |  | <p>Basic Parameter with description.</p> |
+
+# Footer .md File
+
+This is the content of the `footer.md` file.

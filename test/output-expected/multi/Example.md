@@ -3,8 +3,10 @@
 
 RESTful web API Documentation Generator
 
- - [Example](#Example)
-   - [Example](#Example)
+# Table of contents
+
+- [Example](#Example)
+  - [Example](#Example)
 
 ___
 
@@ -59,3 +61,4 @@ echo 'This is the error content.';
 ```JS
 console.log('This is the error content.');
 ```
+

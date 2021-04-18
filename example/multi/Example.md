@@ -3,13 +3,18 @@
 
 RESTful web API Documentation Generator
 
- - [Example](#Example)
-   - [Example](#Example)
+# Header .md File
+
+This is the content of the `header.md` file.
+
+# Table of contents
+
+- [Example](#Example)
+  - [Example](#Example)
 
 ___
 
- > this quote is prepended to this doc using a file `prepended.md`
-
+ > this quote is prepended to this doc using a file `prepend.md`
 
 # <a name='Example'></a> Example
 
@@ -61,3 +66,7 @@ echo 'This is the error content.';
 ```JS
 console.log('This is the error content.');
 ```
+
+# Footer .md File
+
+This is the content of the `footer.md` file.

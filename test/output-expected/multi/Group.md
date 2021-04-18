@@ -3,8 +3,10 @@
 
 RESTful web API Documentation Generator
 
- - [Group](#Group)
-   - [Group and Description](#Group-and-Description)
+# Table of contents
+
+- [Group](#Group)
+  - [Group and Description](#Group-and-Description)
 
 ___
 
@@ -17,3 +19,4 @@ ___
 ```
 GET /group/:id
 ```
+

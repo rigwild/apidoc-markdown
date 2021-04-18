@@ -3,8 +3,10 @@
 
 RESTful web API Documentation Generator
 
- - [Escape](#Escape)
-   - [Escape Example](#Escape-Example)
+# Table of contents
+
+- [Escape](#Escape)
+  - [Escape Example](#Escape-Example)
 
 ___
 
@@ -40,3 +42,4 @@ HTTP/1.1 200 OK {
   field_xml: '<xml>xml-value</xml>'
 }
 ```
+

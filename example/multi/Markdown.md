@@ -3,13 +3,18 @@
 
 RESTful web API Documentation Generator
 
- - [Markdown](#Markdown)
-   - [Markdown](#Markdown)
+# Header .md File
+
+This is the content of the `header.md` file.
+
+# Table of contents
+
+- [Markdown](#Markdown)
+  - [Markdown](#Markdown)
 
 ___
 
- > this quote is prepended to this doc using a file `prepended.md`
-
+ > this quote is prepended to this doc using a file `prepend.md`
 
 # <a name='Markdown'></a> Markdown
 
@@ -27,3 +32,7 @@ GET /markdown/:id
 | Name     | Type       | Description                           |
 |----------|------------|---------------------------------------|
 | param1 | `String` | <p>This is a markdown <strong>apiParam</strong></p> <p>Separate line.</p> |
+
+# Footer .md File
+
+This is the content of the `footer.md` file.
