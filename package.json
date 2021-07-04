@@ -1,6 +1,6 @@
 {
   "name": "apidoc-markdown",
-  "version": "5.2.4",
+  "version": "5.2.5",
   "description": "📝 Generate API documentation in Markdown from apiDoc data",
   "license": "MIT",
   "repository": "rigwild/apidoc-markdown",
@@ -36,7 +36,7 @@
     "ejs": "^3.1.6",
     "semver": "^7.3.5",
     "update-notifier": "^5.1.0",
-    "yargs": "^17.0.1"
+    "yargs": "^16.2.0"
   },
   "devDependencies": {
     "@types/ejs": "^3.0.6",
@@ -45,7 +45,7 @@
     "@types/yargs": "^17.0.1",
     "apidoc": "^0.28.1",
     "ava": "^3.15.0",
-    "fs-extra": "^10.0.0",
+    "fs-extra": "^9.1.0",
     "typescript": "^4.3.5"
   },
   "keywords": [
