@@ -72,7 +72,7 @@ yarn add apidoc-markdown
 
 Then, generate your documentation using your newly added command `apidoc-markdown` or [programmatically](#programmatic-usage-API).
 
-**Note**: Node.js v10+ minimum is required.
+**Note**: Node.js v12+ minimum is required.
 
 ## CLI usage
 
