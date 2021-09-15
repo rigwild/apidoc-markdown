@@ -16,6 +16,8 @@
 
 </div>
 
+# apidoc-markdown
+
 ## Motivation
 
 I really like the idea of generating API documentations with simple annotations like [apiDoc](https://github.com/apidoc/apidoc) does.
