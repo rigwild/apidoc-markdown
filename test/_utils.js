@@ -6,8 +6,8 @@ const path = require('path')
 const r = path.resolve
 
 const TEMPLATES_DIR = r(__dirname, '..', 'templates')
-const APIDOC_DATA_DIR = r(__dirname, '_apidoc', 'out')
 const TEST_FILES_DIR = r(__dirname, '_testFiles')
+const INPUT_SOURCES_DIR = r(__dirname, '_testFiles', 'input')
 const OUTPUT_EXPECTED_DIR = r(__dirname, 'output-expected')
 const OUTPUT_DIR = r(__dirname, 'output')
 
@@ -20,16 +20,11 @@ const beforeTestsHook = async t => {
 
   const dirs = ['.', 'default', 'bitbucket', 'raw-template', 'multi', 'inject-files', 'inject-files-multi']
   await Promise.all(dirs.map(x => fs.promises.mkdir(r(OUTPUT_DIR, x), { recursive: true })))
-
-  t.context.apidocData = {
-    apiDocProjectData: await fs.readJSON(r(APIDOC_DATA_DIR, 'api_project.json')),
-    apiDocApiData: await fs.readJSON(r(APIDOC_DATA_DIR, 'api_data.json'))
-  }
 }
 
 module.exports = {
   TEMPLATES_DIR,
-  APIDOC_DATA_DIR,
+  INPUT_SOURCES_DIR,
   TEST_FILES_DIR,
   OUTPUT_EXPECTED_DIR,
   OUTPUT_DIR,

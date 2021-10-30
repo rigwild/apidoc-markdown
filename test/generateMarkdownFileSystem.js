@@ -9,7 +9,7 @@ const { generateMarkdownFileSystem, availableTemplates } = require('../dist')
 const {
   beforeTestsHook,
   TEMPLATES_DIR,
-  APIDOC_DATA_DIR,
+  INPUT_SOURCES_DIR,
   TEST_FILES_DIR,
   OUTPUT_EXPECTED_DIR,
   OUTPUT_DIR,
@@ -22,7 +22,7 @@ test.before(beforeTestsHook)
 
 test('basic generation', async t => {
   const res = await generateMarkdownFileSystem({
-    apiDocPath: APIDOC_DATA_DIR,
+    input: INPUT_SOURCES_DIR,
     output: r(OUTPUT_DIR, 'default', 'example.md')
   })
   await areSameFile(t, res[0].outputFile, r(OUTPUT_EXPECTED_DIR, 'default', 'example.md'))
@@ -30,7 +30,7 @@ test('basic generation', async t => {
 
 test('multi generation', async t => {
   const res = await generateMarkdownFileSystem({
-    apiDocPath: APIDOC_DATA_DIR,
+    input: INPUT_SOURCES_DIR,
     output: r(OUTPUT_DIR, 'multi'),
     multi: true
   })
@@ -40,7 +40,7 @@ test('multi generation', async t => {
 
 test('can recursively create the path', async t => {
   const res = await generateMarkdownFileSystem({
-    apiDocPath: APIDOC_DATA_DIR,
+    input: INPUT_SOURCES_DIR,
     output: r(OUTPUT_DIR, 'createpath', 'sub', 'directory', 'example.md'),
     createPath: true
   })
@@ -49,7 +49,7 @@ test('can recursively create the path', async t => {
 
 test('use a template by its name', async t => {
   const res = await generateMarkdownFileSystem({
-    apiDocPath: APIDOC_DATA_DIR,
+    input: INPUT_SOURCES_DIR,
     output: r(OUTPUT_DIR, 'bitbucket', 'example.md'),
     template: availableTemplates.bitbucket
   })
@@ -58,7 +58,7 @@ test('use a template by its name', async t => {
 
 test('use a template by passing its path', async t => {
   const res = await generateMarkdownFileSystem({
-    apiDocPath: APIDOC_DATA_DIR,
+    input: INPUT_SOURCES_DIR,
     output: r(OUTPUT_DIR, 'bitbucket', 'example.md'),
     template: r(TEMPLATES_DIR, 'bitbucket.md')
   })
@@ -67,7 +67,7 @@ test('use a template by passing its path', async t => {
 
 test('use a template by passing its raw plain text content', async t => {
   const res = await generateMarkdownFileSystem({
-    apiDocPath: APIDOC_DATA_DIR,
+    input: INPUT_SOURCES_DIR,
     output: r(OUTPUT_DIR, 'raw-template', 'example.md'),
     template: 'my EJS template <%= project.name %> v<%= project.version %>'
   })
@@ -76,7 +76,7 @@ test('use a template by passing its raw plain text content', async t => {
 
 test('add files to inject', async t => {
   const res = await generateMarkdownFileSystem({
-    apiDocPath: APIDOC_DATA_DIR,
+    input: INPUT_SOURCES_DIR,
     output: r(OUTPUT_DIR, 'inject-files', 'example.md'),
     header: r(TEST_FILES_DIR, 'header.md'),
     footer: r(TEST_FILES_DIR, 'footer.md'),
@@ -89,7 +89,7 @@ test('add files to inject', async t => {
 
 test('multi generation with injected files', async t => {
   const res = await generateMarkdownFileSystem({
-    apiDocPath: APIDOC_DATA_DIR,
+    input: INPUT_SOURCES_DIR,
     output: r(OUTPUT_DIR, 'inject-files-multi'),
     multi: true,
     header: r(TEST_FILES_DIR, 'header.md'),
