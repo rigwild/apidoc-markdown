@@ -1,7 +1,7 @@
 {
   "name": "apidoc-markdown",
   "version": "6.0.1",
-  "description": "📝 Generate API documentation in Markdown from apiDoc data",
+  "description": "📝 Generate a Simple and Portable Markdown documentation for your API",
   "license": "MIT",
   "repository": "rigwild/apidoc-markdown",
   "author": {
@@ -17,7 +17,8 @@
   "files": [
     "bin",
     "dist",
-    "templates"
+    "templates",
+    "patches"
   ],
   "engines": {
     "node": ">=14.0.0"
@@ -40,17 +41,17 @@
     "postinstall-postinstall": "^2.1.0",
     "semver": "^7.3.5",
     "update-notifier": "^5.1.0",
-    "yargs": "^17.1.1"
+    "yargs": "^17.2.1"
   },
   "devDependencies": {
     "@types/apidoc": "^0.22.3",
     "@types/ejs": "^3.1.0",
-    "@types/node": "^16.9.1",
-    "@types/semver": "^7.3.8",
-    "@types/yargs": "^17.0.2",
+    "@types/node": "^16.11.6",
+    "@types/semver": "^7.3.9",
+    "@types/yargs": "^17.0.5",
     "ava": "^3.15.0",
     "fs-extra": "^10.0.0",
-    "typescript": "^4.4.3"
+    "typescript": "^4.4.4"
   },
   "keywords": [
     "apidoc",
