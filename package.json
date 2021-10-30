@@ -1,6 +1,6 @@
 {
   "name": "apidoc-markdown",
-  "version": "7.0.0-0",
+  "version": "7.0.0",
   "description": "📝 Generate a Simple and Portable Markdown documentation for your API",
   "license": "MIT",
   "repository": "rigwild/apidoc-markdown",
