@@ -4,25 +4,27 @@ import { ConfigurationObjectCLI } from './types'
 const cli = yargs
   .usage('Generate Markdown documentation from apiDoc data.')
   .usage(
-    'Usage: apidoc-markdown -p <path> -o <output_file> [-t <template_name>] [--multi] [--createPath] [--prepend <file_path>]'
+    'Usage: apidoc-markdown -i <path> -o <output_file> [-t <template_name>] [--multi] [--createPath] [--prepend <file_path>]'
   )
-  .example('apidoc-markdown -p doc/ -o doc.md', 'Generate from `doc/` apiDoc output to `./doc.md`')
+  .example('apidoc-markdown -i src/ -o doc.md', 'Generate from `src/` source files to `./doc.md`')
+  .example('apidoc-markdown --input src --output doc.md', 'Generate from `src/` source files to `./doc.md`')
   .example(
-    'apidoc-markdown -p doc/ -o doc.md -t bitbucket',
-    'Generate from `doc/` apiDoc output to `./doc.md` using the bitbucket template'
-  )
-  .example(
-    'apidoc-markdown -p doc/ -o doc.md -t ./mytemplate.md',
-    'Generate from `doc/` apiDoc output to `./doc.md` using a provided template file'
+    'apidoc-markdown -i src/ -o doc.md -t bitbucket',
+    'Generate from `src/` source files to `./doc.md` using the `bitbucket` template'
   )
   .example(
-    'apidoc-markdown -p doc -o multi --multi --createPath',
-    'Generate from `doc/` apiDoc output to `./multi/<group>.md`'
+    'apidoc-markdown -i src/ -o doc.md -t ./mytemplate.md',
+    'Generate from `src/` source files to `./doc.md` using a provided template file'
   )
-  .option('apiDocPath', {
-    alias: 'p',
+  .example(
+    'apidoc-markdown -i src -o doc --multi --createPath',
+    'Generate from `src/` source files to `./doc/<group>.md`'
+  )
+  .option('input', {
+    alias: 'i',
     demandOption: true,
-    describe: 'Path to generated apiDoc output directory. Where `api_data.json` and `api_project.json` resides.',
+    describe: 'Input source files path',
+    default: './src',
     type: 'string'
   })
   .option('output', {

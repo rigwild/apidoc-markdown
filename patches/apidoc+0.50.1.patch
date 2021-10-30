@@ -1,0 +1,73 @@
+diff --git a/node_modules/apidoc/lib/core/index.js b/node_modules/apidoc/lib/core/index.js
+index b16b301..024c963 100644
+--- a/node_modules/apidoc/lib/core/index.js
++++ b/node_modules/apidoc/lib/core/index.js
+@@ -206,12 +206,14 @@ function parse (options) {
+       app.packageInfos.generator = app.generator;
+ 
+       // api_data
+-      let apiData = JSON.stringify(blocks, null, 2);
+-      apiData = apiData.replace(/(\r\n|\n|\r)/g, app.options.lineEnding);
++      const apiData = blocks;
++      // let apiData = JSON.stringify(blocks, null, 2);
++      // apiData = apiData.replace(/(\r\n|\n|\r)/g, app.options.lineEnding);
+ 
+       // api_project
+-      let apiProject = JSON.stringify(app.packageInfos, null, 2);
+-      apiProject = apiProject.replace(/(\r\n|\n|\r)/g, app.options.lineEnding);
++      const apiProject = app.packageInfos;
++      // let apiProject = JSON.stringify(app.packageInfos, null, 2);
++      // apiProject = apiProject.replace(/(\r\n|\n|\r)/g, app.options.lineEnding);
+ 
+       return {
+         data: apiData,
+@@ -257,6 +259,7 @@ function parse (options) {
+       app.log.error(e.message);
+       if (e.stack) { app.log.debug(e.stack); }
+     }
++    throw e
+     return false;
+   }
+ }
+diff --git a/node_modules/apidoc/lib/index.js b/node_modules/apidoc/lib/index.js
+index d87532d..f61c210 100644
+--- a/node_modules/apidoc/lib/index.js
++++ b/node_modules/apidoc/lib/index.js
+@@ -21,11 +21,11 @@ const app = {
+ };
+ 
+ // Display uncaught Exception.
+-process.on('uncaughtException', err => {
+-  console.error(new Date().toUTCString() + ' uncaughtException:', err.message);
+-  console.error(err.stack);
+-  process.exit(1);
+-});
++// process.on('uncaughtException', err => {
++//   console.error(new Date().toUTCString() + ' uncaughtException:', err.message);
++//   console.error(err.stack);
++//   process.exit(1);
++// });
+ 
+ /**
+  * Create the documentation
+@@ -80,10 +80,12 @@ function createDoc (options) {
+     const api = core.parse(app.options);
+ 
+     if (api === true) {
++      throw new Error('apidoc: Nothing to do')
+       app.log.info('Nothing to do.');
+       return true;
+     }
+ 
++    // Should not happen, `core.parse` error catching is patched
+     if (api === false) {
+       app.log.error('Error during source code parsing!');
+       return false;
+@@ -94,6 +96,7 @@ function createDoc (options) {
+ 
+     return api;
+   } catch (e) {
++    throw e
+     app.log.error(e.message);
+     if (e.stack) { app.log.debug(e.stack); }
+     return false;

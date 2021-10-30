@@ -1,9 +1,9 @@
 export declare interface ConfigurationObject {
   /** apiDoc project JSON data object (`api_project.json` (or legacy `apidoc.json`) file content) */
-  apiDocProjectData: { [key: string]: any }
+  apiDocProjectData: Record<string, any>
 
   /** apiDoc documentation JSON data object (`api_data.json` file content) */
-  apiDocApiData: { [key: string]: any }[]
+  apiDocApiData: Array<Record<string, any>>
 
   /** Name of template to be used (`default`, `bitbucket`)
    * or path to EJS template file
@@ -25,8 +25,8 @@ export declare interface ConfigurationObject {
 }
 
 export declare interface ConfigurationObjectCLI {
-  /** Path to generated apiDoc output directory. Where `api_data.json` and `api_project.json` are located */
-  apiDocPath: string
+  /** Input source files path */
+  input: string
 
   /** Output file or directory to write output to */
   output: string

@@ -1,10 +1,10 @@
 import path from 'path'
-import { promises as fs } from 'fs'
+import fs from 'fs/promises'
 import ejs from 'ejs'
 import semverGt from 'semver/functions/gt'
 
 import {
-  loadApidocFiles,
+  createDocOrThrow,
   loadFromCliParamOrApiDocProject,
   loadTemplate,
   mkdirp,
@@ -135,7 +135,7 @@ export const generateMarkdown = async ({
  * @throws Some CLI command parameters are missing or invalid
  */
 export const generateMarkdownFileSystem = async ({
-  apiDocPath,
+  input,
   output,
   template,
   prepend,
@@ -144,10 +144,10 @@ export const generateMarkdownFileSystem = async ({
   multi,
   createPath
 }: ConfigurationObjectCLI) => {
-  // Check the apiDoc data path exists
-  if (!apiDocPath) throw new Error('`cli.apiDocPath` is required but was not provided.')
-  if (!(await pathExists(apiDocPath)))
-    throw new Error(`The \`cli.apiDocPath\` path does not exist or is not readable. Path: ${apiDocPath}`)
+  // Check the input path exists
+  if (!input) throw new Error('`cli.input` is required but was not provided.')
+  if (!(await pathExists(input)))
+    throw new Error(`The \`cli.input\` path does not exist or is not readable. Path: ${input}`)
 
   // Check the output path exists (only parent directory if unique file)
   if (!output) throw new Error('`cli.output` is required but was not provided.')
@@ -159,7 +159,7 @@ export const generateMarkdownFileSystem = async ({
   if (!(await pathExists(outputPath)))
     throw new Error(`The \`cli.output\` path does not exist or is not readable. Path: ${outputPath}`)
 
-  const { apiDocProjectData, apiDocApiData } = await loadApidocFiles(apiDocPath)
+  const { apiDocProjectData, apiDocApiData } = createDocOrThrow(input)
 
   // Check header, footer and prepend file path exist
   header = await loadFromCliParamOrApiDocProject('header', header, apiDocProjectData)

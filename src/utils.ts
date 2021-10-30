@@ -1,6 +1,8 @@
 import ejs from 'ejs'
-import { promises as fs } from 'fs'
+import fs from 'fs/promises'
 import path from 'path'
+import { createDoc } from 'apidoc'
+import type { ConfigurationObject } from './types'
 
 export const TEMPLATES_PATH = path.resolve(__dirname, '..', 'templates')
 export const DEFAULT_TEMPLATE_PATH = path.resolve(TEMPLATES_PATH, 'default.md')
@@ -72,19 +74,21 @@ export const loadFromCliParamOrApiDocProject = async (
 export const isInTemplatesDir = (name: string) => fs.readdir(TEMPLATES_PATH).then(files => files.includes(`${name}.md`))
 
 /**
- * Load apiDoc files, be backward-compatible with legacy `apidoc.json`
- * @param apiDocPath Path to generated apiDoc output directory. Where `api_data.json` and `api_project.json` are located
- * @throws Could not load `api_project.json` or `apidoc.json`
+ * Invoke apidoc to get the documentation
+ * @param input Input source files path
+ * @throws apiDoc dependency is not installed or some apiDoc parsing error
  */
-export const loadApidocFiles = async (apiDocPath: string) => {
-  const apiDocProjectData = await import(path.resolve(apiDocPath, 'api_project.json'))
-    .catch(() => import(path.resolve(apiDocPath, 'apidoc.json')))
-    .catch(err => {
-      err.message = 'Could not load `api_project.json` or `apidoc.json` - ' + err.message
-      throw err
-    })
-  const apiDocApiData = Object.values<any>(await import(path.resolve(apiDocPath, 'api_data.json'))).filter(x => x.type)
-  return { apiDocProjectData, apiDocApiData }
+export const createDocOrThrow = (input: string): Pick<ConfigurationObject, 'apiDocProjectData' | 'apiDocApiData'> => {
+  const doc = createDoc({
+    src: input,
+    dryRun: true,
+    silent: true,
+    debug: true
+  })
+  return {
+    apiDocProjectData: doc.project,
+    apiDocApiData: Object.values<any>(doc.data).filter(x => x.type)
+  }
 }
 
 /**
