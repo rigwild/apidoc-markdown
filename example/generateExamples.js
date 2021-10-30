@@ -1,7 +1,8 @@
+// @ts-check
 const path = require('path')
 const { generateMarkdownFileSystem } = require('../dist')
 
-const apiDocPath = path.resolve(__dirname, '..', 'test', '_apidoc', 'out')
+const input = path.resolve(__dirname, '..', 'test', '_testFiles', 'input')
 const header = path.resolve(__dirname, '..', 'test', '_testFiles', 'header.md')
 const footer = path.resolve(__dirname, '..', 'test', '_testFiles', 'footer.md')
 const prepend = path.resolve(__dirname, '..', 'test', '_testFiles', 'prepend.md')
@@ -9,7 +10,7 @@ const prepend = path.resolve(__dirname, '..', 'test', '_testFiles', 'prepend.md'
 const setup = async () => {
   // Basic
   await generateMarkdownFileSystem({
-    apiDocPath,
+    input,
     output: path.resolve(__dirname, 'basic', 'example.md'),
     createPath: true,
     header,
@@ -19,7 +20,7 @@ const setup = async () => {
 
   // Multi
   await generateMarkdownFileSystem({
-    apiDocPath,
+    input,
     output: path.resolve(__dirname, 'multi'),
     createPath: true,
     multi: true,

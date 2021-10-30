@@ -1,5 +1,5 @@
 export declare interface ConfigurationObject {
-  /** apiDoc project JSON data object (`api_project.json` (or legacy `apidoc.json`) file content) */
+  /** apiDoc project JSON data object (`apidoc.json`) file content) */
   apiDocProjectData: Record<string, any>
 
   /** apiDoc documentation JSON data object (`api_data.json` file content) */

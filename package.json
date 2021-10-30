@@ -1,6 +1,6 @@
 {
   "name": "apidoc-markdown",
-  "version": "7.0.0",
+  "version": "7.0.1",
   "description": "📝 Generate a Simple and Portable Markdown documentation for your API",
   "license": "MIT",
   "repository": "rigwild/apidoc-markdown",
@@ -31,20 +31,16 @@
     "test": "tsc && ava",
     "test:ava": "ava",
     "test:gen-apidoc": "cd test/_apidoc && rm -rf out && apidoc -i src -o out",
-    "prepublishOnly": "tsc",
-    "postinstall": "patch-package"
+    "prepublishOnly": "tsc"
   },
   "dependencies": {
-    "apidoc": "^0.50.1",
+    "apidoc-light": "^0.50.1",
     "ejs": "^3.1.6",
-    "patch-package": "^6.4.7",
-    "postinstall-postinstall": "^2.1.0",
     "semver": "^7.3.5",
     "update-notifier": "^5.1.0",
     "yargs": "^17.2.1"
   },
   "devDependencies": {
-    "@types/apidoc": "^0.22.3",
     "@types/ejs": "^3.1.0",
     "@types/node": "^16.11.6",
     "@types/semver": "^7.3.9",

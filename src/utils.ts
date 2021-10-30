@@ -1,7 +1,7 @@
 import ejs from 'ejs'
 import fs from 'fs/promises'
 import path from 'path'
-import { createDoc } from 'apidoc'
+import { createDoc } from 'apidoc-light'
 import type { ConfigurationObject } from './types'
 
 export const TEMPLATES_PATH = path.resolve(__dirname, '..', 'templates')
@@ -79,12 +79,7 @@ export const isInTemplatesDir = (name: string) => fs.readdir(TEMPLATES_PATH).the
  * @throws apiDoc dependency is not installed or some apiDoc parsing error
  */
 export const createDocOrThrow = (input: string): Pick<ConfigurationObject, 'apiDocProjectData' | 'apiDocApiData'> => {
-  const doc = createDoc({
-    src: input,
-    dryRun: true,
-    silent: true,
-    debug: true
-  })
+  const doc = createDoc({ src: input })
   return {
     apiDocProjectData: doc.project,
     apiDocApiData: Object.values<any>(doc.data).filter(x => x.type)

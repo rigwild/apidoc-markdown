@@ -52,15 +52,15 @@ Take a look at [`example/strider/api.md`](./example/strider/api.md) which shows 
 
 ```bash
 # For the global CLI
-yarn global add apidoc-markdown
+pnpm install --global apidoc-markdown
 
 # For programmatic usage or local project CLI install
-yarn add apidoc-markdown
+pnpm install apidoc-markdown
 ```
 
 Then, generate your documentation using your newly added command `apidoc-markdown` or [programmatically](#programmatic-usage-API).
 
-**Note**: Node.js v14+ minimum is required.
+**Note**: Node.js v14+ minimum is required. `apidoc-markdown` uses [`apidoc-light`](https://github.com/rigwild/apidoc-light) internally.
 
 ## CLI usage
 
@@ -128,10 +128,10 @@ apidoc-markdown -i src -o doc --multi
 
 ### Quick and easy project integration
 
-Install [apidoc-markdown](https://github.com/rigwild/apidoc-markdown) as a dev dependency.
+Install `apidoc-markdown` as a dev dependency.
 
 ```bash
-yarn add -D apidoc-markdown
+pnpm install -D apidoc-markdown
 ```
 
 Add the following script to your `package.json` file (`src` is where are stored your source files containing some [apiDoc](https://apidocjs.com/) annotations).
@@ -147,7 +147,7 @@ Add the following script to your `package.json` file (`src` is where are stored 
 Run the npm script to generate the `DOCUMENTATION.md` file.
 
 ```bash
-yarn doc
+pnpm doc
 ```
 
 ## Programmatic usage API
@@ -207,7 +207,7 @@ Generate mardown documentation by passing directly the apiDoc output.
 import { generateMarkdown } from 'apidoc-markdown'
 
 const documentation: Doc = await generateMarkdown({
-  /** apiDoc project JSON data object (`api_project.json` (or legacy `apidoc.json`) file content) */
+  /** apiDoc project JSON data object `apidoc.json` file content) */
   apiDocProjectData: { name: 'test', version: '0.13.0' /* ... */ },
 
   /** apiDoc documentation JSON data object (`api_data.json` file content) */
