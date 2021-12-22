@@ -55,13 +55,16 @@ GET /param/example/
 | name | `String` | <p>Fullname.</p> |
 
 ### Examples
+
 A common example:
 
 ```json
 curl -i http://localhost/param/example/
 ```
 
+
 ### Parameters examples
+
 `json` - A JSON example:
 
 ```json

@@ -39,7 +39,6 @@ GET /test/:id
 |----------|------------|---------------------------------------|
 | param2 | `String` | <p>Group &quot;login&quot;</p> |
 | param3 | `String` | <p>Group &quot;login&quot; with default Value</p>_Default value: Default Value_<br> |
-
 ### Success response
 
 #### Success response - `201 - Everything ok, replace &#34;201&#34; with this text.`

@@ -23,16 +23,19 @@ GET /example/
 ```
 
 ### Examples
+
 PHP Example (new)
 
 ```PHP
 echo 'This is the content. (new)';
 ```
+
 JS Example
 
 ```JS
 console.log('This is the content.');
 ```
+
 
 ### Success response example
 

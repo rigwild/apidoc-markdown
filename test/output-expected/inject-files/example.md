@@ -62,6 +62,17 @@ This is the content of the `header.md` file.
   - [Trim multi line (tabs and space)](#Trim-multi-line-(tabs-and-space))
   - [Trim multi line (tabs)](#Trim-multi-line-(tabs))
   - [Trim single line](#Trim-single-line)
+- [Category_official](#Category_official)
+  - [Delete a category](#Delete-a-category)
+  - [Get a category](#Get-a-category)
+- [City](#City)
+  - [Create a new city](#Create-a-new-city)
+- [User](#User)
+  - [Change a User](#Change-a-User)
+  - [Create a new User](#Create-a-new-User)
+  - [Delete user](#Delete-user)
+  - [Read data of a User](#Read-data-of-a-User)
+  - [Thank a user: this is quite a long name indeed](#Thank-a-user:-this-is-quite-a-long-name-indeed)
 
 ___
 
@@ -130,6 +141,7 @@ GET /test/escape
 ```
 
 ### Examples
+
 Example usage:
 
 ```json
@@ -137,6 +149,7 @@ curl -i http://localhost/escape/text
 <b>curl -i http://localhost/escape/html</b>
 <xml>curl -i http://localhost/escape/xml</xml>
 ```
+
 
 ### Success response example
 
@@ -162,16 +175,19 @@ GET /example/
 ```
 
 ### Examples
+
 PHP Example (new)
 
 ```PHP
 echo 'This is the content. (new)';
 ```
+
 JS Example
 
 ```JS
 console.log('This is the content.');
 ```
+
 
 ### Success response example
 
@@ -233,7 +249,6 @@ GET /test/:id
 |----------|------------|---------------------------------------|
 | param2 | `String` | <p>Group &quot;login&quot;</p> |
 | param3 | `String` | <p>Group &quot;login&quot; with default Value</p>_Default value: Default Value_<br> |
-
 ### Success response
 
 #### Success response - `201 - Everything ok, replace &#34;201&#34; with this text.`
@@ -281,6 +296,7 @@ GET /header/example/
 ```
 
 ### Header examples
+
 An example:
 
 ```json
@@ -343,6 +359,7 @@ GET /language/clojure/indented1
 ```
 
 ### Examples
+
 Test for indented comment.
 
 ```json
@@ -352,6 +369,7 @@ This is example line 3.
 	  Line 5 indented.
 This is example line 6.
 ```
+
 
 ## <a name='CoffeeScript'></a> CoffeeScript
 [Back to top](#top)
@@ -370,6 +388,7 @@ GET /language/coffeescript/indented1
 ```
 
 ### Examples
+
 Test for indented comment.
 
 ```json
@@ -379,6 +398,7 @@ This is example line 3.
     Line 5 indented.
 This is example line 6.
 ```
+
 
 ## <a name='CoffeeScript-indented-2'></a> CoffeeScript indented 2
 [Back to top](#top)
@@ -388,6 +408,7 @@ GET /language/coffeescript/indented2
 ```
 
 ### Examples
+
 Test for indented comment.
 
 ```json
@@ -397,6 +418,7 @@ This is example line 3.
     Line 5 indented.
 This is example line 6.
 ```
+
 
 ## <a name='Erlang'></a> Erlang
 [Back to top](#top)
@@ -415,6 +437,7 @@ GET /language/erlang/indented1
 ```
 
 ### Examples
+
 Test for indented comment.
 
 ```json
@@ -425,6 +448,7 @@ This is example line 3.
 This is example line 6.
 ```
 
+
 ## <a name='Erlang-indented-2'></a> Erlang indented 2
 [Back to top](#top)
 
@@ -433,6 +457,7 @@ GET /language/erlang/indented2
 ```
 
 ### Examples
+
 Test for indented comment.
 
 ```json
@@ -442,6 +467,7 @@ Line 4 indented (with tab at beginning).
 Line 5 indented.
 This is example line 6.
 ```
+
 
 ## <a name='JavaScript'></a> JavaScript
 [Back to top](#top)
@@ -460,6 +486,7 @@ GET /language/javascript/indented1
 ```
 
 ### Examples
+
 Test for indented comment.
 
 ```json
@@ -469,6 +496,7 @@ This is example line 3.
     Line 5 indented.
 This is example line 6.
 ```
+
 
 ## <a name='JavaScript-indented-2'></a> JavaScript indented 2
 [Back to top](#top)
@@ -478,6 +506,7 @@ GET /language/javascript/indented2
 ```
 
 ### Examples
+
 Test for indented comment.
 
 ```json
@@ -487,6 +516,7 @@ This is example line 3.
     Line 5 indented.
 This is example line 6.
 ```
+
 
 ## <a name='Perl'></a> Perl
 [Back to top](#top)
@@ -505,6 +535,7 @@ GET /language/perl/podcut
 ```
 
 ### Examples
+
 Test for indented comment.
 
 ```json
@@ -515,6 +546,7 @@ This is example line 3.
 This is example line 6.
 ```
 
+
 ## <a name='Perl-indented-1'></a> Perl indented 1
 [Back to top](#top)
 
@@ -523,6 +555,7 @@ GET /language/perl/indented1
 ```
 
 ### Examples
+
 Test for indented comment.
 
 ```json
@@ -533,6 +566,7 @@ This is example line 3.
 This is example line 6.
 ```
 
+
 ## <a name='Perl-indented-2'></a> Perl indented 2
 [Back to top](#top)
 
@@ -541,6 +575,7 @@ GET /language/perl/indented2
 ```
 
 ### Examples
+
 Test for indented comment.
 
 ```json
@@ -550,6 +585,7 @@ This is example line 3.
     Line 5 indented.
 This is example line 6.
 ```
+
 
 ## <a name='Python'></a> Python
 [Back to top](#top)
@@ -568,6 +604,7 @@ GET /language/python/indented1
 ```
 
 ### Examples
+
 Test for indented comment.
 
 ```json
@@ -577,6 +614,7 @@ This is example line 3.
     Line 5 indented.
 This is example line 6.
 ```
+
 
 ## <a name='Python-indented-2'></a> Python indented 2
 [Back to top](#top)
@@ -586,6 +624,7 @@ GET /language/python/indented2
 ```
 
 ### Examples
+
 Test for indented comment.
 
 ```json
@@ -595,6 +634,7 @@ This is example line 3.
     Line 5 indented.
 This is example line 6.
 ```
+
 
 ## <a name='Ruby'></a> Ruby
 [Back to top](#top)
@@ -613,6 +653,7 @@ GET /language/ruby/indented1
 ```
 
 ### Examples
+
 Test for indented comment.
 
 ```json
@@ -622,6 +663,7 @@ This is example line 3.
     Line 5 indented.
 This is example line 6.
 ```
+
 
 ## <a name='Ruby-indented-2'></a> Ruby indented 2
 [Back to top](#top)
@@ -631,6 +673,7 @@ GET /language/ruby/indented2
 ```
 
 ### Examples
+
 Test for indented comment.
 
 ```json
@@ -640,6 +683,7 @@ This is example line 3.
     Line 5 indented.
 This is example line 6.
 ```
+
 
 # <a name='Markdown'></a> Markdown
 
@@ -694,13 +738,16 @@ GET /param/example/
 | name | `String` | <p>Fullname.</p> |
 
 ### Examples
+
 A common example:
 
 ```json
 curl -i http://localhost/param/example/
 ```
 
+
 ### Parameters examples
+
 `json` - A JSON example:
 
 ```json
@@ -825,6 +872,383 @@ GET /indent/trim/multi/tabs
 
 ```
 GET /indent/trim/single
+```
+
+# <a name='Category_official'></a> Category_official
+
+## <a name='Delete-a-category'></a> Delete a category
+[Back to top](#top)
+
+<p>Delete a category. Sample request has been disabled here.</p>
+
+```
+DELETE /category
+```
+
+### Query Parameters
+
+| Name     | Type       | Description                           |
+|----------|------------|---------------------------------------|
+| id | `Number` | <p>Category ID.</p> |
+
+### Parameters examples
+
+`json` - Some json code:
+
+```json
+{
+  "user": "Sample User",
+   "payload": {
+     "test": [
+       "code": "
+         public class HelloWorldTest {
+           HelloWorld hw = new HelloWorld();
+           @Test
+           public void testOkay {
+           assertEquals(\"HelloWorld\", hw.getMsg());
+         }
+      }"
+     ]
+   }
+}
+```
+
+## <a name='Get-a-category'></a> Get a category
+[Back to top](#top)
+
+<p>Get a category. Sample request on example.com here.</p>
+
+```
+GET /category
+```
+
+### Query Parameters
+
+| Name     | Type       | Description                           |
+|----------|------------|---------------------------------------|
+| id | `Number` | **optional** <p>Category ID.</p>_Default value: 123_<br> |
+| id2 | `Number` | <p>Category ID2.</p> |
+
+# <a name='City'></a> City
+
+## <a name='Create-a-new-city'></a> Create a new city
+[Back to top](#top)
+
+<p>Create a new city.</p>
+
+```
+POST /city
+```
+
+### Query Parameters
+
+| Name     | Type       | Description                           |
+|----------|------------|---------------------------------------|
+| view | `String` | <p>Type of view.</p>_Default value: Aerial_<br>_Allowed values: Aerial,Land,Underwater_ |
+| zoom | `Number` | <p>Zoom.</p> |
+
+### Request Body
+
+| Name     | Type       | Description                           |
+|----------|------------|---------------------------------------|
+| name | `String` | <p>Name of the city</p>_Default value: Paris_<br> |
+
+# <a name='User'></a> User
+
+## <a name='Change-a-User'></a> Change a User
+[Back to top](#top)
+
+<p>This function has same errors like POST /user, but errors not defined again, they were included with &quot;apiErrorStructure&quot;</p>
+
+```
+PUT /user/:id
+```
+
+### Parameters - `Parameter`
+
+| Name     | Type       | Description                           |
+|----------|------------|---------------------------------------|
+| id | `Number` | <p><code>id</code> of the user.</p> |
+
+### Request Body
+
+| Name     | Type       | Description                           |
+|----------|------------|---------------------------------------|
+| name | `String` | <p>Name of the User.</p> |
+| avatar | `File` | <p>Upload avatar.</p> |
+
+### Error response
+
+#### Error response - `Error 4xx`
+
+| Name     | Type       | Description                           |
+|----------|------------|---------------------------------------|
+| NoAccessRight |  | <p>Only authenticated Admins can access the data.</p> |
+| UserNameTooShort |  | <p>Minimum of 5 characters required.</p> |
+
+### Error response example
+
+#### Error response example - `Response (example):`
+
+```json
+HTTP/1.1 400 Bad Request
+{
+  "error": "UserNameTooShort"
+}
+```
+
+## <a name='Create-a-new-User'></a> Create a new User
+[Back to top](#top)
+
+<p>In this case &quot;apiErrorStructure&quot; is defined and used. Define blocks with params that will be used in several functions, so you dont have to rewrite them.</p>
+
+```
+POST /user
+```
+
+### Request Body
+
+| Name     | Type       | Description                           |
+|----------|------------|---------------------------------------|
+| age | `Number` | <p>Age of the User</p> |
+| name | `String` | <p>Name of the User</p>_Default value: Caroline_<br> |
+| extraInfo.hireDate | `Date` | <p>Date when user was hired</p> |
+| extraInfo.hireDateWithDefault | `Date` | <p>Date when user was hired with default</p>_Default value: 2021-09-01_<br> |
+| extraInfo.nickname | `String` | <p>Nickname of the user</p> |
+| extraInfo.isVegan | `Boolean` | <p>Is the user vegan? (boolean with default)</p>_Default value: true_<br> |
+| extraInfo.isAlive | `Boolean` | <p>Is the user alive? (boolean with no default)</p> |
+| extraInfo.secrets.crush | `String` | <p>The user secret crush</p> |
+| extraInfo.secrets.hair | `Number` | <p>Number of hair of user</p>_Default value: 1000_<br> |
+### Success response
+
+#### Success response - `Success 200`
+
+| Name     | Type       | Description                           |
+|----------|------------|---------------------------------------|
+| id | `Number` | <p>The new Users-ID.</p> |
+
+### Error response
+
+#### Error response - `Error 4xx`
+
+| Name     | Type       | Description                           |
+|----------|------------|---------------------------------------|
+| NoAccessRight |  | <p>Only authenticated Admins can access the data.</p> |
+| UserNameTooShort |  | <p>Minimum of 5 characters required.</p> |
+
+### Error response example
+
+#### Error response example - `Response (example):`
+
+```json
+HTTP/1.1 400 Bad Request
+{
+  "error": "UserNameTooShort"
+}
+```
+
+## <a name='Delete-user'></a> Delete user
+[Back to top](#top)
+
+<p>Be careful! This will remove all the data associated with that user!</p>
+
+```
+DELETE /user/:id
+```
+
+### Headers - `Header`
+
+| Name    | Type      | Description                          |
+|---------|-----------|--------------------------------------|
+| Authorization | `String` | <p>The token can be generated from your user profile.</p> |
+
+### Header examples
+
+Header-Example
+
+```Header
+"Authorization: token 5f048fe"
+```
+
+### Parameters - `Parameter`
+
+| Name     | Type       | Description                           |
+|----------|------------|---------------------------------------|
+| id | `Number` | <p><code>id</code> of the user.</p> |
+
+### Examples
+
+Curl example
+
+```bash
+curl -X DELETE -H "Authorization: token 5f048fe" -i https://api.example.com/user/4711
+```
+
+Javascript example
+
+```js
+const client = AcmeCorpApi('5f048fe');
+const user = client.deleteUser(42);
+```
+
+Python example
+
+```python
+client = AcmeCorpApi.Client(token="5f048fe")
+user = client.delete_user(42)
+```
+
+### Success response
+
+#### Success response - `Success 200`
+
+| Name     | Type       | Description                           |
+|----------|------------|---------------------------------------|
+| result | `String` | <p><code>ok</code> if everything went fine.</p> |
+| nullableField | `String` | **optional**<p>This response field is not always there (can be null).</p> |
+
+### Success response example
+
+#### Success response example - `Success-Example`
+
+```json
+HTTP/1.1 200 OK
+{
+    "result": "ok"
+}
+```
+
+### Error response
+
+#### Error response - `Error 4xx`
+
+| Name     | Type       | Description                           |
+|----------|------------|---------------------------------------|
+| NoAccessRight |  | <p>Only authenticated Admins can access the data.</p> |
+| UserNotFound |  | <p>The <code>id</code> of the User was not found.</p> |
+
+#### Error response - `500 Internal Server Error`
+
+| Name     | Type       | Description                           |
+|----------|------------|---------------------------------------|
+| InternalServerError |  | <p>The server encountered an internal error.</p> |
+
+### Error response example
+
+#### Error response example - `Response (example):`
+
+```json
+HTTP/1.1 401 Not Authenticated
+{
+  "error": "NoAccessRight"
+}
+```
+
+## <a name='Read-data-of-a-User'></a> Read data of a User
+[Back to top](#top)
+
+<p>Compare version 0.3.0 with 0.2.0 and you will see the green markers with new items in version 0.3.0 and red markers with removed items since 0.2.0.</p>
+
+```
+GET /user/:region/:id/:opt
+```
+
+### Headers - `Header`
+
+| Name    | Type      | Description                          |
+|---------|-----------|--------------------------------------|
+| Authorization | `String` | <p>The token can be generated from your user profile.</p> |
+| X-Apidoc-Cool-Factor | `String` | <p>Some other header with a default value.</p> |
+
+### Header examples
+
+Header-Example
+
+```Header
+"Authorization: token 5f048fe"
+```
+
+### Parameters - `Parameter`
+
+| Name     | Type       | Description                           |
+|----------|------------|---------------------------------------|
+| id | `Number` | <p>User unique ID</p> |
+| region | `String` | <p>User region</p>_Default value: fr-par_<br> |
+| opt | `String` | **optional** <p>An optional param</p> |
+
+### Examples
+
+Curl example
+
+```bash
+curl -H "Authorization: token 5f048fe" -i https://api.example.com/user/fr-par/4711
+curl -H "Authorization: token 5f048fe" -H "X-Apidoc-Cool-Factor: superbig" -i https://api.example.com/user/de-ber/1337/yep
+```
+
+Javascript example
+
+```js
+const client = AcmeCorpApi('5f048fe');
+const user = client.getUser(42);
+```
+
+Python example
+
+```python
+client = AcmeCorpApi.Client(token="5f048fe")
+user = client.get_user(42)
+```
+
+### Success response
+
+#### Success response - `Success 200`
+
+| Name     | Type       | Description                           |
+|----------|------------|---------------------------------------|
+| id | `Number` | <p>The Users-ID.</p> |
+| registered | `Date` | <p>Registration Date.</p> |
+| name | `String` | <p>Fullname of the User.</p> |
+| nicknames | `String[]` | <p>List of Users nicknames (Array of Strings).</p> |
+| profile | `Object` | <p>Profile data (example for an Object)</p> |
+| profile.age | `Number` | <p>Users age.</p> |
+| profile.image | `String` | <p>Avatar-Image.</p> |
+| options | `Object[]` | <p>List of Users options (Array of Objects).</p> |
+| options.name | `String` | <p>Option Name.</p> |
+| options.value | `String` | <p>Option Value.</p> |
+
+### Error response
+
+#### Error response - `Error 4xx`
+
+| Name     | Type       | Description                           |
+|----------|------------|---------------------------------------|
+| NoAccessRight |  | <p>Only authenticated Admins can access the data.</p> |
+| UserNotFound |  | <p>The <code>id</code> of the User was not found.</p> |
+
+#### Error response - `500 Internal Server Error`
+
+| Name     | Type       | Description                           |
+|----------|------------|---------------------------------------|
+| InternalServerError |  | <p>The server encountered an internal error</p> |
+
+### Error response example
+
+#### Error response example - `Response (example):`
+
+```json
+HTTP/1.1 401 Not Authenticated
+{
+  "error": "NoAccessRight"
+}
+```
+
+## <a name='Thank-a-user:-this-is-quite-a-long-name-indeed'></a> Thank a user: this is quite a long name indeed
+[Back to top](#top)
+
+<p>This is here to have a long name in the left menu.</p>
+
+```
+POST /user/:id
 ```
 
 # Footer .md File

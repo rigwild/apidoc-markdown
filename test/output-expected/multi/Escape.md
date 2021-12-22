@@ -23,6 +23,7 @@ GET /test/escape
 ```
 
 ### Examples
+
 Example usage:
 
 ```json
@@ -30,6 +31,7 @@ curl -i http://localhost/escape/text
 <b>curl -i http://localhost/escape/html</b>
 <xml>curl -i http://localhost/escape/xml</xml>
 ```
+
 
 ### Success response example
 

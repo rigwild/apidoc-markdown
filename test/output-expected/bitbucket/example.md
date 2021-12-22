@@ -58,6 +58,17 @@ RESTful web API Documentation Generator
   - [Trim multi line (tabs and space)](#markdown-header-trim-multi-line-(tabs-and-space))
   - [Trim multi line (tabs)](#markdown-header-trim-multi-line-(tabs))
   - [Trim single line](#markdown-header-trim-single-line)
+- [Category_official](#markdown-header-category_official)
+  - [Delete a category](#markdown-header-delete-a-category)
+  - [Get a category](#markdown-header-get-a-category)
+- [City](#markdown-header-city)
+  - [Create a new city](#markdown-header-create-a-new-city)
+- [User](#markdown-header-user)
+  - [Change a User](#markdown-header-change-a-user)
+  - [Create a new User](#markdown-header-create-a-new-user)
+  - [Delete user](#markdown-header-delete-user)
+  - [Read data of a User](#markdown-header-read-data-of-a-user)
+  - [Thank a user: this is quite a long name indeed](#markdown-header-thank-a-user:-this-is-quite-a-long-name-indeed)
 
 ___
 
@@ -81,6 +92,7 @@ GET /define
 | field1 |  | This is Field 1. |
 | field2 |  | This is Field 2. |
 
+
 # Deprecated
 
 ## Deprecated
@@ -98,6 +110,7 @@ GET /deprecated/foo/:id
 |----------|------------|---------------------------------------|
 | param1 |  | Parameter and description. |
 
+
 ## Deprecated + content
 [Back to top](#top)
 
@@ -113,6 +126,7 @@ GET /deprecated/bar/:id
 |----------|------------|---------------------------------------|
 | param1 |  | Parameter and description. |
 
+
 # Escape
 
 ## Escape Example
@@ -124,7 +138,9 @@ Escape Example data.
 GET /test/escape
 ```
 
+
 ### Examples
+
 Example usage:
 
 ```json
@@ -132,6 +148,7 @@ curl -i http://localhost/escape/text
 <b>curl -i http://localhost/escape/html</b>
 <xml>curl -i http://localhost/escape/xml</xml>
 ```
+
 
 ### Success response example
 
@@ -156,17 +173,21 @@ Extended usage of @apiExample with different example types.
 GET /example/
 ```
 
+
 ### Examples
+
 PHP Example (new)
 
 ```PHP
 echo 'This is the content. (new)';
 ```
+
 JS Example
 
 ```JS
 console.log('This is the content.');
 ```
+
 
 ### Success response example
 
@@ -205,6 +226,7 @@ console.log('This is the error content.');
 GET /group/:id
 ```
 
+
 # Grouping
 
 ## Grouping
@@ -228,6 +250,7 @@ GET /test/:id
 |----------|------------|---------------------------------------|
 | param2 | `String` | Group &quot;login&quot; |
 | param3 | `String` | Group &quot;login&quot; with default Value_Default value: Default Value_<br> |
+
 
 ### Success response
 
@@ -276,11 +299,13 @@ GET /header/example/
 ```
 
 ### Header examples
+
 An example:
 
 ```json
 curl -i http://localhost/header/example/
 ```
+
 
 ## Parameters
 [Back to top](#top)
@@ -319,6 +344,7 @@ GET /header/:id
 | reqHeader1 |  | Basic Parameter with description. |
 | reqHeader2 |  | Basic Parameter with description. |
 
+
 # Language
 
 ## Clojure
@@ -330,6 +356,7 @@ Test for Clojure Comment-Syntax.
 GET /language/clojure
 ```
 
+
 ## Clojure indented 1
 [Back to top](#top)
 
@@ -337,7 +364,9 @@ GET /language/clojure
 GET /language/clojure/indented1
 ```
 
+
 ### Examples
+
 Test for indented comment.
 
 ```json
@@ -348,6 +377,7 @@ This is example line 3.
 This is example line 6.
 ```
 
+
 ## CoffeeScript
 [Back to top](#top)
 
@@ -357,6 +387,7 @@ Test for CoffeeScript Comment-Syntax.
 GET /language/coffeescript
 ```
 
+
 ## CoffeeScript indented 1
 [Back to top](#top)
 
@@ -364,7 +395,9 @@ GET /language/coffeescript
 GET /language/coffeescript/indented1
 ```
 
+
 ### Examples
+
 Test for indented comment.
 
 ```json
@@ -374,6 +407,7 @@ This is example line 3.
     Line 5 indented.
 This is example line 6.
 ```
+
 
 ## CoffeeScript indented 2
 [Back to top](#top)
@@ -382,7 +416,9 @@ This is example line 6.
 GET /language/coffeescript/indented2
 ```
 
+
 ### Examples
+
 Test for indented comment.
 
 ```json
@@ -392,6 +428,7 @@ This is example line 3.
     Line 5 indented.
 This is example line 6.
 ```
+
 
 ## Erlang
 [Back to top](#top)
@@ -402,6 +439,7 @@ Test for Erlang Comment-Syntax.
 GET /language/erlang
 ```
 
+
 ## Erlang indented 1
 [Back to top](#top)
 
@@ -409,7 +447,9 @@ GET /language/erlang
 GET /language/erlang/indented1
 ```
 
+
 ### Examples
+
 Test for indented comment.
 
 ```json
@@ -420,6 +460,7 @@ This is example line 3.
 This is example line 6.
 ```
 
+
 ## Erlang indented 2
 [Back to top](#top)
 
@@ -427,7 +468,9 @@ This is example line 6.
 GET /language/erlang/indented2
 ```
 
+
 ### Examples
+
 Test for indented comment.
 
 ```json
@@ -438,6 +481,7 @@ Line 5 indented.
 This is example line 6.
 ```
 
+
 ## JavaScript
 [Back to top](#top)
 
@@ -447,6 +491,7 @@ Test for JavaScript Comment-Syntax.
 GET /language/javascript
 ```
 
+
 ## JavaScript indented 1
 [Back to top](#top)
 
@@ -454,7 +499,9 @@ GET /language/javascript
 GET /language/javascript/indented1
 ```
 
+
 ### Examples
+
 Test for indented comment.
 
 ```json
@@ -464,6 +511,7 @@ This is example line 3.
     Line 5 indented.
 This is example line 6.
 ```
+
 
 ## JavaScript indented 2
 [Back to top](#top)
@@ -472,7 +520,9 @@ This is example line 6.
 GET /language/javascript/indented2
 ```
 
+
 ### Examples
+
 Test for indented comment.
 
 ```json
@@ -482,6 +532,7 @@ This is example line 3.
     Line 5 indented.
 This is example line 6.
 ```
+
 
 ## Perl
 [Back to top](#top)
@@ -492,6 +543,7 @@ Test for Perl Comment-Syntax.
 GET /language/perl
 ```
 
+
 ## Perl comment with pod and cut
 [Back to top](#top)
 
@@ -499,7 +551,9 @@ GET /language/perl
 GET /language/perl/podcut
 ```
 
+
 ### Examples
+
 Test for indented comment.
 
 ```json
@@ -510,6 +564,7 @@ This is example line 3.
 This is example line 6.
 ```
 
+
 ## Perl indented 1
 [Back to top](#top)
 
@@ -517,7 +572,9 @@ This is example line 6.
 GET /language/perl/indented1
 ```
 
+
 ### Examples
+
 Test for indented comment.
 
 ```json
@@ -528,6 +585,7 @@ This is example line 3.
 This is example line 6.
 ```
 
+
 ## Perl indented 2
 [Back to top](#top)
 
@@ -535,7 +593,9 @@ This is example line 6.
 GET /language/perl/indented2
 ```
 
+
 ### Examples
+
 Test for indented comment.
 
 ```json
@@ -545,6 +605,7 @@ This is example line 3.
     Line 5 indented.
 This is example line 6.
 ```
+
 
 ## Python
 [Back to top](#top)
@@ -555,6 +616,7 @@ Test for Python Comment-Syntax.
 GET /language/python
 ```
 
+
 ## Python indented 1
 [Back to top](#top)
 
@@ -562,7 +624,9 @@ GET /language/python
 GET /language/python/indented1
 ```
 
+
 ### Examples
+
 Test for indented comment.
 
 ```json
@@ -572,6 +636,7 @@ This is example line 3.
     Line 5 indented.
 This is example line 6.
 ```
+
 
 ## Python indented 2
 [Back to top](#top)
@@ -580,7 +645,9 @@ This is example line 6.
 GET /language/python/indented2
 ```
 
+
 ### Examples
+
 Test for indented comment.
 
 ```json
@@ -590,6 +657,7 @@ This is example line 3.
     Line 5 indented.
 This is example line 6.
 ```
+
 
 ## Ruby
 [Back to top](#top)
@@ -600,6 +668,7 @@ Test for Ruby Comment-Syntax.
 GET /language/ruby
 ```
 
+
 ## Ruby indented 1
 [Back to top](#top)
 
@@ -607,7 +676,9 @@ GET /language/ruby
 GET /language/ruby/indented1
 ```
 
+
 ### Examples
+
 Test for indented comment.
 
 ```json
@@ -617,6 +688,7 @@ This is example line 3.
     Line 5 indented.
 This is example line 6.
 ```
+
 
 ## Ruby indented 2
 [Back to top](#top)
@@ -625,7 +697,9 @@ This is example line 6.
 GET /language/ruby/indented2
 ```
 
+
 ### Examples
+
 Test for indented comment.
 
 ```json
@@ -635,6 +709,7 @@ This is example line 3.
     Line 5 indented.
 This is example line 6.
 ```
+
 
 # Markdown
 
@@ -653,6 +728,7 @@ GET /markdown/:id
 |----------|------------|---------------------------------------|
 | param1 | `String` | This is a markdown <strong>apiParam</strong> <p>Separate line.</p> |
 
+
 # Param
 
 ## Errors
@@ -663,6 +739,7 @@ Returned error parameters. Syntax is the same as for @apiParam
 ```
 GET /param/:id
 ```
+
 
 ### Error response
 
@@ -688,14 +765,18 @@ GET /param/example/
 |----------|------------|---------------------------------------|
 | name | `String` | Fullname. |
 
+
 ### Examples
+
 A common example:
 
 ```json
 curl -i http://localhost/param/example/
 ```
 
+
 ### Parameters examples
+
 `json` - A JSON example:
 
 ```json
@@ -746,6 +827,7 @@ GET /param/:id
 | param28 | `Number` | Type, size, parameter and allowed list of values._Size range: 1-9999_<br>_Allowed values: 4711,4712_ |
 | param29 | `<a href="http://en.wikipedia.org/wiki/Data_type">Custom</a>` | Type with markdown link. |
 
+
 ## Success
 [Back to top](#top)
 
@@ -754,6 +836,7 @@ Returned success parameters. Syntax is the same as for @apiParam
 ```
 GET /param/:id
 ```
+
 
 ### Error response
 
@@ -775,6 +858,7 @@ GET /param/:id
 GET /permission/
 ```
 
+
 # indent
 
 ## Indent a word
@@ -786,6 +870,7 @@ text.
 GET /indent/word
 ```
 
+
 ## Trim multi line (spaces)
 [Back to top](#top)
 
@@ -794,6 +879,7 @@ Text line 1 (Begin: 4xSpaces (3 removed)). Text line 2 (Begin: 3xSpaces (3 remov
 ```
 GET /indent/trim/multi/spaces
 ```
+
 
 ## Trim multi line (tabs and space)
 [Back to top](#top)
@@ -804,6 +890,7 @@ Text line 1 (Begin: 1xTab, 2xSpaces). Text line 2 (Begin: 3xSpaces, End: 1xTab).
 GET /indent/trim/multi/tabs/and/space
 ```
 
+
 ## Trim multi line (tabs)
 [Back to top](#top)
 
@@ -813,6 +900,7 @@ Text line 1 (Begin: 3xTab (2 removed)). Text line 2 (Begin: 2x Tab (2 removed), 
 GET /indent/trim/multi/tabs
 ```
 
+
 ## Trim single line
 [Back to top](#top)
 
@@ -821,4 +909,393 @@ Text line 1 (Begin: 3xSpaces (3 removed), End: 1xSpace).
 ```
 GET /indent/trim/single
 ```
+
+
+# Category_official
+
+## Delete a category
+[Back to top](#top)
+
+Delete a category. Sample request has been disabled here.
+
+```
+DELETE /category
+```
+
+
+### Query Parameters
+
+| Name     | Type       | Description                           |
+|----------|------------|---------------------------------------|
+| id | `Number` | Category ID. |
+
+### Parameters examples
+
+`json` - Some json code:
+
+```json
+{
+  "user": "Sample User",
+   "payload": {
+     "test": [
+       "code": "
+         public class HelloWorldTest {
+           HelloWorld hw = new HelloWorld();
+           @Test
+           public void testOkay {
+           assertEquals(\"HelloWorld\", hw.getMsg());
+         }
+      }"
+     ]
+   }
+}
+```
+
+## Get a category
+[Back to top](#top)
+
+Get a category. Sample request on example.com here.
+
+```
+GET /category
+```
+
+
+### Query Parameters
+
+| Name     | Type       | Description                           |
+|----------|------------|---------------------------------------|
+| id | `Number` | **optional** Category ID._Default value: 123_<br> |
+| id2 | `Number` | Category ID2. |
+
+# City
+
+## Create a new city
+[Back to top](#top)
+
+Create a new city.
+
+```
+POST /city
+```
+
+
+### Query Parameters
+
+| Name     | Type       | Description                           |
+|----------|------------|---------------------------------------|
+| view | `String` | Type of view._Default value: Aerial_<br>_Allowed values: Aerial,Land,Underwater_ |
+| zoom | `Number` | Zoom. |
+
+### Request Body
+
+| Name     | Type       | Description                           |
+|----------|------------|---------------------------------------|
+| name | `String` | Name of the city_Default value: Paris_<br> |
+
+# User
+
+## Change a User
+[Back to top](#top)
+
+This function has same errors like POST /user, but errors not defined again, they were included with &quot;apiErrorStructure&quot;
+
+```
+PUT /user/:id
+```
+
+### Parameters - `Parameter`
+
+| Name     | Type       | Description                           |
+|----------|------------|---------------------------------------|
+| id | `Number` | <code>id</code> of the user. |
+
+
+### Request Body
+
+| Name     | Type       | Description                           |
+|----------|------------|---------------------------------------|
+| name | `String` | Name of the User. |
+| avatar | `File` | Upload avatar. |
+
+### Error response
+
+#### Error response - `Error 4xx`
+
+| Name     | Type       | Description                           |
+|----------|------------|---------------------------------------|
+| NoAccessRight |  | Only authenticated Admins can access the data. |
+| UserNameTooShort |  | Minimum of 5 characters required. |
+
+### Error response example
+
+#### Error response example - `Response (example):`
+
+```json
+HTTP/1.1 400 Bad Request
+{
+  "error": "UserNameTooShort"
+}
+```
+
+## Create a new User
+[Back to top](#top)
+
+In this case &quot;apiErrorStructure&quot; is defined and used. Define blocks with params that will be used in several functions, so you dont have to rewrite them.
+
+```
+POST /user
+```
+
+
+### Request Body
+
+| Name     | Type       | Description                           |
+|----------|------------|---------------------------------------|
+| age | `Number` | Age of the User |
+| name | `String` | Name of the User_Default value: Caroline_<br> |
+| extraInfo.hireDate | `Date` | Date when user was hired |
+| extraInfo.hireDateWithDefault | `Date` | Date when user was hired with default_Default value: 2021-09-01_<br> |
+| extraInfo.nickname | `String` | Nickname of the user |
+| extraInfo.isVegan | `Boolean` | Is the user vegan? (boolean with default)_Default value: true_<br> |
+| extraInfo.isAlive | `Boolean` | Is the user alive? (boolean with no default) |
+| extraInfo.secrets.crush | `String` | The user secret crush |
+| extraInfo.secrets.hair | `Number` | Number of hair of user_Default value: 1000_<br> |
+
+### Success response
+
+#### Success response - `Success 200`
+
+| Name     | Type       | Description                           |
+|----------|------------|---------------------------------------|
+| id | `Number` | The new Users-ID. |
+
+### Error response
+
+#### Error response - `Error 4xx`
+
+| Name     | Type       | Description                           |
+|----------|------------|---------------------------------------|
+| NoAccessRight |  | Only authenticated Admins can access the data. |
+| UserNameTooShort |  | Minimum of 5 characters required. |
+
+### Error response example
+
+#### Error response example - `Response (example):`
+
+```json
+HTTP/1.1 400 Bad Request
+{
+  "error": "UserNameTooShort"
+}
+```
+
+## Delete user
+[Back to top](#top)
+
+Be careful! This will remove all the data associated with that user!
+
+```
+DELETE /user/:id
+```
+
+### Headers - `Header`
+
+| Name    | Type      | Description                          |
+|---------|-----------|--------------------------------------|
+| Authorization | `String` | The token can be generated from your user profile. |
+
+### Header examples
+
+Header-Example
+
+```Header
+"Authorization: token 5f048fe"
+```
+
+### Parameters - `Parameter`
+
+| Name     | Type       | Description                           |
+|----------|------------|---------------------------------------|
+| id | `Number` | <code>id</code> of the user. |
+
+
+### Examples
+
+Curl example
+
+```bash
+curl -X DELETE -H "Authorization: token 5f048fe" -i https://api.example.com/user/4711
+```
+
+Javascript example
+
+```js
+const client = AcmeCorpApi('5f048fe');
+const user = client.deleteUser(42);
+```
+
+Python example
+
+```python
+client = AcmeCorpApi.Client(token="5f048fe")
+user = client.delete_user(42)
+```
+
+
+### Success response
+
+#### Success response - `Success 200`
+
+| Name     | Type       | Description                           |
+|----------|------------|---------------------------------------|
+| result | `String` | <code>ok</code> if everything went fine. |
+| nullableField | `String` | **optional**This response field is not always there (can be null). |
+
+### Success response example
+
+#### Success response example - `Success-Example`
+
+```json
+HTTP/1.1 200 OK
+{
+    "result": "ok"
+}
+```
+
+### Error response
+
+#### Error response - `Error 4xx`
+
+| Name     | Type       | Description                           |
+|----------|------------|---------------------------------------|
+| NoAccessRight |  | Only authenticated Admins can access the data. |
+| UserNotFound |  | The <code>id</code> of the User was not found. |
+
+#### Error response - `500 Internal Server Error`
+
+| Name     | Type       | Description                           |
+|----------|------------|---------------------------------------|
+| InternalServerError |  | The server encountered an internal error. |
+
+### Error response example
+
+#### Error response example - `Response (example):`
+
+```json
+HTTP/1.1 401 Not Authenticated
+{
+  "error": "NoAccessRight"
+}
+```
+
+## Read data of a User
+[Back to top](#top)
+
+Compare version 0.3.0 with 0.2.0 and you will see the green markers with new items in version 0.3.0 and red markers with removed items since 0.2.0.
+
+```
+GET /user/:region/:id/:opt
+```
+
+### Headers - `Header`
+
+| Name    | Type      | Description                          |
+|---------|-----------|--------------------------------------|
+| Authorization | `String` | The token can be generated from your user profile. |
+| X-Apidoc-Cool-Factor | `String` | Some other header with a default value. |
+
+### Header examples
+
+Header-Example
+
+```Header
+"Authorization: token 5f048fe"
+```
+
+### Parameters - `Parameter`
+
+| Name     | Type       | Description                           |
+|----------|------------|---------------------------------------|
+| id | `Number` | User unique ID |
+| region | `String` | User region_Default value: fr-par_<br> |
+| opt | `String` | **optional** An optional param |
+
+
+### Examples
+
+Curl example
+
+```bash
+curl -H "Authorization: token 5f048fe" -i https://api.example.com/user/fr-par/4711
+curl -H "Authorization: token 5f048fe" -H "X-Apidoc-Cool-Factor: superbig" -i https://api.example.com/user/de-ber/1337/yep
+```
+
+Javascript example
+
+```js
+const client = AcmeCorpApi('5f048fe');
+const user = client.getUser(42);
+```
+
+Python example
+
+```python
+client = AcmeCorpApi.Client(token="5f048fe")
+user = client.get_user(42)
+```
+
+
+### Success response
+
+#### Success response - `Success 200`
+
+| Name     | Type       | Description                           |
+|----------|------------|---------------------------------------|
+| id | `Number` | The Users-ID. |
+| registered | `Date` | Registration Date. |
+| name | `String` | Fullname of the User. |
+| nicknames | `String[]` | List of Users nicknames (Array of Strings). |
+| profile | `Object` | Profile data (example for an Object) |
+| profile.age | `Number` | Users age. |
+| profile.image | `String` | Avatar-Image. |
+| options | `Object[]` | List of Users options (Array of Objects). |
+| options.name | `String` | Option Name. |
+| options.value | `String` | Option Value. |
+
+### Error response
+
+#### Error response - `Error 4xx`
+
+| Name     | Type       | Description                           |
+|----------|------------|---------------------------------------|
+| NoAccessRight |  | Only authenticated Admins can access the data. |
+| UserNotFound |  | The <code>id</code> of the User was not found. |
+
+#### Error response - `500 Internal Server Error`
+
+| Name     | Type       | Description                           |
+|----------|------------|---------------------------------------|
+| InternalServerError |  | The server encountered an internal error |
+
+### Error response example
+
+#### Error response example - `Response (example):`
+
+```json
+HTTP/1.1 401 Not Authenticated
+{
+  "error": "NoAccessRight"
+}
+```
+
+## Thank a user: this is quite a long name indeed
+[Back to top](#top)
+
+This is here to have a long name in the left menu.
+
+```
+POST /user/:id
+```
+
 

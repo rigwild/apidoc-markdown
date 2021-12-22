@@ -29,6 +29,7 @@ GET /header/example/
 ```
 
 ### Header examples
+
 An example:
 
 ```json
