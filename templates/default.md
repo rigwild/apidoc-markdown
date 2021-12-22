@@ -47,6 +47,7 @@ ___
 <% if (sub.header && sub.header.examples && sub.header.examples.length) { -%>
 
 ### Header examples
+
 <% sub.header.examples.forEach(example => { -%>
 <%= example.title %>
 
@@ -73,20 +74,55 @@ _Allowed values: <%- param.allowedValues %>_<% } -%> |
 <% }) // foreach parameters -%>
 <% }) // foreach param parameter -%>
 <% } // if parameters -%>
+<% if (sub.query) { -%>
+
+### Query Parameters
+
+| Name     | Type       | Description                           |
+|----------|------------|---------------------------------------|
+<% sub.query.forEach(query => { -%>
+| <%- query.field -%> | <%- query.type ? `\`${query.type}\`` : '' %> | <%- query.optional ? '**optional** ' : '' -%><%- query.description -%>
+<% if (query.defaultValue) { -%>
+_Default value: <%= query.defaultValue %>_<br><% } -%>
+<% if (query.size) { -%>
+_Size range: <%- query.size %>_<br><% } -%>
+<% if (query.allowedValues) { -%>
+_Allowed values: <%- query.allowedValues %>_<% } -%> |
+<% }) // foreach query -%>
+<% } // if query -%>
+<% if (sub.body) { -%>
+
+### Request Body
+
+| Name     | Type       | Description                           |
+|----------|------------|---------------------------------------|
+<% sub.body.forEach(body => { -%>
+| <%- body.field -%> | <%- body.type ? `\`${body.type}\`` : '' %> | <%- body.optional ? '**optional** ' : '' -%><%- body.description -%>
+<% if (body.defaultValue) { -%>
+_Default value: <%= body.defaultValue %>_<br><% } -%>
+<% if (body.size) { -%>
+_Size range: <%- body.size %>_<br><% } -%>
+<% if (body.allowedValues) { -%>
+_Allowed values: <%- body.allowedValues %>_<% } -%> |
+<% }) // foreach body -%>
+<% } // if body -%>
 <% if (sub.examples && sub.examples.length) { -%>
 
 ### Examples
+
 <% sub.examples.forEach(example => { -%>
 <%= example.title %>
 
 ```<%= example.type %>
 <%- example.content %>
 ```
+
 <% }) // foreach example -%>
 <% } // if example -%>
 <% if (sub.parameter && sub.parameter.examples && sub.parameter.examples.length) { -%>
 
 ### Parameters examples
+
 <% sub.parameter.examples.forEach(exampleParam => { -%>
 `<%= exampleParam.type %>` - <%= exampleParam.title %>
 
@@ -96,7 +132,6 @@ _Allowed values: <%- param.allowedValues %>_<% } -%> |
 <% }) // foreach exampleParam -%>
 <% } // if exampleParam -%>
 <% if (sub.success && sub.success.fields) { -%>
-
 ### Success response
 <% Object.entries(sub.success.fields).forEach(([responsesGroup, responsesGroupContent]) => { -%>
 
