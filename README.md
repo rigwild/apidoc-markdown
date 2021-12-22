@@ -167,12 +167,11 @@ const documentation: Doc = await generateMarkdownFileSystem({
   /** Output file or directory to write output to */
   output: path.resolve(__dirname, 'doc.md'),
 
-
   /** Optional: Name of template to be used (`default`, `bitbucket`)
    * or path to EJS template file
    * or raw EJS plain text template
    * (will use default template if ommitted). */
-  template: 'default'
+  template: 'default',
 
   /** Optional: Path to file content to add at the top of the documentation */
   header: path.resolve(__dirname, 'add-this-to-the-top'),
@@ -191,10 +190,10 @@ const documentation: Doc = await generateMarkdownFileSystem({
 })
 
 // Output
-type Doc =  {
+type Doc = Array<{
   name: string // Api group name
   content: string // Documentation content
-}[]
+}>
 
 // (if `multi` is `false`, you get an array with 1 element!)
 ```
@@ -233,10 +232,10 @@ const documentation: Doc = await generateMarkdown({
 })
 
 // Output
-type Doc = {
+type Doc = Array<{
   name: string // Api group name
   content: string // Documentation content
-}[]
+}>
 
 // (if `multi` is `false`, you get an array with 1 element!)
 ```

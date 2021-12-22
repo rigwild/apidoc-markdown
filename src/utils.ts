@@ -49,7 +49,7 @@ export const loadFileOrThrowIfNotExist = async (optionName: string, filePath: st
 export const loadFromCliParamOrApiDocProject = async (
   optionName: string,
   cliParam: string | undefined,
-  apiDocProjectData: any
+  apiDocProjectData: Record<string, any>
 ) => {
   if (cliParam) return await loadFileOrThrowIfNotExist(`cli.${optionName}`, cliParam)
   else if (apiDocProjectData[optionName]) {
@@ -76,7 +76,7 @@ export const isInTemplatesDir = (name: string) => fs.readdir(TEMPLATES_PATH).the
 /**
  * Invoke apidoc to get the documentation
  * @param input Input source files path
- * @throws apiDoc dependency is not installed or some apiDoc parsing error
+ * @throws apiDoc parsing error
  */
 export const createDocOrThrow = (input: string): Pick<ConfigurationObject, 'apiDocProjectData' | 'apiDocApiData'> => {
   const doc = createDoc({ src: input })
