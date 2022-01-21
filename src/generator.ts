@@ -20,27 +20,21 @@ import { ConfigurationObject, ConfigurationObjectCLI } from './types'
  * @param param0 Documentation generator parameters
  * @returns The single or multi file EJS compiler, ready for usage
  */
-export const generate = async ({
-  apiDocProjectData,
-  apiDocApiData,
-  prepend,
-  multi,
-  header,
-  footer,
-  ejsCompiler
-}: Omit<ConfigurationObject, 'template'> & { ejsCompiler: ejs.AsyncTemplateFunction }) => {
+export const generate = async (
+  options: Omit<ConfigurationObject, 'template'> & { ejsCompiler: ejs.AsyncTemplateFunction }
+) => {
   // const { apiData, projectData, ejsCompiler } = await loadApiDocProject({ apiDocPath, template, prepend })
   // Define template data
   let apiByGroupAndName: any[]
 
   // Group apiDoc data by group and name
-  apiByGroupAndName = unique(Object.values(apiDocApiData).map(x => x.group))
+  apiByGroupAndName = unique(Object.values(options.apiDocApiData).map(x => x.group))
     .reduce((acc, cur) => {
-      if (apiDocApiData.find(x => x.group === cur)) acc.push({ name: cur, subs: [] })
+      if (options.apiDocApiData.find(x => x.group === cur)) acc.push({ name: cur, subs: [] })
       return acc
     }, [] as {}[])
     .map((g: any) => {
-      apiDocApiData.forEach(x => x.group === g.name && g.subs.push(x))
+      options.apiDocApiData.forEach(x => x.group === g.name && g.subs.push(x))
       return g
     })
     .map((g: any) => {
@@ -58,9 +52,9 @@ export const generate = async ({
   apiByGroupAndName.forEach(x => x.subs.sort((a: any, b: any) => a.title.localeCompare(b.title)))
 
   // Order using the project order setting
-  if (apiDocProjectData.order) {
+  if (options.apiDocProjectData.order) {
     // Lowercased project order setting array
-    const orderLowerCase = apiDocProjectData.order.map((x: string) => x.toLowerCase())
+    const orderLowerCase = options.apiDocProjectData.order.map((x: string) => x.toLowerCase())
 
     // Filter items in/not in the project order setting array
     const inOrderArr: any[] = []
@@ -86,18 +80,18 @@ export const generate = async ({
     // Every functions in `utils_template.js` are passed to the EJS compiler
     ...templateUtils,
 
-    project: apiDocProjectData,
-    header,
-    footer,
-    prepend
+    project: options.apiDocProjectData,
+    header: options.header,
+    footer: options.footer,
+    prepend: options.prepend
   }
 
-  return !multi
-    ? [{ name: 'main', content: await ejsCompiler({ ...templateConfig, data: apiByGroupAndName }) }]
+  return !options.multi
+    ? [{ name: 'main', content: await options.ejsCompiler({ ...templateConfig, data: apiByGroupAndName }) }]
     : await Promise.all(
         apiByGroupAndName.map(async x => ({
           name: x.name as string,
-          content: await ejsCompiler({ ...templateConfig, data: [x] })
+          content: await options.ejsCompiler({ ...templateConfig, data: [x] })
         }))
       )
 }
@@ -108,24 +102,8 @@ export const generate = async ({
  * @param param0 Generator configuration
  * @returns Generated documentation
  */
-export const generateMarkdown = async ({
-  apiDocProjectData,
-  apiDocApiData,
-  template,
-  prepend,
-  header,
-  footer,
-  multi
-}: ConfigurationObject) =>
-  generate({
-    apiDocProjectData,
-    apiDocApiData,
-    header,
-    footer,
-    prepend,
-    multi,
-    ejsCompiler: await loadTemplate(template, false)
-  })
+export const generateMarkdown = async (options: ConfigurationObject) =>
+  generate({ ...options, ejsCompiler: await loadTemplate(options.template, false) })
 
 /**
  * Generate mardown documentation and create output file(s).
@@ -134,55 +112,44 @@ export const generateMarkdown = async ({
  * @returns Generated documentation
  * @throws Some CLI command parameters are missing or invalid
  */
-export const generateMarkdownFileSystem = async ({
-  input,
-  output,
-  template,
-  prepend,
-  header,
-  footer,
-  multi,
-  createPath
-}: ConfigurationObjectCLI) => {
+export const generateMarkdownFileSystem = async (options: ConfigurationObjectCLI) => {
   // Check the input path exists
-  if (!input) throw new Error('`cli.input` is required but was not provided.')
-  if (!(await pathExists(input)))
-    throw new Error(`The \`cli.input\` path does not exist or is not readable. Path: ${input}`)
+  if (!options.input) throw new Error('`cli.input` is required but was not provided.')
+  if (!(await pathExists(options.input)))
+    throw new Error(`The \`cli.input\` path does not exist or is not readable. Path: ${options.input}`)
 
   // Check the output path exists (only parent directory if unique file)
-  if (!output) throw new Error('`cli.output` is required but was not provided.')
+  if (!options.output) throw new Error('`cli.output` is required but was not provided.')
 
   // Recursively create directory arborescence if cli option is true
-  if (createPath) await mkdirp(output.toLowerCase().endsWith('.md') ? path.dirname(output) : output)
+  if (options.createPath)
+    await mkdirp(options.output.toLowerCase().endsWith('.md') ? path.dirname(options.output) : options.output)
 
-  const outputPath = multi ? output : path.parse(path.resolve('.', output)).dir
+  const outputPath = options.multi ? options.output : path.parse(path.resolve('.', options.output)).dir
   if (!(await pathExists(outputPath)))
     throw new Error(`The \`cli.output\` path does not exist or is not readable. Path: ${outputPath}`)
 
-  const { apiDocProjectData, apiDocApiData } = createDocOrThrow(input)
+  const { apiDocProjectData, apiDocApiData } = createDocOrThrow(options.input)
 
   // Check header, footer and prepend file path exist
-  header = await loadFromCliParamOrApiDocProject('header', header, apiDocProjectData)
-  footer = await loadFromCliParamOrApiDocProject('footer', footer, apiDocProjectData)
-  prepend = await loadFromCliParamOrApiDocProject('prepend', prepend, apiDocProjectData)
+  options.header = await loadFromCliParamOrApiDocProject('header', options.header, apiDocProjectData)
+  options.footer = await loadFromCliParamOrApiDocProject('footer', options.footer, apiDocProjectData)
+  options.prepend = await loadFromCliParamOrApiDocProject('prepend', options.prepend, apiDocProjectData)
 
   // Generate the actual documentation
   const documentation = await generate({
+    ...options,
     apiDocProjectData,
     apiDocApiData,
-    header,
-    footer,
-    prepend,
-    multi,
-    ejsCompiler: await loadTemplate(template)
+    ejsCompiler: await loadTemplate(options.template)
   })
 
   // Create the output files
-  if (!multi) {
+  if (!options.multi) {
     // Single file documentation generation
     const singleDoc = documentation[0].content
-    await fs.writeFile(output, singleDoc)
-    return [{ outputFile: output, content: singleDoc }]
+    await fs.writeFile(options.output, singleDoc)
+    return [{ outputFile: options.output, content: singleDoc }]
   }
   // Multi file documentation generation
   return Promise.all(
