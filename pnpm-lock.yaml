@@ -5,7 +5,7 @@ specifiers:
   '@types/node': ^17.0.10
   '@types/semver': ^7.3.9
   '@types/yargs': ^17.0.8
-  apidoc-light: ^0.50.2
+  apidoc-light: ^0.50.3
   ava: ^4.0.1
   ejs: ^3.1.6
   fs-extra: ^10.0.0
@@ -15,7 +15,7 @@ specifiers:
   yargs: ^17.3.1
 
 dependencies:
-  apidoc-light: 0.50.2
+  apidoc-light: 0.50.3
   ejs: 3.1.6
   semver: 7.3.5
   update-notifier: 5.1.0
@@ -163,8 +163,8 @@ packages:
       picomatch: 2.3.1
     dev: true
 
-  /apidoc-light/0.50.2:
-    resolution: {integrity: sha512-PEoqBlX/eEFv5Oa1F8R5SEOQDvl3Cz2JWfPxcCvvrtBfukFGE3WajIDAjl3vUyOZ0cqM/b/quOjqKuWPO0MEtA==}
+  /apidoc-light/0.50.3:
+    resolution: {integrity: sha512-VgYbDO7LLsm0ENsk2iBL66CV5kjkhRkEvUzMrxQ1wQICETWQulChXurGQvJtrHPOw03NBv4VTO72NMzrNjc25Q==}
     engines: {node: '>=14.0.0'}
     os: [darwin, freebsd, linux, openbsd, win32]
     dependencies:
