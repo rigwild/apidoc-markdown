@@ -17,7 +17,7 @@ import { ConfigurationObject, ConfigurationObjectCLI } from './types'
 /**
  * Get the documentation generator
  *
- * @param param0 Documentation generator parameters
+ * @param options Documentation generator parameters
  * @returns The single or multi file EJS compiler, ready for usage
  */
 export const generate = async (
@@ -99,7 +99,7 @@ export const generate = async (
 /**
  * Generate mardown documentation.
  *
- * @param param0 Generator configuration
+ * @param options Generator configuration
  * @returns Generated documentation
  */
 export const generateMarkdown = async (options: ConfigurationObject) =>
@@ -108,7 +108,7 @@ export const generateMarkdown = async (options: ConfigurationObject) =>
 /**
  * Generate mardown documentation and create output file(s).
  *
- * @param param0 Generator configuration
+ * @param options Generator configuration
  * @returns Generated documentation
  * @throws Some CLI command parameters are missing or invalid
  */
@@ -129,7 +129,7 @@ export const generateMarkdownFileSystem = async (options: ConfigurationObjectCLI
   if (!(await pathExists(outputPath)))
     throw new Error(`The \`cli.output\` path does not exist or is not readable. Path: ${outputPath}`)
 
-  const { apiDocProjectData, apiDocApiData } = createDocOrThrow(options.input)
+  const { apiDocProjectData, apiDocApiData } = createDocOrThrow(options)
 
   // Check header, footer and prepend file path exist
   options.header = await loadFromCliParamOrApiDocProject('header', options.header, apiDocProjectData)

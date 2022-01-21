@@ -21,7 +21,7 @@ const r = path.resolve
 test.before(beforeTestsHook)
 
 test.before(t => {
-  t.context.apidocData = createDocOrThrow(INPUT_SOURCES_DIR)
+  t.context.apidocData = createDocOrThrow({ input: INPUT_SOURCES_DIR })
 })
 
 test('basic generation', async t => {

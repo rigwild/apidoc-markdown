@@ -6,3 +6,5 @@ package-lock.json
 _testing
 bin/*.ts
 test/output
+.pnpm-*
+pnpm-global

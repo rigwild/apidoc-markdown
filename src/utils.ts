@@ -2,7 +2,7 @@ import ejs from 'ejs'
 import fs from 'fs/promises'
 import path from 'path'
 import { createDoc } from 'apidoc-light'
-import type { ConfigurationObject } from './types'
+import type { ConfigurationObject, ConfigurationObjectCLI } from './types'
 
 export const TEMPLATES_PATH = path.resolve(__dirname, '..', 'templates')
 export const DEFAULT_TEMPLATE_PATH = path.resolve(TEMPLATES_PATH, 'default.md')
@@ -78,8 +78,10 @@ export const isInTemplatesDir = (name: string) => fs.readdir(TEMPLATES_PATH).the
  * @param input Input source files path
  * @throws apiDoc parsing error
  */
-export const createDocOrThrow = (input: string): Pick<ConfigurationObject, 'apiDocProjectData' | 'apiDocApiData'> => {
-  const doc = createDoc({ src: input })
+export const createDocOrThrow = (
+  options: ConfigurationObjectCLI
+): Pick<ConfigurationObject, 'apiDocProjectData' | 'apiDocApiData'> => {
+  const doc = createDoc({ ...options, src: options.input })
   return {
     apiDocProjectData: doc.project,
     apiDocApiData: Object.values<any>(doc.data).filter(x => x.type)

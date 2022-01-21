@@ -1,3 +1,5 @@
+import { DocOptions } from 'apidoc-light'
+
 export declare interface ConfigurationObject {
   /** apiDoc project JSON data object (`apidoc.json`) file content) */
   apiDocProjectData: Record<string, any>
@@ -24,12 +26,12 @@ export declare interface ConfigurationObject {
   multi?: boolean
 }
 
-export declare interface ConfigurationObjectCLI {
+export declare type ConfigurationObjectCLI = {
   /** Input source files path */
   input: string
 
   /** Output file or directory to write output to */
-  output: string
+  output?: string
 
   /** Name of template to be used (`default`, `bitbucket`)
    * or path to EJS template file
@@ -51,7 +53,28 @@ export declare interface ConfigurationObjectCLI {
 
   /** Recursively create directory arborescence to the `output` directory */
   createPath?: boolean
-}
+
+  /** Treat warnings as error and exit with error code. */
+  warnError?: boolean
+} & Pick<
+  DocOptions,
+  | 'config'
+  | 'debug'
+  | 'colorize'
+  | 'copyDefinitions'
+  | 'encoding'
+  | 'excludeFilters'
+  | 'includeFilters'
+  | 'filterBy'
+  | 'filters'
+  | 'languages'
+  | 'parsers'
+  | 'workers'
+  | 'apiprivate'
+  | 'silent'
+  | 'single'
+  | 'verbose'
+>
 
 export const availableTemplates = {
   default: 'default',
