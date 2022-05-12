@@ -34,20 +34,20 @@
     "prepublishOnly": "tsc"
   },
   "dependencies": {
-    "apidoc-light": "^0.51.0",
-    "ejs": "^3.1.6",
-    "semver": "^7.3.5",
+    "apidoc-light": "^0.51.1",
+    "ejs": "^3.1.8",
+    "semver": "^7.3.7",
     "update-notifier": "^5.1.0",
-    "yargs": "^17.4.0"
+    "yargs": "^17.5.0"
   },
   "devDependencies": {
     "@types/ejs": "^3.1.0",
-    "@types/node": "^17.0.21",
+    "@types/node": "^17.0.32",
     "@types/semver": "^7.3.9",
     "@types/yargs": "^17.0.10",
-    "ava": "^4.1.0",
-    "fs-extra": "^10.0.1",
-    "typescript": "^4.6.2"
+    "ava": "^4.2.0",
+    "fs-extra": "^10.1.0",
+    "typescript": "^4.6.4"
   },
   "keywords": [
     "apidoc",
