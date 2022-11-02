@@ -167,13 +167,48 @@ const cli = yargs
   .help('h')
   .alias('h', 'help')
   .epilog('apidoc-markdown - https://github.com/rigwild/apidoc-markdown')
+
+  .middleware((argv: ConfigurationObjectCLI) => {
+    argv.excludeFilters = ['apidoc.config.js', 'node_modules'].concat(
+      argv.excludeFilters!.length ? argv.excludeFilters! : []
+    )
+
+    // @ts-ignore
+    argv.includeFilters = argv.fileFilters?.length
+      ? // @ts-ignore
+        argv.fileFilters
+      : '.*\\.(clj|cls|coffee|cpp|cs|dart|erl|exs?|go|groovy|ino?|java|js|jsx|kt|litcoffee|lua|mjs|p|php?|pl|pm|py|rb|scala|ts|vue)$'
+
+    // @ts-ignore
+    argv.colorize = !argv.noColor
+    // @ts-ignore
+    argv.filters = transformToObject(argv.parseFilters)
+    // @ts-ignore
+    argv.languages = transformToObject(argv.parseLanguages)
+    // @ts-ignore
+    argv.parsers = transformToObject(argv.parseParsers)
+    // @ts-ignore
+    argv.workers = transformToObject(argv.parseWorkers)
+
+    // @ts-ignore
+    argv.silent = argv.quiet
+    // @ts-ignore
+    argv.apiprivate = argv.private
+    // @ts-ignore
+    argv.copyDefinitions = !argv.definitions
+
+    if (argv.debug) {
+      console.debug('[debug] Parsed options:\n')
+      console.debug(argv)
+    }
+  })
   .wrap(yargs.terminalWidth())
 
 /**
  * Transform parameters to object
  * @see https://github.com/apidoc/apidoc/blob/dev/bin/apidoc#L24-L43
  */
-const transformToObject = (filters: string | string[]): object | undefined => {
+function transformToObject(filters: string | string[]): object | undefined {
   if (!filters) return
 
   if (typeof filters === 'string') filters = [filters]
@@ -188,31 +223,6 @@ const transformToObject = (filters: string | string[]): object | undefined => {
   })
 
   return result
-}
-
-if (!(cli.argv instanceof Promise)) {
-  cli.argv.excludeFilters = ['apidoc.config.js', 'node_modules'].concat(
-    cli.argv.excludeFilters.length ? cli.argv.excludeFilters : []
-  )
-  cli.argv.includeFilters = cli.argv.fileFilters.length
-    ? cli.argv.fileFilters
-    : '.*\\.(clj|cls|coffee|cpp|cs|dart|erl|exs?|go|groovy|ino?|java|js|jsx|kt|litcoffee|lua|mjs|p|php?|pl|pm|py|rb|scala|ts|vue)$'
-
-  cli.argv.colorize = !cli.argv.noColor
-
-  cli.argv.filters = transformToObject(cli.argv.parseFilters)
-  cli.argv.languages = transformToObject(cli.argv.parseLanguages)
-  cli.argv.parsers = transformToObject(cli.argv.parseParsers)
-  cli.argv.workers = transformToObject(cli.argv.parseWorkers)
-
-  cli.argv.silent = cli.argv.quiet
-  cli.argv.apiprivate = cli.argv.private
-  cli.argv.copyDefinitions = !cli.argv.definitions
-
-  if (cli.argv.debug) {
-    console.debug('[debug] Parsed options:\n')
-    console.debug(cli.argv)
-  }
 }
 
 export default <ConfigurationObjectCLI>cli.argv
