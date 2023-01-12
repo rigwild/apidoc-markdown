@@ -4,34 +4,57 @@ about: Create a report to help us improve
 title: ''
 labels: bug
 assignees: rigwild
-
 ---
 
 ## Describe the bug
+
 A clear and concise description of what the bug is.
 
 ## Reproduce
+
 ### Usage
+
 Used `apidoc-markdown` command or script.
 
 ```bash
-apidoc-markdown -p ./example/basic -o ./example/basic/example.md
+apidoc-markdown --debug -p ./example/basic -o ./example/basic/example.md
 ```
 
 ```ts
 import { generateMarkdown } from 'apidoc-markdown'
 
 const documentation = await generateMarkdown({
-  apiDocProjectData: { name: 'test', version: '0.13.0', /* ... */ },
-  apiDocApiData: [{ type: 'get', url: '/define', /* ... */ }],
+  apiDocProjectData: { name: 'test', version: '0.13.0' /* ... */ },
+  apiDocApiData: [{ type: 'get', url: '/define' /* ... */ }],
   template: 'my EJS template <%= project.name %> v<%= project.version %>',
   prepend: 'Prepend this!',
   multi: false
 })
 ```
 
+### Sample code
+
+Some sample code to reproduce the issue.
+
+```js
+/**
+ * @api {get} /test Get a test
+ * @apiName GetTest
+ * @apiGroup Test
+ */
+function testGet() {}
+
+/**
+ * @api {post} /test Post a test
+ * @apiName PostTest
+ * @apiGroup Test
+ */
+function testPost() {}
+```
+
 ### `api_project.json`
-Used `api_project.json` file.
+
+Used `api_project.json` file (to get this file, run your command with `-d` or `--debug`).
 
 ```json
 {
@@ -48,10 +71,7 @@ Used `api_project.json` file.
     "title": "My own footer title",
     "content": "<h1>Footer .md File</h1>\n<p>Content of footer.md file.</p>\n"
   },
-  "order": [
-    "Markdown",
-    "Example"
-  ],
+  "order": ["Markdown", "Example"],
   "defaultVersion": "0.0.0",
   "apidoc": "0.3.0",
   "generator": {
@@ -64,7 +84,8 @@ Used `api_project.json` file.
 ```
 
 ### `api_data.json`
-Used `api_data.json` file.
+
+Used `api_data.json` file (to get this file, run your command with `-d` or `--debug`).
 
 ```json
 [
@@ -115,10 +136,9 @@ Used `api_data.json` file.
 A clear and concise description of what you expected to happen.
 
 **Versions (please complete the following information):**
- - `Node.js` version: `complete_this` [e.g. `13.9.0`]
- - `TypeScript` version: `complete_this` [e.g. `13.9.0`]
- - `apiDoc` version: `complete_this` [e.g. `0.20.0`]
- - `apidoc-markdown` version: `complete_this` [e.g. `1.12.3`]
+
+- `Node.js` version: `13.9.0`
+- `apidoc-markdown` version: `1.12.3`
 
 **Additional context**
 Add any other context about the problem here.
