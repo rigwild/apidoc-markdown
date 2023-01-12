@@ -27,6 +27,14 @@ export const generate = async (
   // Define template data
   let apiByGroupAndName: any[]
 
+  // Throw error if one element is missing the `title` required key
+  const elementsWithoutTitle = options.apiDocApiData.filter(x => !x.title)
+  if (elementsWithoutTitle.length > 0)
+    throw new Error(
+      'Missing `title` key in one or more elements. Run with `--debug` to generate `api_data.json` file to try to find what is happening (see https://github.com/rigwild/apidoc-markdown/issues/26).\n' +
+        `Elements without \`title\` key: ${JSON.stringify(elementsWithoutTitle, null, 2)}`
+    )
+
   // Group apiDoc data by group and name
   apiByGroupAndName = unique(Object.values(options.apiDocApiData).map(x => x.group))
     .reduce((acc, cur) => {
@@ -149,14 +157,38 @@ export const generateMarkdownFileSystem = async (options: ConfigurationObjectCLI
     // Single file documentation generation
     const singleDoc = documentation[0].content
     await fs.writeFile(options.output, singleDoc)
+
+    if (options.debug) {
+      await fs.writeFile(
+        path.join(path.basename(path.dirname(options.output)), 'api_project.json'),
+        JSON.stringify(apiDocProjectData, null, 2)
+      )
+      await fs.writeFile(
+        path.join(path.basename(path.dirname(options.output)), 'api_data.json'),
+        JSON.stringify(apiDocApiData, null, 2)
+      )
+      console.log(
+        'Debug files `apidoc-project.json` and `apidoc-api.json` created. Put them in the bug report if you are creating one.'
+      )
+    }
+
     return [{ outputFile: options.output, content: singleDoc }]
+  } else {
+    if (options.debug) {
+      await fs.writeFile(path.join(options.output, 'api_project.json'), JSON.stringify(apiDocProjectData, null, 2))
+      await fs.writeFile(path.join(options.output, 'api_data.json'), JSON.stringify(apiDocApiData, null, 2))
+      console.log(
+        'Debug files `apidoc-project.json` and `apidoc-api.json` created. Put them in the bug report if you are creating one.'
+      )
+    }
+
+    // Multi file documentation generation
+    return Promise.all(
+      documentation.map(async aDoc => {
+        const filePath = path.resolve(outputPath, `${aDoc.name}.md`)
+        await fs.writeFile(filePath, aDoc.content)
+        return { outputFile: filePath, content: aDoc.content }
+      })
+    )
   }
-  // Multi file documentation generation
-  return Promise.all(
-    documentation.map(async aDoc => {
-      const filePath = path.resolve(outputPath, `${aDoc.name}.md`)
-      await fs.writeFile(filePath, aDoc.content)
-      return { outputFile: filePath, content: aDoc.content }
-    })
-  )
 }
