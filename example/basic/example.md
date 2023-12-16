@@ -796,7 +796,6 @@ GET /param/:id
 | param25 | `String` | <p>Type, size, parameter and allowed string value.</p>_Size range: 1,10_<br>_Allowed values: "value 1"_ |
 | param27 | `Number` | <p>Type, size, parameter and allowed value.</p>_Size range: 1-9999_<br>_Allowed values: 4711_ |
 | param28 | `Number` | <p>Type, size, parameter and allowed list of values.</p>_Size range: 1-9999_<br>_Allowed values: 4711,4712_ |
-| param29 | `<a href="http://en.wikipedia.org/wiki/Data_type">Custom</a>` | <p>Type with markdown link.</p> |
 
 ## <a name='Success'></a> Success
 [Back to top](#top)

@@ -825,7 +825,6 @@ GET /param/:id
 | param25 | `String` | Type, size, parameter and allowed string value._Size range: 1,10_<br>_Allowed values: "value 1"_ |
 | param27 | `Number` | Type, size, parameter and allowed value._Size range: 1-9999_<br>_Allowed values: 4711_ |
 | param28 | `Number` | Type, size, parameter and allowed list of values._Size range: 1-9999_<br>_Allowed values: 4711,4712_ |
-| param29 | `<a href="http://en.wikipedia.org/wiki/Data_type">Custom</a>` | Type with markdown link. |
 
 
 ## Success
