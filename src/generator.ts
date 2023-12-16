@@ -168,7 +168,7 @@ export const generateMarkdownFileSystem = async (options: ConfigurationObjectCLI
         JSON.stringify(apiDocApiData, null, 2)
       )
       console.log(
-        'Debug files `apidoc-project.json` and `apidoc-api.json` created. Put them in the bug report if you are creating one.'
+        'Debug files `api_project.json` and `api_data.json` created. Put them in the bug report if you are creating one.'
       )
     }
 
@@ -178,7 +178,7 @@ export const generateMarkdownFileSystem = async (options: ConfigurationObjectCLI
       await fs.writeFile(path.join(options.output, 'api_project.json'), JSON.stringify(apiDocProjectData, null, 2))
       await fs.writeFile(path.join(options.output, 'api_data.json'), JSON.stringify(apiDocApiData, null, 2))
       console.log(
-        'Debug files `apidoc-project.json` and `apidoc-api.json` created. Put them in the bug report if you are creating one.'
+        'Debug files `api_project.json` and `api_data.json` created. Put them in the bug report if you are creating one.'
       )
     }
 

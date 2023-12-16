@@ -168,6 +168,7 @@ const cli = yargs
   .alias('h', 'help')
   .epilog('apidoc-markdown - https://github.com/rigwild/apidoc-markdown')
 
+  // @ts-ignore
   .middleware((argv: ConfigurationObjectCLI) => {
     argv.excludeFilters = ['apidoc.config.js', 'node_modules'].concat(
       argv.excludeFilters!.length ? argv.excludeFilters! : []
