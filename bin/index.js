@@ -9,4 +9,9 @@ const argv = require('../dist/cli').default
 require('../dist/index').generateMarkdownFileSystem(argv)
 
 // Check for update
-require('update-notifier')({ pkg: require('../package.json') }).notify()
+async function checkUpdate() {
+  const { default: updateNotifier } = await import('update-notifier')
+  updateNotifier({ pkg: require('../package.json') }).notify()
+}
+
+checkUpdate()
